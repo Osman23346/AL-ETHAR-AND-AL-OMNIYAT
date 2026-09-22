@@ -1,0 +1,111 @@
+
+import {
+  ArrowLeft,
+  Building2,
+  Users,
+  BriefcaseBusiness,
+  Presentation,
+  CalendarDays
+} from "lucide-react";
+
+import { siteContent } from "../data/content";
+import type { Service } from "../data/siteData";
+
+type SpacesSectionProps = {
+  onSelectService: (service: Service) => void;
+};
+
+const spaceIcons = [
+  Building2,
+  Users,
+  BriefcaseBusiness,
+  Presentation,
+  CalendarDays
+];
+
+function SpacesSection({
+  onSelectService
+}: SpacesSectionProps) {
+  const { spaces } = siteContent;
+
+  return (
+    <section id="spaces" className="spaces-section">
+      <div className="container">
+
+        <div className="section-heading">
+          <span className="section-eyebrow">
+            {spaces.eyebrow}
+          </span>
+
+          <h2>
+            {spaces.title}
+            <br />
+            <em>{spaces.highlight}</em>
+          </h2>
+
+          <p>{spaces.description}</p>
+        </div>
+
+        <div className="spaces-grid">
+          {spaces.items.map((space, index) => {
+            const Icon =
+              spaceIcons[index] || Building2;
+
+            const selectableService: Service = {
+              id: space.id,
+              title: space.title,
+              description: space.description,
+              image: space.image
+            };
+
+            return (
+              <article
+                key={space.id}
+                className={`space-card space-card-${index + 1}`}
+              >
+                <img
+                  src={space.image}
+                  alt={space.title}
+                  loading="lazy"
+                />
+
+                <div className="space-card-overlay" />
+
+                <div className="space-card-content">
+                  <div className="space-card-icon">
+                    <Icon
+                      size={23}
+                      strokeWidth={1.8}
+                    />
+                  </div>
+
+                  <span className="space-card-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <h3>{space.title}</h3>
+
+                  <p>{space.description}</p>
+
+                  <button
+                    type="button"
+                    className="space-card-button"
+                    onClick={() =>
+                      onSelectService(selectableService)
+                    }
+                  >
+                    <span>استفسر عن المساحة</span>
+                    <ArrowLeft size={17} />
+                  </button>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+export default SpacesSection;
