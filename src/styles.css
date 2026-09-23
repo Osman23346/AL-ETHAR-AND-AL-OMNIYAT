@@ -4565,3 +4565,17 @@ body > .modal-backdrop
     height: 38px;
   }
 }
+
+.footer-description {
+  line-height: 1.9;
+}
+
+.footer-description span {
+  display: inline;
+}
+
+@media (max-width: 650px) {
+  .footer-description span {
+    display: block;
+  }
+}

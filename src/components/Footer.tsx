@@ -137,9 +137,10 @@ function Footer() {
 
           </div>
 
-          <p>
-            {footer.description}
-          </p>
+          <p className="footer-description">
+  <span>إيثاركو — منصة متكاملة</span>{" "}
+  <span>لمساحات الأعمال وحلول النمو.</span>
+</p>
 
           <div className="footer-company-name">
             {footer.companyName}
