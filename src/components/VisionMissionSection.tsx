@@ -32,9 +32,12 @@ function VisionMissionSection() {
         <div className="vision-mission-grid">
 
           <article className="vision-mission-card">
-            <div className="vision-mission-icon">
+            <div
+              className="vision-mission-icon"
+              aria-hidden="true"
+            >
               <Eye
-                size={27}
+                size={29}
                 strokeWidth={1.8}
               />
             </div>
@@ -57,9 +60,12 @@ function VisionMissionSection() {
           </article>
 
           <article className="vision-mission-card featured">
-            <div className="vision-mission-icon">
+            <div
+              className="vision-mission-icon"
+              aria-hidden="true"
+            >
               <Target
-                size={27}
+                size={29}
                 strokeWidth={1.8}
               />
             </div>

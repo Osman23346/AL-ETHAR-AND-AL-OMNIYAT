@@ -1,19 +1,37 @@
-
 import {
   ArrowLeft,
   CalendarDays,
+  Check,
   CheckCircle2,
   Clock3,
   X
 } from "lucide-react";
 
+import {
+  useEffect,
+  useState
+} from "react";
+
+import { createPortal } from "react-dom";
+
+import { supabase } from "../lib/supabaseClient";
 import type { Service } from "../data/siteData";
 
 type BookingModalProps = {
   service: Service | null;
   submitted: boolean;
   onClose: () => void;
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit: (
+    e: React.FormEvent<HTMLFormElement>
+  ) => void;
+};
+
+type ServiceFeature = {
+  id: number;
+  service_id: number;
+  title: string;
+  active: boolean;
+  sort_order: number;
 };
 
 function BookingModal({
@@ -22,11 +40,96 @@ function BookingModal({
   onClose,
   onSubmit
 }: BookingModalProps) {
+  const [features, setFeatures] = useState<
+    ServiceFeature[]
+  >([]);
+
+  const [featuresLoading, setFeaturesLoading] =
+    useState(false);
+
+  useEffect(() => {
+    if (!service) {
+      setFeatures([]);
+      return;
+    }
+
+    let mounted = true;
+
+    const loadFeatures = async () => {
+      setFeaturesLoading(true);
+
+      const { data, error } = await supabase
+        .from("service_features")
+        .select(
+          "id,service_id,title,active,sort_order"
+        )
+        .eq("service_id", service.id)
+        .eq("active", true)
+        .order("sort_order", {
+          ascending: true
+        });
+
+      if (error) {
+        console.error(
+          "Supabase service features error:",
+          error
+        );
+
+        if (mounted) {
+          setFeatures([]);
+          setFeaturesLoading(false);
+        }
+
+        return;
+      }
+
+      if (mounted) {
+        setFeatures(
+          (data ?? []) as ServiceFeature[]
+        );
+
+        setFeaturesLoading(false);
+      }
+    };
+
+    loadFeatures();
+
+    return () => {
+      mounted = false;
+    };
+  }, [service]);
+
+  useEffect(() => {
+    if (!service) {
+      return;
+    }
+
+    const handleKeyDown = (
+      event: KeyboardEvent
+    ) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener(
+      "keydown",
+      handleKeyDown
+    );
+
+    return () => {
+      document.removeEventListener(
+        "keydown",
+        handleKeyDown
+      );
+    };
+  }, [service, onClose]);
+
   if (!service) {
     return null;
   }
 
-  return (
+  const modalContent = (
     <div
       className="modal-backdrop"
       role="dialog"
@@ -38,10 +141,14 @@ function BookingModal({
         <button
           className="modal-close"
           onClick={onClose}
-          aria-label="إغلاق"
+          aria-label="إغلاق نموذج طلب الخدمة"
           type="button"
         >
-          <X />
+          <X
+            size={21}
+            strokeWidth={1.9}
+            aria-hidden="true"
+          />
         </button>
 
         {!submitted ? (
@@ -57,11 +164,75 @@ function BookingModal({
               </h2>
 
               <p>
-                املأ البيانات التالية وسنتواصل معك لتأكيد
-                الطلب والموعد.
+                {service.description}
               </p>
 
             </div>
+
+            {featuresLoading && (
+              <div
+                className="service-features-loading"
+                aria-live="polite"
+              >
+                جاري تحميل مزايا الخدمة...
+              </div>
+            )}
+
+            {!featuresLoading &&
+              features.length > 0 && (
+                <div
+                  className="booking-service-features"
+                  aria-label={`مزايا ${service.title}`}
+                >
+                  <div className="booking-features-heading">
+
+                    <span
+                      className="booking-features-icon"
+                      aria-hidden="true"
+                    >
+                      <Check
+                        size={17}
+                        strokeWidth={2.4}
+                      />
+                    </span>
+
+                    <div>
+                      <strong>
+                        مزايا الخدمة
+                      </strong>
+
+                      <span>
+                        تعرف على ما تحصل عليه مع هذه الخدمة
+                      </span>
+                    </div>
+
+                  </div>
+
+                  <ul>
+                    {features.map(
+                      (feature) => (
+                        <li key={feature.id}>
+
+                          <span
+                            className="feature-check"
+                            aria-hidden="true"
+                          >
+                            <Check
+                              size={15}
+                              strokeWidth={2.5}
+                            />
+                          </span>
+
+                          <span>
+                            {feature.title}
+                          </span>
+
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
+              )}
 
             <form
               onSubmit={onSubmit}
@@ -72,6 +243,7 @@ function BookingModal({
 
                 <label>
                   الاسم
+
                   <input
                     required
                     name="name"
@@ -83,6 +255,7 @@ function BookingModal({
 
                 <label>
                   رقم الجوال
+
                   <input
                     required
                     name="phone"
@@ -95,6 +268,7 @@ function BookingModal({
 
                 <label>
                   البريد الإلكتروني
+
                   <input
                     name="email"
                     type="email"
@@ -106,6 +280,7 @@ function BookingModal({
 
                 <label>
                   عدد الأشخاص
+
                   <input
                     name="people"
                     type="number"
@@ -118,13 +293,19 @@ function BookingModal({
                   التاريخ
 
                   <div className="input-icon">
-                    <CalendarDays size={17} />
+
+                    <CalendarDays
+                      size={18}
+                      strokeWidth={1.8}
+                      aria-hidden="true"
+                    />
 
                     <input
                       required
                       name="date"
                       type="date"
                     />
+
                   </div>
                 </label>
 
@@ -132,13 +313,19 @@ function BookingModal({
                   الوقت
 
                   <div className="input-icon">
-                    <Clock3 size={17} />
+
+                    <Clock3
+                      size={18}
+                      strokeWidth={1.8}
+                      aria-hidden="true"
+                    />
 
                     <input
                       required
                       name="time"
                       type="time"
                     />
+
                   </div>
                 </label>
 
@@ -158,8 +345,15 @@ function BookingModal({
                 className="submit-button"
                 type="submit"
               >
-                إرسال طلب الخدمة
-                <ArrowLeft size={18} />
+                <span>
+                  إرسال طلب الخدمة
+                </span>
+
+                <ArrowLeft
+                  size={19}
+                  strokeWidth={1.9}
+                  aria-hidden="true"
+                />
               </button>
 
             </form>
@@ -171,8 +365,14 @@ function BookingModal({
             aria-live="polite"
           >
 
-            <div className="success-icon">
-              <CheckCircle2 size={42} />
+            <div
+              className="success-icon"
+              aria-hidden="true"
+            >
+              <CheckCircle2
+                size={44}
+                strokeWidth={1.8}
+              />
             </div>
 
             <h2>
@@ -197,6 +397,11 @@ function BookingModal({
 
       </div>
     </div>
+  );
+
+  return createPortal(
+    modalContent,
+    document.body
   );
 }
 

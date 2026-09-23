@@ -1,4 +1,3 @@
-
 import {
   ArrowLeft,
   Building2,
@@ -53,9 +52,12 @@ function RelationshipSection() {
                     {String(index + 1).padStart(2, "0")}
                   </div>
 
-                  <div className="relationship-step-icon">
+                  <div
+                    className="relationship-step-icon"
+                    aria-hidden="true"
+                  >
                     <Icon
-                      size={24}
+                      size={27}
                       strokeWidth={1.8}
                     />
                   </div>
@@ -75,7 +77,9 @@ function RelationshipSection() {
                   {index < relationship.steps.length - 1 && (
                     <ArrowLeft
                       className="relationship-arrow"
-                      size={22}
+                      size={23}
+                      strokeWidth={1.8}
+                      aria-hidden="true"
                     />
                   )}
                 </div>

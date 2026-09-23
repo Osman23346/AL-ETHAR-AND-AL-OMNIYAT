@@ -48,9 +48,12 @@ function AudiencesSection() {
                 className="audience-card"
               >
                 <div className="audience-card-top">
-                  <div className="audience-icon">
+                  <div
+                    className="audience-icon"
+                    aria-hidden="true"
+                  >
                     <Icon
-                      size={24}
+                      size={26}
                       strokeWidth={1.8}
                     />
                   </div>

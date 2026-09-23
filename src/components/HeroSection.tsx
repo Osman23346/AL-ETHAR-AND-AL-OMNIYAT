@@ -10,17 +10,21 @@ function HeroSection() {
 
   return (
     <section id="home" className="hero">
-      <div className="hero-overlay" />
+      <div
+        className="hero-overlay"
+        aria-hidden="true"
+      />
 
       <div className="container hero-content">
 
         <div className="hero-badge">
-          <span />
+          <span aria-hidden="true" />
           {hero.badge}
         </div>
 
         <div className="hero-brand">
           <strong>{brand.name}</strong>
+
           <span className="hero-brand-subtitle">
             {brand.subtitle}
           </span>
@@ -37,12 +41,23 @@ function HeroSection() {
         </p>
 
         <div className="hero-actions">
-          <a href="#services" className="primary-button">
-            اكتشف خدماتنا
-            <ArrowLeft size={19} />
+          <a
+            href="#services"
+            className="primary-button"
+          >
+            <span>اكتشف خدماتنا</span>
+
+            <ArrowLeft
+              size={20}
+              strokeWidth={1.9}
+              aria-hidden="true"
+            />
           </a>
 
-          <a href="#about" className="secondary-button">
+          <a
+            href="#about"
+            className="secondary-button"
+          >
             تعرف علينا
           </a>
         </div>
@@ -50,7 +65,12 @@ function HeroSection() {
         <div className="hero-features">
           {hero.features.map((feature) => (
             <div key={feature}>
-              <CheckCircle2 size={20} />
+              <CheckCircle2
+                size={21}
+                strokeWidth={1.9}
+                aria-hidden="true"
+              />
+
               <span>{feature}</span>
             </div>
           ))}

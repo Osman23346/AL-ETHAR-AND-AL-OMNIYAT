@@ -51,9 +51,9 @@ function ValuesSection() {
                   {String(index + 1).padStart(2, "0")}
                 </div>
 
-                <div className="value-icon">
+                <div className="value-icon" aria-hidden="true">
                   <Icon
-                    size={25}
+                    size={27}
                     strokeWidth={1.8}
                   />
                 </div>

@@ -1,4 +1,3 @@
-
 import {
   ArrowLeft,
   Building2,
@@ -69,12 +68,18 @@ function SpacesSection({
                   loading="lazy"
                 />
 
-                <div className="space-card-overlay" />
+                <div
+                  className="space-card-overlay"
+                  aria-hidden="true"
+                />
 
                 <div className="space-card-content">
-                  <div className="space-card-icon">
+                  <div
+                    className="space-card-icon"
+                    aria-hidden="true"
+                  >
                     <Icon
-                      size={23}
+                      size={26}
                       strokeWidth={1.8}
                     />
                   </div>
@@ -95,7 +100,12 @@ function SpacesSection({
                     }
                   >
                     <span>استفسر عن المساحة</span>
-                    <ArrowLeft size={17} />
+
+                    <ArrowLeft
+                      size={18}
+                      strokeWidth={1.9}
+                      aria-hidden="true"
+                    />
                   </button>
                 </div>
               </article>

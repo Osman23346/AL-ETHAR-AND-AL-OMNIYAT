@@ -13,11 +13,9 @@ function ContactSection() {
 
   return (
     <section id="contact" className="section contact">
-
       <div className="container contact-grid">
 
         <div>
-
           <span className="eyebrow">
             {contact.eyebrow}
           </span>
@@ -34,8 +32,14 @@ function ContactSection() {
           <div className="contact-list">
 
             <a href={`tel:${contact.phone}`}>
-              <span className="contact-icon">
-                <Phone size={19} />
+              <span
+                className="contact-icon"
+                aria-hidden="true"
+              >
+                <Phone
+                  size={20}
+                  strokeWidth={1.8}
+                />
               </span>
 
               <span>
@@ -45,8 +49,14 @@ function ContactSection() {
             </a>
 
             <a href={`mailto:${contact.email}`}>
-              <span className="contact-icon">
-                <Mail size={19} />
+              <span
+                className="contact-icon"
+                aria-hidden="true"
+              >
+                <Mail
+                  size={20}
+                  strokeWidth={1.8}
+                />
               </span>
 
               <span>
@@ -56,8 +66,14 @@ function ContactSection() {
             </a>
 
             <div>
-              <span className="contact-icon">
-                <MapPin size={19} />
+              <span
+                className="contact-icon"
+                aria-hidden="true"
+              >
+                <MapPin
+                  size={20}
+                  strokeWidth={1.8}
+                />
               </span>
 
               <span>
@@ -71,8 +87,14 @@ function ContactSection() {
 
         <div className="contact-card">
 
-          <div className="contact-card-icon">
-            <MessageCircle size={25} />
+          <div
+            className="contact-card-icon"
+            aria-hidden="true"
+          >
+            <MessageCircle
+              size={27}
+              strokeWidth={1.8}
+            />
           </div>
 
           <h3>
@@ -89,8 +111,13 @@ function ContactSection() {
             rel="noreferrer"
             className="whatsapp-button"
           >
-            افتح واتساب
-            <ArrowLeft size={18} />
+            <span>افتح واتساب</span>
+
+            <ArrowLeft
+              size={19}
+              strokeWidth={1.9}
+              aria-hidden="true"
+            />
           </a>
 
         </div>

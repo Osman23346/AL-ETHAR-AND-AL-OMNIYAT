@@ -1,4 +1,3 @@
-
 import {
   ArrowLeft,
   CheckCircle2,
@@ -21,6 +20,7 @@ function TermsPage() {
           <a
             href="/"
             className="logo"
+            aria-label={`العودة إلى الصفحة الرئيسية - ${brand.name}`}
           >
             <img
               src="/logo-mark.svg.png"
@@ -38,8 +38,13 @@ function TermsPage() {
             href="/"
             className="inner-page-back"
           >
-            العودة للرئيسية
-            <ArrowLeft size={17} />
+            <span>العودة للرئيسية</span>
+
+            <ArrowLeft
+              size={17}
+              strokeWidth={1.9}
+              aria-hidden="true"
+            />
           </a>
 
         </div>
@@ -48,10 +53,16 @@ function TermsPage() {
       <main>
 
         {/* Hero */}
-        <section className="legal-hero">
+        <section
+          className="legal-hero"
+          aria-labelledby="terms-page-title"
+        >
           <div className="container">
 
-            <div className="legal-hero-icon">
+            <div
+              className="legal-hero-icon"
+              aria-hidden="true"
+            >
               <FileText
                 size={30}
                 strokeWidth={1.8}
@@ -62,7 +73,7 @@ function TermsPage() {
               المعلومات القانونية
             </span>
 
-            <h1>
+            <h1 id="terms-page-title">
               الشروط
               <br />
               <em>والأحكام</em>
@@ -80,16 +91,24 @@ function TermsPage() {
         <section className="legal-content-section">
           <div className="container legal-content">
 
+            {/* المقدمة */}
             <div className="legal-intro">
-              <ShieldCheck size={24} />
+
+              <ShieldCheck
+                size={24}
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
 
               <p>
                 باستخدامك لهذا الموقع أو طلبك لأي من
                 خدماتنا، فإنك تقر بقراءة وفهم هذه الشروط
                 والموافقة عليها.
               </p>
+
             </div>
 
+            {/* 01 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -109,6 +128,7 @@ function TermsPage() {
 
             </article>
 
+            {/* 02 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -134,6 +154,7 @@ function TermsPage() {
 
             </article>
 
+            {/* 03 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -152,6 +173,7 @@ function TermsPage() {
 
             </article>
 
+            {/* 04 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -171,6 +193,7 @@ function TermsPage() {
 
             </article>
 
+            {/* 05 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -190,6 +213,7 @@ function TermsPage() {
 
             </article>
 
+            {/* 06 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -209,6 +233,7 @@ function TermsPage() {
 
             </article>
 
+            {/* 07 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -229,6 +254,7 @@ function TermsPage() {
 
             </article>
 
+            {/* 08 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -248,6 +274,7 @@ function TermsPage() {
 
             </article>
 
+            {/* 09 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -268,15 +295,27 @@ function TermsPage() {
                 href={`mailto:${contact.email}`}
                 className="legal-contact"
               >
-                {contact.email}
-                <ArrowLeft size={16} />
+                <span>{contact.email}</span>
+
+                <ArrowLeft
+                  size={16}
+                  strokeWidth={1.9}
+                  aria-hidden="true"
+                />
               </a>
 
             </article>
 
-            <div className="legal-note">
-
-              <CheckCircle2 size={20} />
+            {/* آخر تحديث */}
+            <div
+              className="legal-note"
+              role="note"
+            >
+              <CheckCircle2
+                size={20}
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
 
               <p>
                 آخر تحديث لهذه الصفحة: 2026
@@ -291,6 +330,7 @@ function TermsPage() {
 
       {/* Footer */}
       <footer className="inner-page-footer">
+
         <div className="container">
 
           <span>
@@ -302,6 +342,7 @@ function TermsPage() {
           </a>
 
         </div>
+
       </footer>
 
     </div>

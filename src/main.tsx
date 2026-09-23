@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import App from "./App";
+
 import AdminApp from "./admin/AdminApp";
 import AdminLogin from "./admin/AdminLogin";
 import AdminResetPassword from "./admin/AdminResetPassword";
@@ -16,24 +17,39 @@ import "./styles.css";
 function AppRouter() {
   const path = window.location.pathname;
 
-  // صفحة تسجيل دخول المدير
+  /*
+   * ==============================
+   * الإدارة
+   * ==============================
+   */
+
+  // تسجيل دخول المدير
   if (path === "/admin/login") {
     return <AdminLogin />;
   }
 
-  // صفحة إعادة تعيين كلمة مرور المدير
+  // إعادة تعيين كلمة المرور
   if (path === "/admin/reset-password") {
     return <AdminResetPassword />;
   }
 
-  // حماية لوحة الإدارة
-  if (path === "/admin" || path.startsWith("/admin/")) {
+  // جميع مسارات لوحة الإدارة محمية
+  if (
+    path === "/admin" ||
+    path.startsWith("/admin/")
+  ) {
     return (
       <AdminGuard>
         <AdminApp />
       </AdminGuard>
     );
   }
+
+  /*
+   * ==============================
+   * الصفحات العامة
+   * ==============================
+   */
 
   if (path === "/about") {
     return <AboutPage />;
@@ -46,6 +62,12 @@ function AppRouter() {
   if (path === "/privacy") {
     return <PrivacyPage />;
   }
+
+  /*
+   * ==============================
+   * الصفحة الرئيسية
+   * ==============================
+   */
 
   return <App />;
 }

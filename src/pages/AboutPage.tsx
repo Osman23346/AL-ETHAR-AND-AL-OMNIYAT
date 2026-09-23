@@ -1,4 +1,3 @@
-
 import {
   ArrowLeft,
   Building2,
@@ -29,6 +28,7 @@ function AboutPage() {
           <a
             href="/"
             className="logo"
+            aria-label={`العودة إلى الصفحة الرئيسية - ${brand.name}`}
           >
             <img
               src="/logo-mark.svg.png"
@@ -46,8 +46,13 @@ function AboutPage() {
             href="/"
             className="inner-page-back"
           >
-            العودة للرئيسية
-            <ArrowLeft size={17} />
+            <span>العودة للرئيسية</span>
+
+            <ArrowLeft
+              size={17}
+              strokeWidth={1.9}
+              aria-hidden="true"
+            />
           </a>
 
         </div>
@@ -56,14 +61,17 @@ function AboutPage() {
       <main>
 
         {/* Hero */}
-        <section className="inner-page-hero">
+        <section
+          className="inner-page-hero"
+          aria-labelledby="about-page-title"
+        >
           <div className="container">
 
             <span className="section-eyebrow">
               {about.eyebrow}
             </span>
 
-            <h1>
+            <h1 id="about-page-title">
               أكثر من مجرد
               <br />
               <em>مساحة عمل</em>
@@ -77,17 +85,28 @@ function AboutPage() {
         </section>
 
         {/* About */}
-        <section className="inner-about-section">
+        <section
+          className="inner-about-section"
+          aria-labelledby="story-title"
+        >
           <div className="container inner-about-grid">
 
             <div className="inner-about-image">
+
               <img
                 src={about.image}
                 alt={about.imageTitle}
+                loading="lazy"
+                decoding="async"
               />
 
               <div className="inner-image-caption">
-                <Building2 size={21} />
+
+                <Building2
+                  size={21}
+                  strokeWidth={1.8}
+                  aria-hidden="true"
+                />
 
                 <div>
                   <strong>
@@ -98,7 +117,9 @@ function AboutPage() {
                     {about.imageSubtitle}
                   </span>
                 </div>
+
               </div>
+
             </div>
 
             <div className="inner-about-content">
@@ -107,24 +128,25 @@ function AboutPage() {
                 قصتنا
               </span>
 
-              <h2>
+              <h2 id="story-title">
                 نبني بيئة أعمال
                 <br />
                 <em>تتجاوز مفهوم المكتب</em>
               </h2>
 
-              {about.paragraphs.map(
-                (paragraph) => (
-                  <p key={paragraph}>
-                    {paragraph}
-                  </p>
-                )
-              )}
+              {about.paragraphs.map((paragraph) => (
+                <p key={paragraph}>
+                  {paragraph}
+                </p>
+              ))}
 
-              <div className="inner-stats">
-
+              <div
+                className="inner-stats"
+                aria-label="إحصائيات عن إيثاركو"
+              >
                 {about.stats.map((stat) => (
                   <div key={stat.label}>
+
                     <strong>
                       {stat.value}
                     </strong>
@@ -132,9 +154,9 @@ function AboutPage() {
                     <span>
                       {stat.label}
                     </span>
+
                   </div>
                 ))}
-
               </div>
 
             </div>
@@ -143,15 +165,19 @@ function AboutPage() {
         </section>
 
         {/* Vision & Mission */}
-        <section className="inner-vision-section">
+        <section
+          className="inner-vision-section"
+          aria-labelledby="vision-title"
+        >
           <div className="container">
 
             <div className="section-heading">
+
               <span className="section-eyebrow">
                 رؤيتنا ورسالتنا
               </span>
 
-              <h2>
+              <h2 id="vision-title">
                 وجهتنا واضحة
                 <br />
                 <em>ونمو أعمالك هو الهدف</em>
@@ -161,13 +187,17 @@ function AboutPage() {
                 نعمل على بناء منظومة متكاملة تجعل من
                 مساحة العمل نقطة انطلاق حقيقية للأعمال.
               </p>
+
             </div>
 
             <div className="inner-vision-grid">
 
               <article className="inner-vision-card">
 
-                <div className="inner-card-icon">
+                <div
+                  className="inner-card-icon"
+                  aria-hidden="true"
+                >
                   <Eye
                     size={28}
                     strokeWidth={1.8}
@@ -190,7 +220,10 @@ function AboutPage() {
 
               <article className="inner-vision-card featured">
 
-                <div className="inner-card-icon">
+                <div
+                  className="inner-card-icon"
+                  aria-hidden="true"
+                >
                   <Target
                     size={28}
                     strokeWidth={1.8}
@@ -217,15 +250,19 @@ function AboutPage() {
         </section>
 
         {/* Values */}
-        <section className="inner-values-section">
+        <section
+          className="inner-values-section"
+          aria-labelledby="values-title"
+        >
           <div className="container">
 
             <div className="section-heading">
+
               <span className="section-eyebrow">
                 ما نؤمن به
               </span>
 
-              <h2>
+              <h2 id="values-title">
                 خمسة محاور
                 <br />
                 <em>تصنع تجربة متكاملة</em>
@@ -235,42 +272,41 @@ function AboutPage() {
                 نربط بين عناصر مختلفة لتقديم تجربة أعمال
                 عملية ومرنة وقابلة للنمو.
               </p>
+
             </div>
 
             <div className="inner-values-grid">
 
-              {values.items.map(
-                (item, index) => (
-                  <article
-                    key={item.title}
-                    className="inner-value-card"
+              {values.items.map((item, index) => (
+                <article
+                  key={item.title}
+                  className="inner-value-card"
+                >
+
+                  <span className="inner-value-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <div
+                    className="inner-value-icon"
+                    aria-hidden="true"
                   >
+                    <TrendingUp
+                      size={23}
+                      strokeWidth={1.8}
+                    />
+                  </div>
 
-                    <span className="inner-value-number">
-                      {String(index + 1).padStart(
-                        2,
-                        "0"
-                      )}
-                    </span>
+                  <h3>
+                    {item.title}
+                  </h3>
 
-                    <div className="inner-value-icon">
-                      <TrendingUp
-                        size={23}
-                        strokeWidth={1.8}
-                      />
-                    </div>
+                  <p>
+                    {item.description}
+                  </p>
 
-                    <h3>
-                      {item.title}
-                    </h3>
-
-                    <p>
-                      {item.description}
-                    </p>
-
-                  </article>
-                )
-              )}
+                </article>
+              ))}
 
             </div>
 
@@ -278,7 +314,10 @@ function AboutPage() {
         </section>
 
         {/* Relationship */}
-        <section className="inner-relationship-section">
+        <section
+          className="inner-relationship-section"
+          aria-labelledby="relationship-title"
+        >
           <div className="container">
 
             <div className="inner-relationship-content">
@@ -287,7 +326,7 @@ function AboutPage() {
                 {relationship.eyebrow}
               </span>
 
-              <h2>
+              <h2 id="relationship-title">
                 {relationship.title}
                 <br />
                 <em>{relationship.highlight}</em>
@@ -301,32 +340,30 @@ function AboutPage() {
 
             <div className="inner-relationship-steps">
 
-              {relationship.steps.map(
-                (step, index) => (
-                  <div
-                    key={step}
-                    className="inner-relationship-step"
-                  >
+              {relationship.steps.map((step, index) => (
+                <div
+                  key={step}
+                  className="inner-relationship-step"
+                >
 
-                    <span>
-                      {String(index + 1).padStart(
-                        2,
-                        "0"
-                      )}
-                    </span>
+                  <span>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
-                    <strong>
-                      {step}
-                    </strong>
+                  <strong>
+                    {step}
+                  </strong>
 
-                    {index <
-                      relationship.steps.length - 1 && (
-                      <ArrowLeft size={20} />
-                    )}
+                  {index < relationship.steps.length - 1 && (
+                    <ArrowLeft
+                      size={20}
+                      strokeWidth={1.8}
+                      aria-hidden="true"
+                    />
+                  )}
 
-                  </div>
-                )
-              )}
+                </div>
+              ))}
 
             </div>
 
@@ -334,7 +371,10 @@ function AboutPage() {
         </section>
 
         {/* Contact CTA */}
-        <section className="inner-contact-cta">
+        <section
+          className="inner-contact-cta"
+          aria-labelledby="about-cta-title"
+        >
           <div className="container">
 
             <div>
@@ -343,7 +383,7 @@ function AboutPage() {
                 ابدأ معنا
               </span>
 
-              <h2>
+              <h2 id="about-cta-title">
                 هل تبحث عن مساحة
                 <br />
                 <em>تخدم نمو أعمالك؟</em>
@@ -359,11 +399,16 @@ function AboutPage() {
             <div className="inner-contact-actions">
 
               <a
-                href="#services"
+                href="/#services"
                 className="inner-primary-button"
               >
-                استكشف خدماتنا
-                <ArrowLeft size={18} />
+                <span>استكشف خدماتنا</span>
+
+                <ArrowLeft
+                  size={18}
+                  strokeWidth={1.9}
+                  aria-hidden="true"
+                />
               </a>
 
               <a
@@ -372,8 +417,13 @@ function AboutPage() {
                 rel="noreferrer"
                 className="inner-secondary-button"
               >
-                تواصل عبر واتساب
-                <CheckCircle2 size={18} />
+                <span>تواصل عبر واتساب</span>
+
+                <CheckCircle2
+                  size={18}
+                  strokeWidth={1.9}
+                  aria-hidden="true"
+                />
               </a>
 
             </div>
@@ -385,6 +435,7 @@ function AboutPage() {
 
       {/* Footer */}
       <footer className="inner-page-footer">
+
         <div className="container">
 
           <span>
@@ -396,6 +447,7 @@ function AboutPage() {
           </a>
 
         </div>
+
       </footer>
 
     </div>

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { MessageCircle } from "lucide-react";
 
@@ -116,40 +115,57 @@ function HomePage() {
   return (
     <div className="site">
 
+      {/* Header */}
       <Header />
 
       <main>
+
+        {/* Hero */}
         <HeroSection />
 
+        {/* About */}
         <AboutSection />
 
+        {/* Vision & Mission */}
         <VisionMissionSection />
 
+        {/* Values */}
         <ValuesSection />
 
+        {/* Spaces */}
         <SpacesSection
           onSelectService={handleSelectService}
         />
 
+        {/* Services */}
         <ServicesSection
           onSelectService={handleSelectService}
         />
 
+        {/* Audiences */}
         <AudiencesSection />
 
+        {/* Relationship */}
         <RelationshipSection />
 
+        {/* Video */}
         <VideoSection />
 
+        {/* Gallery */}
         <GallerySection />
 
+        {/* CTA */}
         <CTASection />
 
+        {/* Contact */}
         <ContactSection />
+
       </main>
 
+      {/* Footer */}
       <Footer />
 
+      {/* Booking Modal */}
       <BookingModal
         service={selectedService}
         submitted={submitted}
@@ -157,14 +173,19 @@ function HomePage() {
         onSubmit={handleSubmit}
       />
 
+      {/* Floating WhatsApp */}
       <a
         href={`https://wa.me/${siteContent.contact.whatsapp}`}
         target="_blank"
         rel="noreferrer"
         className="floating-whatsapp"
-        aria-label="واتساب"
+        aria-label="التواصل معنا عبر واتساب"
       >
-        <MessageCircle size={25} />
+        <MessageCircle
+          size={25}
+          strokeWidth={1.9}
+          aria-hidden="true"
+        />
       </a>
 
     </div>

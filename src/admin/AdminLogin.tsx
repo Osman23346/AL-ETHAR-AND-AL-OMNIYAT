@@ -1,6 +1,8 @@
 import { FormEvent, useState } from "react";
 import {
   ArrowRight,
+  Eye,
+  EyeOff,
   LockKeyhole,
   LogIn,
   Mail,
@@ -16,6 +18,7 @@ export default function AdminLogin() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -158,9 +161,12 @@ export default function AdminLogin() {
       dir="rtl"
       style={{
         minHeight: "100vh",
+        width: "100%",
+        display: "flex",
         alignItems: "center",
         justifyContent: "center",
         padding: "24px",
+        boxSizing: "border-box",
       }}
     >
       <div
@@ -172,9 +178,65 @@ export default function AdminLogin() {
           padding: "36px",
           boxShadow: "0 20px 60px rgba(7, 27, 44, 0.12)",
           border: "1px solid #e7eeeb",
+          boxSizing: "border-box",
         }}
       >
-        <div style={{ textAlign: "center", marginBottom: "30px" }}>
+        {/* Brand */}
+        <div
+          style={{
+            textAlign: "center",
+            marginBottom: "28px",
+          }}
+        >
+          <a
+            href="/"
+            style={{
+              display: "inline-block",
+              textDecoration: "none",
+              color: "inherit",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "28px",
+                fontWeight: 900,
+                color: "#071b2c",
+                letterSpacing: "-0.5px",
+                lineHeight: 1.2,
+              }}
+            >
+              إيثاركو
+            </div>
+
+            <div
+              style={{
+                marginTop: "8px",
+                color: "#159a73",
+                fontSize: "12px",
+                fontWeight: 700,
+                lineHeight: 1.7,
+              }}
+            >
+              نصنع أثرًا .. نحقق أمنية .. لنرتقي ألقًا
+            </div>
+          </a>
+        </div>
+
+        <div
+          style={{
+            height: "1px",
+            background: "#e7eeeb",
+            marginBottom: "28px",
+          }}
+        />
+
+        {/* Header */}
+        <div
+          style={{
+            textAlign: "center",
+            marginBottom: "30px",
+          }}
+        >
           <div
             style={{
               width: "64px",
@@ -266,7 +328,12 @@ export default function AdminLogin() {
                 كلمة المرور
               </label>
 
-              <div style={{ position: "relative" }}>
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                }}
+              >
                 <LockKeyhole
                   size={18}
                   style={{
@@ -276,11 +343,12 @@ export default function AdminLogin() {
                     transform: "translateY(-50%)",
                     color: "#718096",
                     pointerEvents: "none",
+                    zIndex: 1,
                   }}
                 />
 
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
@@ -289,7 +357,7 @@ export default function AdminLogin() {
                   style={{
                     width: "100%",
                     boxSizing: "border-box",
-                    padding: "13px 42px",
+                    padding: "13px 44px",
                     border: "1px solid #d8e2de",
                     borderRadius: "10px",
                     outline: "none",
@@ -299,6 +367,45 @@ export default function AdminLogin() {
                     textAlign: "left",
                   }}
                 />
+
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((value) => !value)}
+                  disabled={loading}
+                  aria-label={
+                    showPassword
+                      ? "إخفاء كلمة المرور"
+                      : "إظهار كلمة المرور"
+                  }
+                  title={
+                    showPassword
+                      ? "إخفاء كلمة المرور"
+                      : "إظهار كلمة المرور"
+                  }
+                  style={{
+                    position: "absolute",
+                    right: "10px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    width: "32px",
+                    height: "32px",
+                    padding: 0,
+                    border: 0,
+                    background: "transparent",
+                    color: "#718096",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: loading ? "not-allowed" : "pointer",
+                    borderRadius: "6px",
+                  }}
+                >
+                  {showPassword ? (
+                    <EyeOff size={19} />
+                  ) : (
+                    <Eye size={19} />
+                  )}
+                </button>
               </div>
             </div>
 
@@ -513,6 +620,33 @@ export default function AdminLogin() {
             </button>
           </form>
         )}
+
+        {/* Back to website */}
+        <div
+          style={{
+            textAlign: "center",
+            marginTop: "24px",
+            paddingTop: "20px",
+            borderTop: "1px solid #eef2f0",
+          }}
+        >
+          <a
+            href="/"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "7px",
+              color: "#159a73",
+              textDecoration: "none",
+              fontSize: "14px",
+              fontWeight: 700,
+            }}
+          >
+            <ArrowRight size={17} />
+            العودة إلى الموقع
+          </a>
+        </div>
       </div>
     </div>
   );

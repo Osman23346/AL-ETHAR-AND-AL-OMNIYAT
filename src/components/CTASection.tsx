@@ -1,4 +1,3 @@
-
 import { ArrowLeft } from "lucide-react";
 
 import { siteContent } from "../data/content";
@@ -8,7 +7,6 @@ function CTASection() {
 
   return (
     <section className="cta">
-
       <div className="container cta-inner">
 
         <div>
@@ -31,12 +29,16 @@ function CTASection() {
           href="#services"
           className="cta-button"
         >
-          {cta.button}
-          <ArrowLeft size={19} />
+          <span>{cta.button}</span>
+
+          <ArrowLeft
+            size={20}
+            strokeWidth={1.9}
+            aria-hidden="true"
+          />
         </a>
 
       </div>
-
     </section>
   );
 }

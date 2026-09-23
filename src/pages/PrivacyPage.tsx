@@ -1,4 +1,3 @@
-
 import {
   ArrowLeft,
   CheckCircle2,
@@ -23,6 +22,7 @@ function PrivacyPage() {
           <a
             href="/"
             className="logo"
+            aria-label={`العودة إلى الصفحة الرئيسية - ${brand.name}`}
           >
             <img
               src="/logo-mark.svg.png"
@@ -40,8 +40,13 @@ function PrivacyPage() {
             href="/"
             className="inner-page-back"
           >
-            العودة للرئيسية
-            <ArrowLeft size={17} />
+            <span>العودة للرئيسية</span>
+
+            <ArrowLeft
+              size={17}
+              strokeWidth={1.9}
+              aria-hidden="true"
+            />
           </a>
 
         </div>
@@ -50,10 +55,16 @@ function PrivacyPage() {
       <main>
 
         {/* Hero */}
-        <section className="legal-hero privacy-hero">
+        <section
+          className="legal-hero privacy-hero"
+          aria-labelledby="privacy-page-title"
+        >
           <div className="container">
 
-            <div className="legal-hero-icon">
+            <div
+              className="legal-hero-icon"
+              aria-hidden="true"
+            >
               <LockKeyhole
                 size={30}
                 strokeWidth={1.8}
@@ -64,7 +75,7 @@ function PrivacyPage() {
               حماية البيانات والخصوصية
             </span>
 
-            <h1>
+            <h1 id="privacy-page-title">
               سياسة
               <br />
               <em>الخصوصية</em>
@@ -83,8 +94,14 @@ function PrivacyPage() {
         <section className="legal-content-section">
           <div className="container legal-content">
 
+            {/* المقدمة */}
             <div className="legal-intro">
-              <ShieldCheck size={24} />
+
+              <ShieldCheck
+                size={24}
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
 
               <p>
                 نحرص على التعامل مع بيانات العملاء
@@ -92,16 +109,24 @@ function PrivacyPage() {
                 تقديمها من خلال الموقع للأغراض المرتبطة
                 بالخدمات والتواصل وتحسين تجربة المستخدم.
               </p>
+
             </div>
 
+            {/* 01 */}
             <article className="legal-card">
 
               <span className="legal-number">
                 01
               </span>
 
-              <div className="legal-card-icon">
-                <FileText size={21} />
+              <div
+                className="legal-card-icon"
+                aria-hidden="true"
+              >
+                <FileText
+                  size={21}
+                  strokeWidth={1.8}
+                />
               </div>
 
               <h2>
@@ -118,14 +143,21 @@ function PrivacyPage() {
 
             </article>
 
+            {/* 02 */}
             <article className="legal-card">
 
               <span className="legal-number">
                 02
               </span>
 
-              <div className="legal-card-icon">
-                <Eye size={21} />
+              <div
+                className="legal-card-icon"
+                aria-hidden="true"
+              >
+                <Eye
+                  size={21}
+                  strokeWidth={1.8}
+                />
               </div>
 
               <h2>
@@ -141,14 +173,21 @@ function PrivacyPage() {
 
             </article>
 
+            {/* 03 */}
             <article className="legal-card">
 
               <span className="legal-number">
                 03
               </span>
 
-              <div className="legal-card-icon">
-                <LockKeyhole size={21} />
+              <div
+                className="legal-card-icon"
+                aria-hidden="true"
+              >
+                <LockKeyhole
+                  size={21}
+                  strokeWidth={1.8}
+                />
               </div>
 
               <h2>
@@ -165,6 +204,7 @@ function PrivacyPage() {
 
             </article>
 
+            {/* 04 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -185,6 +225,7 @@ function PrivacyPage() {
 
             </article>
 
+            {/* 05 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -204,6 +245,7 @@ function PrivacyPage() {
 
             </article>
 
+            {/* 06 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -224,6 +266,7 @@ function PrivacyPage() {
 
             </article>
 
+            {/* 07 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -243,6 +286,7 @@ function PrivacyPage() {
 
             </article>
 
+            {/* 08 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -262,6 +306,7 @@ function PrivacyPage() {
 
             </article>
 
+            {/* 09 */}
             <article className="legal-card">
 
               <span className="legal-number">
@@ -282,15 +327,27 @@ function PrivacyPage() {
                 href={`mailto:${contact.email}`}
                 className="legal-contact"
               >
-                {contact.email}
-                <ArrowLeft size={16} />
+                <span>{contact.email}</span>
+
+                <ArrowLeft
+                  size={16}
+                  strokeWidth={1.9}
+                  aria-hidden="true"
+                />
               </a>
 
             </article>
 
-            <div className="legal-note">
-
-              <CheckCircle2 size={20} />
+            {/* آخر تحديث */}
+            <div
+              className="legal-note"
+              role="note"
+            >
+              <CheckCircle2
+                size={20}
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
 
               <p>
                 آخر تحديث لهذه الصفحة: 2026
@@ -305,6 +362,7 @@ function PrivacyPage() {
 
       {/* Footer */}
       <footer className="inner-page-footer">
+
         <div className="container">
 
           <span>
@@ -316,6 +374,7 @@ function PrivacyPage() {
           </a>
 
         </div>
+
       </footer>
 
     </div>

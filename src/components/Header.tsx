@@ -17,10 +17,12 @@ function Header() {
     <header className="header">
       <div className="container nav">
 
+        {/* الهوية */}
         <a
           href="#home"
           className="logo"
           onClick={closeMenu}
+          aria-label={`العودة إلى الصفحة الرئيسية - ${brand.name}`}
         >
           <img
             src="/logo-mark.svg.png"
@@ -30,29 +32,50 @@ function Header() {
 
           <span className="logo-text">
             <strong>{brand.name}</strong>
-            <small>{brand.subtitle}</small>
+
+            <small>
+              {brand.subtitle}
+            </small>
           </span>
         </a>
 
+        {/* قائمة الجوال */}
         <button
           className="mobile-menu"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setMenuOpen((open) => !open)}
           aria-label={
             menuOpen
               ? "إغلاق القائمة"
               : "فتح القائمة"
           }
+          aria-expanded={menuOpen}
+          aria-controls="main-navigation"
           type="button"
         >
-          {menuOpen ? <X /> : <Menu />}
+          {menuOpen ? (
+            <X
+              size={25}
+              strokeWidth={1.9}
+              aria-hidden="true"
+            />
+          ) : (
+            <Menu
+              size={25}
+              strokeWidth={1.9}
+              aria-hidden="true"
+            />
+          )}
         </button>
 
+        {/* القائمة الرئيسية */}
         <nav
+          id="main-navigation"
           className={
             menuOpen
               ? "nav-links open"
               : "nav-links"
           }
+          aria-label="التنقل الرئيسي"
         >
           <a
             href="#home"
@@ -97,12 +120,19 @@ function Header() {
           </a>
         </nav>
 
+        {/* زر الحجز */}
         <a
           href="#services"
           className="header-button"
+          onClick={closeMenu}
         >
-          احجز خدمتك
-          <ArrowLeft size={17} />
+          <span>احجز خدمتك</span>
+
+          <ArrowLeft
+            size={18}
+            strokeWidth={1.9}
+            aria-hidden="true"
+          />
         </a>
 
       </div>
