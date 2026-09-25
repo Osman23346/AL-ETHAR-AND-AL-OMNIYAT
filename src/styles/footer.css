@@ -1,0 +1,138 @@
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  background: var(--color-deep-navy);
+  color: var(--white);
+  font-size: 16px;
+}
+
+.footer-grid {
+  padding: 70px 0;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+
+  gap: 50px;
+}
+
+.footer-logo {
+  margin-bottom: 20px;
+}
+
+.footer-brand p {
+  margin: 0;
+
+  color: var(--white) !important;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.footer h4 {
+  margin: 0 0 18px;
+
+  color: var(--white);
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.footer-grid > div:not(:first-child) a,
+.footer-address {
+  display: block;
+
+  margin: 10px 0;
+
+  color: var(--white) !important;
+  font-size: 16px;
+  line-height: 2.15;
+
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
+}
+
+.footer-grid > div:not(:first-child) a:hover {
+  color: var(--cyan-light) !important;
+  opacity: 1;
+}
+
+.footer-brand .logo strong {
+  font-size: 20px;
+}
+
+.footer-brand .logo small {
+  font-size: 13px;
+}
+
+.socials {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.socials a {
+  width: 38px;
+  height: 38px;
+
+  display: grid !important;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9px;
+
+  color: var(--white) !important;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.socials a:hover {
+  background: rgba(25, 199, 193, 0.12);
+  border-color: rgba(25, 199, 193, 0.35);
+
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  padding: 18px 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  text-align: center;
+
+  color: var(--white);
+  font-size: 15px;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+.footer-bottom-inner > span {
+  color: var(--white) !important;
+  font-size: 15px;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-legal a {
+  color: var(--white) !important;
+  font-size: 15px;
+}
+
+.footer-legal a:hover {
+  color: var(--cyan-light) !important;
+}
+

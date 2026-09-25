@@ -12,6 +12,7 @@ import AboutPage from "./pages/AboutPage";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 
+import "./theme.css";
 import "./styles.css";
 
 function AppRouter() {

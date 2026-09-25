@@ -1,0 +1,126 @@
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  color: var(--white);
+}
+
+.nav {
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+}
+
+.logo-mark {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.logo-mark-image {
+  width: 36px;
+  height: 36px;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.logo strong,
+.logo small {
+  display: block;
+}
+
+.logo strong {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.logo small {
+  margin-top: 5px;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.2;
+}
+
+.logo-text strong {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.logo-text small {
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.78);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+
+.header-button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 19px;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 10px;
+  font-size: 13px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.header-button:hover {
+  background: var(--white);
+  color: var(--navy);
+  transform: translateY(-1px);
+}
+
+.mobile-menu {
+  display: none;
+  background: transparent;
+  color: var(--white);
+}
+

@@ -1,0 +1,129 @@
+/* =========================================================
+   ETHARCO — Central Theme Tokens
+   عدّل هذا الملف فقط لتغيير هوية المشروع الأساسية.
+   المكونات والصفحات تستخدم المتغيرات أدناه بدل تكرار الألوان.
+   ========================================================= */
+
+:root {
+  /* Typography */
+  --font-family-base: "Tajawal", sans-serif;
+
+  /* Brand palette */
+  --color-navy-900: #07162f;
+  --color-navy-800: #0b244a;
+  --color-blue-600: #2f6fed;
+  --color-blue-700: #1253b5;
+  --color-cyan-500: #38d6c8;
+  --color-cyan-300: #62e1dc;
+  --color-purple-600: #8067e8;
+  --color-purple-400: #8b6bea;
+
+  /* Neutral palette */
+  --color-white: #ffffff;
+  --color-cream: #f7f9fc;
+  --color-surface: #f2f6fb;
+  --color-surface-blue: #f1f7ff;
+  --color-text: #12233f;
+  --color-text-dark: #081a38;
+  --color-muted: #65738a;
+  --color-muted-light: #94a3b8;
+  --color-border: #e4eaf2;
+  --color-border-light: #e8eef6;
+  --color-slate-600: #425466;
+  --color-slate-500: #536477;
+  --color-slate-400: #718096;
+  --color-slate-300: #7b8796;
+  --color-accent-teal: #00b8c8;
+  --color-accent-teal-dark: #087f9c;
+  --color-accent-blue: #1769d1;
+  --color-accent-purple: #7656d6;
+  --color-deep-navy: #04132f;
+
+  /* Status */
+  --color-success: #159a73;
+  --color-success-dark: #16815f;
+  --color-danger: #bd4f4f;
+  --color-warning: #ae7b20;
+
+  /* Semantic aliases — keep component CSS readable */
+  --navy: var(--color-navy-900);
+  --navy-2: var(--color-navy-800);
+  --blue: var(--color-blue-600);
+  --blue-dark: var(--color-blue-700);
+  --cyan: var(--color-cyan-500);
+  --cyan-light: var(--color-cyan-300);
+  --purple: var(--color-purple-600);
+  --purple-light: var(--color-purple-400);
+  --white: var(--color-white);
+  --cream: var(--color-cream);
+  --surface: var(--color-surface);
+  --surface-blue: var(--color-surface-blue);
+  --text: var(--color-text);
+  --text-dark: var(--color-text-dark);
+  --muted: var(--color-muted);
+  --muted-light: var(--color-muted-light);
+  --border: var(--color-border);
+  --border-light: var(--color-border-light);
+
+  /* Type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: clamp(1.8rem, 3vw, 2.5rem);
+  --text-4xl: clamp(2.35rem, 5vw, 4.5rem);
+  --leading-tight: 1.15;
+  --leading-base: 1.75;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --section-space: clamp(4.5rem, 8vw, 7.5rem);
+
+  /* Layout */
+  --container-width: 1240px;
+  --page-gutter: 40px;
+  --header-height: 88px;
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 6px 20px rgba(7, 26, 61, 0.06);
+  --shadow-md: 0 14px 40px rgba(7, 26, 61, 0.09);
+  --shadow-lg: 0 24px 65px rgba(7, 26, 61, 0.13);
+
+  /* Motion */
+  --transition-fast: 160ms ease;
+  --transition-base: 220ms ease;
+  --transition-slow: 360ms ease;
+
+  /* Reusable gradients */
+  --gradient-brand: linear-gradient(135deg, var(--blue), var(--purple));
+  --gradient-accent: linear-gradient(135deg, var(--cyan), var(--blue));
+
+  /* Admin theme — shares the same central source */
+  --admin-bg: #f4f7f6;
+  --admin-sidebar: #071b2c;
+  --admin-text: #152733;
+  --admin-primary: var(--color-success);
+  --admin-primary-dark: var(--color-success-dark);
+  --admin-border: #dce5e1;
+  --admin-surface: #ffffff;
+}

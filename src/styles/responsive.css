@@ -1,0 +1,745 @@
+/* =========================================================
+   RESPONSIVE — LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .nav-links {
+    gap: 22px;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .value-card:nth-child(4),
+  .value-card:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .about-grid {
+    gap: 55px;
+  }
+
+  .relationship-layout {
+    gap: 45px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.6fr 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: span 3;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .container {
+    width: min(100% - 32px, 720px);
+  }
+
+  .nav {
+    min-height: 78px;
+    gap: 15px;
+  }
+
+  .nav-links {
+    position: absolute;
+
+    top: 78px;
+    right: 16px;
+    left: 16px;
+
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 10px;
+
+    background: rgba(7, 26, 61, 0.98);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 13px 15px;
+    border-radius: 9px;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .mobile-menu {
+    display: grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+  }
+
+  .header-button {
+    margin-right: auto;
+  }
+
+  .hero {
+    min-height: 700px;
+  }
+
+  .hero-content {
+    padding-top: 80px;
+  }
+
+  .hero h1 {
+    font-size: clamp(43px, 8vw, 68px);
+  }
+
+  .about-grid,
+  .contact-grid,
+  .about-page-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .about-grid {
+    align-items: start;
+  }
+
+  .section-image img {
+    height: 470px;
+  }
+
+  .contact-card {
+    max-width: 600px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .spaces-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 270px;
+  }
+
+  .space-card,
+  .space-card:nth-child(4),
+  .space-card:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .audiences-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .relationship-layout {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .relationship-intro p {
+    max-width: 650px;
+  }
+
+  .vision-mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-image,
+  .video-image img {
+    min-height: 500px;
+    height: 500px;
+  }
+
+  .video-text {
+    right: 25px;
+    left: 25px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 250px 250px;
+  }
+
+  .gallery-1 {
+    grid-row: span 2;
+  }
+
+  .gallery-4 {
+    grid-column: span 1;
+  }
+
+  .cta-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+
+  .footer-bottom-inner {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .footer-legal {
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 28px, 520px);
+  }
+
+  .section {
+    padding: 75px 0;
+  }
+
+  .header-button {
+    display: none;
+  }
+
+  .logo-text strong {
+    font-size: 15px;
+  }
+
+  .logo-text small {
+    font-size: 9px;
+  }
+
+  .logo-mark-image {
+    width: 34px;
+    height: 34px;
+  }
+
+  .hero {
+    min-height: 680px;
+
+    background-position:
+      62% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(4, 18, 51, 0.97),
+        rgba(6, 29, 67, 0.9)
+      );
+  }
+
+  .hero-content {
+    padding-top: 80px;
+  }
+
+  .hero-badge {
+    margin-bottom: 18px;
+    font-size: 12px;
+  }
+
+  .hero-brand {
+    margin-top: 12px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+
+    font-size: clamp(38px, 12vw, 54px);
+
+    line-height: 1.18;
+    letter-spacing: -1px;
+  }
+
+  .hero p {
+    margin-top: 22px;
+
+    font-size: 15px;
+    line-height: 1.95;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-top: 28px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+
+  .hero-features {
+    gap: 13px 20px;
+    margin-top: 38px;
+  }
+
+  .hero-features div {
+    font-size: 11px;
+  }
+
+  .section h2 {
+    font-size: 32px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .section-heading > p {
+    max-width: 100%;
+  }
+
+  /* About */
+
+  .section-image img {
+    height: 360px;
+    border-radius: 17px;
+  }
+
+  .image-card {
+    bottom: -20px;
+    left: -8px;
+
+    min-width: 165px;
+    padding: 18px 20px;
+  }
+
+  .image-card strong {
+    font-size: 16px;
+  }
+
+  .stats {
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  /* Services */
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  .service-card {
+    min-height: 275px;
+    padding: 24px;
+  }
+
+  .service-card h3 {
+    font-size: 20px;
+  }
+
+  /* Spaces */
+
+  .spaces-section {
+    padding: 75px 0;
+  }
+
+  .spaces-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 270px;
+
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .space-card,
+  .space-card:nth-child(4),
+  .space-card:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .space-card-content {
+    padding: 22px;
+  }
+
+  .space-card h3 {
+    font-size: 20px;
+  }
+
+  /* Values */
+
+  .values-section {
+    padding: 75px 0;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .value-card {
+    min-height: auto;
+    padding: 25px 22px;
+  }
+
+  .value-card h3 {
+    margin-bottom: 12px;
+
+    font-size: 21px;
+    line-height: 1.5;
+  }
+
+  .value-card p {
+    font-size: 13px;
+    line-height: 1.95;
+  }
+
+  .value-icon {
+    margin-bottom: 20px;
+  }
+
+  /* Audiences */
+
+  .audiences-section {
+    padding: 75px 0;
+  }
+
+  .audiences-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .audience-card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .audience-card h3 {
+    font-size: 19px;
+  }
+
+  /* Relationship */
+
+  .relationship-section {
+    padding: 75px 0;
+  }
+
+  .relationship-layout {
+    gap: 35px;
+  }
+
+  .relationship-intro h2 {
+    font-size: 35px;
+  }
+
+  .relationship-step {
+    min-height: 115px;
+    padding: 20px;
+  }
+
+  .relationship-step-number {
+    width: 32px;
+  }
+
+  .relationship-step-icon {
+    width: 46px;
+    height: 46px;
+
+    margin-left: 13px;
+  }
+
+  .relationship-step-content h3 {
+    font-size: 18px;
+  }
+
+  .relationship-step-content span {
+    font-size: 10px;
+  }
+
+  .relationship-arrow {
+    display: none;
+  }
+
+  /* Vision & Mission */
+
+  .vision-mission-section {
+    padding: 75px 0;
+  }
+
+  .vision-mission-grid {
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .vision-mission-card {
+    min-height: auto;
+    padding: 27px;
+  }
+
+  .vision-mission-card h3 {
+    font-size: 22px;
+  }
+
+  .vision-mission-number {
+    top: 28px;
+    left: 27px;
+  }
+
+  /* Video */
+
+  .video-image,
+  .video-image img {
+    min-height: 430px;
+    height: 430px;
+  }
+
+  .play-button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .video-text {
+    right: 20px;
+    bottom: 30px;
+  }
+
+  .video-text h2 {
+    font-size: 30px;
+  }
+
+  /* Gallery */
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 230px);
+
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .gallery-1,
+  .gallery-4 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  /* CTA */
+
+  .cta {
+    padding: 70px 0;
+  }
+
+  .cta-inner {
+    gap: 28px;
+  }
+
+  .cta h2 {
+    font-size: 36px;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+
+  /* Contact */
+
+  .contact-grid {
+    gap: 40px;
+  }
+
+  .contact-card {
+    padding: 35px 25px;
+  }
+
+  /* Footer */
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+
+    padding: 55px 0;
+  }
+
+  .footer-brand {
+    grid-column: span 1;
+  }
+
+  .footer h4 {
+    margin-bottom: 12px;
+  }
+
+  .footer-grid > div:not(:first-child) a,
+  .footer-address {
+    font-size: 15px;
+  }
+
+  .footer-bottom {
+    padding: 18px 14px;
+  }
+
+  /* Booking */
+
+  .booking-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .booking-modal {
+    width: 100%;
+    max-height: 94vh;
+
+    padding: 30px 20px 25px;
+
+    border-radius: 22px 22px 0 0;
+  }
+
+  .booking-close {
+    top: 14px;
+    left: 14px;
+  }
+
+  .booking-header {
+    padding-left: 45px;
+  }
+
+  .booking-header h2 {
+    font-size: 25px;
+  }
+
+  .booking-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-service img {
+    width: 55px;
+    height: 55px;
+  }
+
+  /* Inner pages */
+
+  .inner-page-hero {
+    min-height: 390px;
+    padding-top: 70px;
+  }
+
+  .inner-page-hero h1 {
+    font-size: 39px;
+  }
+
+  .inner-page-hero p {
+    font-size: 14px;
+  }
+
+  .inner-page-content,
+  .about-page-content,
+  .legal-content {
+    padding: 65px 0;
+  }
+
+  .about-page-image img {
+    height: 350px;
+  }
+
+  .inner-page-section {
+    margin-bottom: 50px;
+  }
+
+  .inner-page-section h2 {
+    font-size: 27px;
+  }
+
+  .legal-intro {
+    padding: 22px;
+  }
+
+  .legal-card {
+    padding: 23px;
+  }
+
+  .legal-card h3 {
+    font-size: 18px;
+  }
+
+  .legal-card p {
+    font-size: 13px;
+    line-height: 1.95;
+  }
+
+  /* Floating WhatsApp */
+
+  .floating-whatsapp {
+    right: 16px;
+    bottom: 16px;
+
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .value-card h3 {
+    font-size: 20px;
+  }
+
+  .relationship-intro h2 {
+    font-size: 31px;
+  }
+
+  .booking-modal {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+

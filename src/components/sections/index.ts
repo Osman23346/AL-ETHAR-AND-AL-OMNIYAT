@@ -1,0 +1,12 @@
+export { default as HeroSection } from "./HeroSection";
+export { default as AboutSection } from "./AboutSection";
+export { default as VisionMissionSection } from "./VisionMissionSection";
+export { default as ValuesSection } from "./ValuesSection";
+export { default as SpacesSection } from "./SpacesSection";
+export { default as ServicesSection } from "./ServicesSection";
+export { default as AudiencesSection } from "./AudiencesSection";
+export { default as RelationshipSection } from "./RelationshipSection";
+export { default as VideoSection } from "./VideoSection";
+export { default as GallerySection } from "./GallerySection";
+export { default as CTASection } from "./CTASection";
+export { default as ContactSection } from "./ContactSection";
