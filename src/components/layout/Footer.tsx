@@ -1,11 +1,10 @@
-﻿
-import {
-  Instagram,
-  MessageCircle,
+﻿import {
   Facebook,
+  Instagram,
   Linkedin,
-  Youtube,
-  MapPin
+  MapPin,
+  MessageCircle,
+  Youtube
 } from "lucide-react";
 
 import {
@@ -13,8 +12,8 @@ import {
   useState
 } from "react";
 
-import { supabase } from "../../lib/supabaseClient";
 import { siteContent } from "../../data/content";
+import { supabase } from "../../lib/supabaseClient";
 
 type SocialLink = {
   id: number;
@@ -25,8 +24,11 @@ type SocialLink = {
 };
 
 function Footer() {
-  const { brand, contact, footer } =
-    siteContent;
+  const {
+    brand,
+    contact,
+    footer
+  } = siteContent;
 
   const [socialLinks, setSocialLinks] =
     useState<SocialLink[]>([]);
@@ -70,13 +72,13 @@ function Footer() {
   const getSocialUrl = (
     platform: string
   ) => {
-    const item = socialLinks.find(
-      (social) =>
-        social.platform === platform &&
-        social.url.trim() !== ""
+    const socialLink = socialLinks.find(
+      (item) =>
+        item.platform === platform &&
+        item.url.trim() !== ""
     );
 
-    return item?.url || "";
+    return socialLink?.url || "";
   };
 
   const facebookUrl =
@@ -114,45 +116,36 @@ function Footer() {
 
       <div className="container footer-grid">
 
-        {/* ط§ظ„ظ‡ظˆظٹط© */}
+        {/* الهوية */}
         <div className="footer-brand">
 
           <div className="logo footer-logo">
-
             <img
               src="/brand-logo.png"
               alt={brand.name}
-              className="logo-mark-image"
+              className="brand-logo-image"
             />
-
-            <span>
-              <strong>
-                {brand.name}
-              </strong>
-
-              <small>
-                {brand.subtitle}
-              </small>
-            </span>
-
           </div>
 
           <p className="footer-description">
-  <span>ط¥ظٹط«ط§ط±ظƒظˆ â€” ظ…ظ†طµط© ظ…طھظƒط§ظ…ظ„ط©</span>{" "}
-  <span>ظ„ظ…ط³ط§ط­ط§طھ ط§ظ„ط£ط¹ظ…ط§ظ„ ظˆط­ظ„ظˆظ„ ط§ظ„ظ†ظ…ظˆ.</span>
-</p>
+            <span>
+              الإيثار والأمنيات — منصة متكاملة
+            </span>{" "}
+            <span>
+              لمساحات الأعمال وحلول النمو.
+            </span>
+          </p>
 
           <div className="footer-company-name">
             {footer.companyName}
           </div>
 
-          {/* ط§ظ„طھظˆط§طµظ„ ط§ظ„ط§ط¬طھظ…ط§ط¹ظٹ */}
+          {/* منصات التواصل الاجتماعي */}
           <div className="socials">
 
-            {/* Facebook */}
             <a
               href={facebookUrl || "#"}
-              aria-label="Facebook"
+              aria-label="فيسبوك"
               target={
                 facebookUrl
                   ? "_blank"
@@ -163,12 +156,12 @@ function Footer() {
                   ? "noreferrer"
                   : undefined
               }
-              onClick={(event) =>
+              onClick={(event) => {
                 handleSocialClick(
                   event,
                   facebookUrl
-                )
-              }
+                );
+              }}
             >
               <Facebook
                 size={19}
@@ -177,10 +170,9 @@ function Footer() {
               />
             </a>
 
-            {/* Instagram */}
             <a
               href={instagramUrl || "#"}
-              aria-label="Instagram"
+              aria-label="إنستغرام"
               target={
                 instagramUrl
                   ? "_blank"
@@ -191,12 +183,12 @@ function Footer() {
                   ? "noreferrer"
                   : undefined
               }
-              onClick={(event) =>
+              onClick={(event) => {
                 handleSocialClick(
                   event,
                   instagramUrl
-                )
-              }
+                );
+              }}
             >
               <Instagram
                 size={19}
@@ -205,10 +197,9 @@ function Footer() {
               />
             </a>
 
-            {/* X */}
             <a
               href={xUrl || "#"}
-              aria-label="X"
+              aria-label="منصة إكس"
               target={
                 xUrl
                   ? "_blank"
@@ -219,12 +210,12 @@ function Footer() {
                   ? "noreferrer"
                   : undefined
               }
-              onClick={(event) =>
+              onClick={(event) => {
                 handleSocialClick(
                   event,
                   xUrl
-                )
-              }
+                );
+              }}
             >
               <span
                 className="social-x"
@@ -234,10 +225,9 @@ function Footer() {
               </span>
             </a>
 
-            {/* TikTok */}
             <a
               href={tiktokUrl || "#"}
-              aria-label="TikTok"
+              aria-label="تيك توك"
               target={
                 tiktokUrl
                   ? "_blank"
@@ -248,25 +238,24 @@ function Footer() {
                   ? "noreferrer"
                   : undefined
               }
-              onClick={(event) =>
+              onClick={(event) => {
                 handleSocialClick(
                   event,
                   tiktokUrl
-                )
-              }
+                );
+              }}
             >
               <span
                 className="social-tiktok"
                 aria-hidden="true"
               >
-                â™ھ
+                ♪
               </span>
             </a>
 
-            {/* LinkedIn */}
             <a
               href={linkedinUrl || "#"}
-              aria-label="LinkedIn"
+              aria-label="لينكدإن"
               target={
                 linkedinUrl
                   ? "_blank"
@@ -277,12 +266,12 @@ function Footer() {
                   ? "noreferrer"
                   : undefined
               }
-              onClick={(event) =>
+              onClick={(event) => {
                 handleSocialClick(
                   event,
                   linkedinUrl
-                )
-              }
+                );
+              }}
             >
               <Linkedin
                 size={19}
@@ -291,10 +280,9 @@ function Footer() {
               />
             </a>
 
-            {/* YouTube */}
             <a
               href={youtubeUrl || "#"}
-              aria-label="YouTube"
+              aria-label="يوتيوب"
               target={
                 youtubeUrl
                   ? "_blank"
@@ -305,12 +293,12 @@ function Footer() {
                   ? "noreferrer"
                   : undefined
               }
-              onClick={(event) =>
+              onClick={(event) => {
                 handleSocialClick(
                   event,
                   youtubeUrl
-                )
-              }
+                );
+              }}
             >
               <Youtube
                 size={20}
@@ -319,10 +307,9 @@ function Footer() {
               />
             </a>
 
-            {/* Google Maps */}
             <a
               href={googleMapsUrl || "#"}
-              aria-label="Google Maps"
+              aria-label="خرائط Google"
               target={
                 googleMapsUrl
                   ? "_blank"
@@ -333,12 +320,12 @@ function Footer() {
                   ? "noreferrer"
                   : undefined
               }
-              onClick={(event) =>
+              onClick={(event) => {
                 handleSocialClick(
                   event,
                   googleMapsUrl
-                )
-              }
+                );
+              }}
             >
               <MapPin
                 size={19}
@@ -347,10 +334,9 @@ function Footer() {
               />
             </a>
 
-            {/* WhatsApp */}
             <a
               href={`https://wa.me/${contact.whatsapp}`}
-              aria-label="WhatsApp"
+              aria-label="واتساب"
               target="_blank"
               rel="noreferrer"
             >
@@ -362,59 +348,51 @@ function Footer() {
             </a>
 
           </div>
-
         </div>
 
-        {/* ط±ظˆط§ط¨ط· ط³ط±ظٹط¹ط© */}
+        {/* الروابط السريعة */}
         <div>
-
-          <h4>
-            ط±ظˆط§ط¨ط· ط³ط±ظٹط¹ط©
-          </h4>
+          <h4>روابط سريعة</h4>
 
           <a href="#home">
-            ط§ظ„ط±ط¦ظٹط³ظٹط©
+            الرئيسية
           </a>
 
           <a href="#about">
-            ط¹ظ† ط§ظ„ظ…ظƒط§ظ†
+            عن المكان
           </a>
 
           <a href="#spaces">
-            ط§ظ„ظ…ط³ط§ط­ط§طھ
+            المساحات
           </a>
 
           <a href="#services">
-            ط§ظ„ط®ط¯ظ…ط§طھ
+            الخدمات
           </a>
 
           <a href="#gallery">
-            ط§ظ„ظ…ط¹ط±ط¶
+            المعرض
           </a>
 
           <a href="#contact">
-            طھظˆط§طµظ„ ظ…ط¹ظ†ط§
+            تواصل معنا
           </a>
-
         </div>
 
-        {/* ط§ظ„ط´ط±ظƒط© */}
+        {/* الشركة */}
         <div>
-
-          <h4>
-            ط§ظ„ط´ط±ظƒط©
-          </h4>
+          <h4>الشركة</h4>
 
           <a href="/about">
-            ظ…ظ† ظ†ط­ظ†
+            من نحن
           </a>
 
           <a href="/terms">
-            ط§ظ„ط´ط±ظˆط· ظˆط§ظ„ط£ط­ظƒط§ظ…
+            الشروط والأحكام
           </a>
 
           <a href="/privacy">
-            ط³ظٹط§ط³ط© ط§ظ„ط®طµظˆطµظٹط©
+            سياسة الخصوصية
           </a>
 
           <a
@@ -424,28 +402,20 @@ function Footer() {
               fontWeight: 700
             }}
           >
-            ط¯ط®ظˆظ„ ط§ظ„ط¥ط¯ط§ط±ط©
+            دخول الإدارة
           </a>
-
         </div>
 
-        {/* ط§ظ„طھظˆط§طµظ„ */}
+        {/* معلومات التواصل */}
         <div>
+          <h4>تواصل معنا</h4>
 
-          <h4>
-            طھظˆط§طµظ„ ظ…ط¹ظ†ط§
-          </h4>
-
-          <a
-            href={`tel:${contact.phone}`}
-          >
-            ط§ظ„ظ‡ط§طھظپ
+          <a href={`tel:${contact.phone}`}>
+            الهاتف
           </a>
 
-          <a
-            href={`mailto:${contact.email}`}
-          >
-            ط§ظ„ط¨ط±ظٹط¯ ط§ظ„ط¥ظ„ظƒطھط±ظˆظ†ظٹ
+          <a href={`mailto:${contact.email}`}>
+            البريد الإلكتروني
           </a>
 
           <a
@@ -453,50 +423,47 @@ function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            ظˆط§طھط³ط§ط¨
+            واتساب
           </a>
 
           <span className="footer-address">
             {contact.address}
           </span>
-
         </div>
 
       </div>
 
-      {/* ط­ظ‚ظˆظ‚ ط§ظ„ط´ط±ظƒط© */}
+      {/* الحقوق */}
       <div className="footer-bottom">
-
         <div className="container footer-bottom-inner">
 
           <span>
-            آ© 2026{" "}
+            © 2026{" "}
             {footer.companyName}
-            {" "}â€” ط¬ظ…ظٹط¹ ط§ظ„ط­ظ‚ظˆظ‚ ظ…ط­ظپظˆط¸ط©.
+            {" "}— جميع الحقوق محفوظة.
           </span>
 
           <span className="footer-legal">
 
             <a href="/about">
-              ظ…ظ† ظ†ط­ظ†
+              من نحن
             </a>
 
             <a href="/terms">
-              ط§ظ„ط´ط±ظˆط· ظˆط§ظ„ط£ط­ظƒط§ظ…
+              الشروط والأحكام
             </a>
 
             <a href="/privacy">
-              ط³ظٹط§ط³ط© ط§ظ„ط®طµظˆطµظٹط©
+              سياسة الخصوصية
             </a>
 
             <a href="/admin/login">
-              ط¯ط®ظˆظ„ ط§ظ„ط¥ط¯ط§ط±ط©
+              دخول الإدارة
             </a>
 
           </span>
 
         </div>
-
       </div>
 
     </footer>
@@ -504,4 +471,3 @@ function Footer() {
 }
 
 export default Footer;
-
