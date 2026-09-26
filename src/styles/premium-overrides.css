@@ -273,3 +273,49 @@ body{background:#fff;overflow-x:hidden}.container{width:min(1240px,calc(100% - 4
     display: none;
   }
 }
+
+/* Official brand logo */
+.header .logo-mark-image,
+.header .brand-logo-image {
+  width: 200px !important;
+  height: 72px !important;
+  object-fit: contain;
+  filter: drop-shadow(0 7px 16px rgba(0, 0, 0, 0.2));
+}
+
+.header .logo-text {
+  display: none !important;
+}
+
+.footer .logo-mark-image,
+.footer .brand-logo-image {
+  width: 245px !important;
+  height: 92px !important;
+  object-fit: contain;
+}
+
+.footer-logo > span {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .header .logo-mark-image,
+  .header .brand-logo-image {
+    width: 170px !important;
+    height: 62px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .header .logo-mark-image,
+  .header .brand-logo-image {
+    width: 145px !important;
+    height: 54px !important;
+  }
+
+  .footer .logo-mark-image,
+  .footer .brand-logo-image {
+    width: 210px !important;
+    height: 80px !important;
+  }
+}

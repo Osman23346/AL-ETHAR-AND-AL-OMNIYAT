@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import {
   BarChart3,
   CalendarDays,
@@ -172,7 +172,7 @@ function AdminApp() {
       );
 
       setBookingsError(
-        "تعذر تحميل طلبات الخدمات حاليًا."
+        "طھط¹ط°ط± طھط­ظ…ظٹظ„ ط·ظ„ط¨ط§طھ ط§ظ„ط®ط¯ظ…ط§طھ ط­ط§ظ„ظٹظ‹ط§."
       );
 
       setBookings([]);
@@ -236,7 +236,7 @@ function AdminApp() {
       setBookings(previous);
 
       window.alert(
-        "تعذر تحديث حالة الطلب. يرجى المحاولة مرة أخرى."
+        "طھط¹ط°ط± طھط­ط¯ظٹط« ط­ط§ظ„ط© ط§ظ„ط·ظ„ط¨. ظٹط±ط¬ظ‰ ط§ظ„ظ…ط­ط§ظˆظ„ط© ظ…ط±ط© ط£ط®ط±ظ‰."
       );
     }
   };
@@ -268,7 +268,7 @@ function AdminApp() {
       );
 
       setServicesError(
-        "تعذر تحميل الخدمات حاليًا."
+        "طھط¹ط°ط± طھط­ظ…ظٹظ„ ط§ظ„ط®ط¯ظ…ط§طھ ط­ط§ظ„ظٹظ‹ط§."
       );
 
       setServices([]);
@@ -292,7 +292,7 @@ function AdminApp() {
   ) => {
     if (!title.trim()) {
       window.alert(
-        "يرجى كتابة اسم الخدمة."
+        "ظٹط±ط¬ظ‰ ظƒطھط§ط¨ط© ط§ط³ظ… ط§ظ„ط®ط¯ظ…ط©."
       );
 
       return false;
@@ -336,7 +336,7 @@ function AdminApp() {
         setServices(previous);
 
         window.alert(
-          "تعذر تحديث الخدمة."
+          "طھط¹ط°ط± طھط­ط¯ظٹط« ط§ظ„ط®ط¯ظ…ط©."
         );
 
         return false;
@@ -376,7 +376,7 @@ function AdminApp() {
       );
 
       window.alert(
-        "تعذر إضافة الخدمة."
+        "طھط¹ط°ط± ط¥ط¶ط§ظپط© ط§ظ„ط®ط¯ظ…ط©."
       );
 
       return false;
@@ -433,7 +433,7 @@ function AdminApp() {
       setServices(previous);
 
       window.alert(
-        "تعذر تحديث حالة الخدمة."
+        "طھط¹ط°ط± طھط­ط¯ظٹط« ط­ط§ظ„ط© ط§ظ„ط®ط¯ظ…ط©."
       );
     }
   };
@@ -449,7 +449,7 @@ function AdminApp() {
 
     if (
       !window.confirm(
-        `هل تريد حذف خدمة "${service.title}"؟`
+        `ظ‡ظ„ طھط±ظٹط¯ ط­ط°ظپ ط®ط¯ظ…ط© "${service.title}"طں`
       )
     ) {
       return;
@@ -477,7 +477,7 @@ function AdminApp() {
       setServices(previous);
 
       window.alert(
-        "تعذر حذف الخدمة."
+        "طھط¹ط°ط± ط­ط°ظپ ط§ظ„ط®ط¯ظ…ط©."
       );
     }
   };
@@ -515,7 +515,7 @@ function AdminApp() {
       setFeaturesLoading(false);
 
       window.alert(
-        "تعذر تحميل مزايا الخدمة."
+        "طھط¹ط°ط± طھط­ظ…ظٹظ„ ظ…ط²ط§ظٹط§ ط§ظ„ط®ط¯ظ…ط©."
       );
 
       return;
@@ -558,7 +558,7 @@ function AdminApp() {
 
     if (!title.trim()) {
       window.alert(
-        "يرجى كتابة اسم الميزة."
+        "ظٹط±ط¬ظ‰ ظƒطھط§ط¨ط© ط§ط³ظ… ط§ظ„ظ…ظٹط²ط©."
       );
 
       return false;
@@ -600,7 +600,7 @@ function AdminApp() {
         );
 
         window.alert(
-          "تعذر تحديث الميزة."
+          "طھط¹ط°ط± طھط­ط¯ظٹط« ط§ظ„ظ…ظٹط²ط©."
         );
 
         return false;
@@ -642,7 +642,7 @@ function AdminApp() {
       );
 
       window.alert(
-        "تعذر إضافة الميزة."
+        "طھط¹ط°ط± ط¥ط¶ط§ظپط© ط§ظ„ظ…ظٹط²ط©."
       );
 
       return false;
@@ -710,7 +710,7 @@ function AdminApp() {
       );
 
       window.alert(
-        "تعذر تحديث حالة الميزة."
+        "طھط¹ط°ط± طھط­ط¯ظٹط« ط­ط§ظ„ط© ط§ظ„ظ…ظٹط²ط©."
       );
     }
   };
@@ -729,7 +729,7 @@ function AdminApp() {
 
     if (
       !window.confirm(
-        `هل تريد حذف الميزة "${feature.title}"؟`
+        `ظ‡ظ„ طھط±ظٹط¯ ط­ط°ظپ ط§ظ„ظ…ظٹط²ط© "${feature.title}"طں`
       )
     ) {
       return;
@@ -761,15 +761,15 @@ function AdminApp() {
       );
 
       window.alert(
-        "تعذر حذف الميزة."
+        "طھط¹ط°ط± ط­ط°ظپ ط§ظ„ظ…ظٹط²ط©."
       );
     }
   };
 
   /*
-   * تغيير ترتيب المزايا
-   * يتم تبديل sort_order بين الميزة الحالية
-   * والميزة التي قبلها أو بعدها.
+   * طھط؛ظٹظٹط± طھط±طھظٹط¨ ط§ظ„ظ…ط²ط§ظٹط§
+   * ظٹطھظ… طھط¨ط¯ظٹظ„ sort_order ط¨ظٹظ† ط§ظ„ظ…ظٹط²ط© ط§ظ„ط­ط§ظ„ظٹط©
+   * ظˆط§ظ„ظ…ظٹط²ط© ط§ظ„طھظٹ ظ‚ط¨ظ„ظ‡ط§ ط£ظˆ ط¨ط¹ط¯ظ‡ط§.
    */
   const moveServiceFeature = async (
     id: number,
@@ -805,8 +805,8 @@ function AdminApp() {
       serviceFeatures;
 
     /*
-     * نغيّر الواجهة فورًا حتى يشعر المدير
-     * أن العملية تمت مباشرة.
+     * ظ†ط؛ظٹظ‘ط± ط§ظ„ظˆط§ط¬ظ‡ط© ظپظˆط±ظ‹ط§ ط­طھظ‰ ظٹط´ط¹ط± ط§ظ„ظ…ط¯ظٹط±
+     * ط£ظ† ط§ظ„ط¹ظ…ظ„ظٹط© طھظ…طھ ظ…ط¨ط§ط´ط±ط©.
      */
     const updated = [
       ...serviceFeatures
@@ -827,7 +827,7 @@ function AdminApp() {
     setServiceFeatures(updated);
 
     /*
-     * تحديث الميزة الحالية
+     * طھط­ط¯ظٹط« ط§ظ„ظ…ظٹط²ط© ط§ظ„ط­ط§ظ„ظٹط©
      */
     const { error } =
       await supabase
@@ -851,14 +851,14 @@ function AdminApp() {
       );
 
       window.alert(
-        "تعذر تغيير ترتيب الميزة."
+        "طھط¹ط°ط± طھط؛ظٹظٹط± طھط±طھظٹط¨ ط§ظ„ظ…ظٹط²ط©."
       );
 
       return;
     }
 
     /*
-     * تحديث الميزة الأخرى بالقيمة القديمة
+     * طھط­ط¯ظٹط« ط§ظ„ظ…ظٹط²ط© ط§ظ„ط£ط®ط±ظ‰ ط¨ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ‚ط¯ظٹظ…ط©
      */
     const {
       error: targetError
@@ -883,7 +883,7 @@ function AdminApp() {
       );
 
       window.alert(
-        "تعذر حفظ ترتيب الميزة."
+        "طھط¹ط°ط± ط­ظپط¸ طھط±طھظٹط¨ ط§ظ„ظ…ظٹط²ط©."
       );
 
       return;
@@ -915,7 +915,7 @@ function AdminApp() {
       );
 
       setMediaError(
-        "تعذر تحميل الصور والفيديوهات."
+        "طھط¹ط°ط± طھط­ظ…ظٹظ„ ط§ظ„طµظˆط± ظˆط§ظ„ظپظٹط¯ظٹظˆظ‡ط§طھ."
       );
 
       setMedia([]);
@@ -938,7 +938,7 @@ function AdminApp() {
   ) => {
     if (!file) {
       window.alert(
-        "يرجى اختيار ملف."
+        "ظٹط±ط¬ظ‰ ط§ط®طھظٹط§ط± ظ…ظ„ظپ."
       );
 
       return false;
@@ -969,7 +969,7 @@ function AdminApp() {
       );
 
       window.alert(
-        "تعذر رفع الملف إلى التخزين."
+        "طھط¹ط°ط± ط±ظپط¹ ط§ظ„ظ…ظ„ظپ ط¥ظ„ظ‰ ط§ظ„طھط®ط²ظٹظ†."
       );
 
       return false;
@@ -1011,7 +1011,7 @@ function AdminApp() {
         .remove([path]);
 
       window.alert(
-        "تم رفع الملف لكن تعذر تسجيله في قاعدة البيانات."
+        "طھظ… ط±ظپط¹ ط§ظ„ظ…ظ„ظپ ظ„ظƒظ† طھط¹ط°ط± طھط³ط¬ظٹظ„ظ‡ ظپظٹ ظ‚ط§ط¹ط¯ط© ط§ظ„ط¨ظٹط§ظ†ط§طھ."
       );
 
       return false;
@@ -1034,7 +1034,7 @@ function AdminApp() {
   ) => {
     if (!file) {
       window.alert(
-        "يرجى اختيار ملف جديد."
+        "ظٹط±ط¬ظ‰ ط§ط®طھظٹط§ط± ظ…ظ„ظپ ط¬ط¯ظٹط¯."
       );
 
       return false;
@@ -1071,7 +1071,7 @@ function AdminApp() {
       );
 
       window.alert(
-        "تعذر رفع الملف الجديد."
+        "طھط¹ط°ط± ط±ظپط¹ ط§ظ„ظ…ظ„ظپ ط§ظ„ط¬ط¯ظٹط¯."
       );
 
       return false;
@@ -1112,7 +1112,7 @@ function AdminApp() {
         .remove([newPath]);
 
       window.alert(
-        "تعذر تحديث بيانات الوسائط."
+        "طھط¹ط°ط± طھط­ط¯ظٹط« ط¨ظٹط§ظ†ط§طھ ط§ظ„ظˆط³ط§ط¦ط·."
       );
 
       return false;
@@ -1150,7 +1150,7 @@ function AdminApp() {
   ) => {
     if (!title.trim()) {
       window.alert(
-        "يرجى كتابة اسم الوسائط."
+        "ظٹط±ط¬ظ‰ ظƒطھط§ط¨ط© ط§ط³ظ… ط§ظ„ظˆط³ط§ط¦ط·."
       );
 
       return false;
@@ -1173,7 +1173,7 @@ function AdminApp() {
       );
 
       window.alert(
-        "تعذر تعديل اسم الوسائط."
+        "طھط¹ط°ط± طھط¹ط¯ظٹظ„ ط§ط³ظ… ط§ظ„ظˆط³ط§ط¦ط·."
       );
 
       return false;
@@ -1198,7 +1198,7 @@ function AdminApp() {
   ) => {
     if (
       !window.confirm(
-        `هل تريد حذف "${item.title}"؟`
+        `ظ‡ظ„ طھط±ظٹط¯ ط­ط°ظپ "${item.title}"طں`
       )
     ) {
       return;
@@ -1229,7 +1229,7 @@ function AdminApp() {
       setMedia(previous);
 
       window.alert(
-        "تعذر حذف الوسائط."
+        "طھط¹ط°ط± ط­ط°ظپ ط§ظ„ظˆط³ط§ط¦ط·."
       );
 
       return;
@@ -1250,7 +1250,7 @@ function AdminApp() {
       );
 
       window.alert(
-        "تم حذف السجل، لكن تعذر حذف الملف من التخزين."
+        "طھظ… ط­ط°ظپ ط§ظ„ط³ط¬ظ„طŒ ظ„ظƒظ† طھط¹ط°ط± ط­ط°ظپ ط§ظ„ظ…ظ„ظپ ظ…ظ† ط§ظ„طھط®ط²ظٹظ†."
       );
     }
   };
@@ -1272,37 +1272,37 @@ function AdminApp() {
   const menuItems = [
     {
       id: "dashboard",
-      title: "لوحة التحكم",
+      title: "ظ„ظˆط­ط© ط§ظ„طھط­ظƒظ…",
       icon: LayoutDashboard
     },
     {
       id: "bookings",
-      title: "طلبات الخدمات",
+      title: "ط·ظ„ط¨ط§طھ ط§ظ„ط®ط¯ظ…ط§طھ",
       icon: CalendarDays
     },
     {
       id: "services",
-      title: "الخدمات",
+      title: "ط§ظ„ط®ط¯ظ…ط§طھ",
       icon: BarChart3
     },
     {
       id: "content",
-      title: "إدارة المحتوى",
+      title: "ط¥ط¯ط§ط±ط© ط§ظ„ظ…ط­طھظˆظ‰",
       icon: Pencil
     },
     {
       id: "media",
-      title: "الصور والفيديو",
+      title: "ط§ظ„طµظˆط± ظˆط§ظ„ظپظٹط¯ظٹظˆ",
       icon: Image
     },
     {
       id: "messages",
-      title: "رسائل العملاء",
+      title: "ط±ط³ط§ط¦ظ„ ط§ظ„ط¹ظ…ظ„ط§ط،",
       icon: MessageCircle
     },
     {
       id: "settings",
-      title: "إعدادات الموقع",
+      title: "ط¥ط¹ط¯ط§ط¯ط§طھ ط§ظ„ظ…ظˆظ‚ط¹",
       icon: Settings
     }
   ];
@@ -1365,18 +1365,18 @@ function AdminApp() {
       >
         <div className="admin-logo">
           <img
-            src="/logo-mark.svg.png"
-            alt="الإيثار والأمنيات"
+            src="/brand-logo.png"
+            alt="ط§ظ„ط¥ظٹط«ط§ط± ظˆط§ظ„ط£ظ…ظ†ظٹط§طھ"
             className="admin-logo-mark-image"
           />
 
           <div>
             <strong>
-              مساحة أعمالك
+              ظ…ط³ط§ط­ط© ط£ط¹ظ…ط§ظ„ظƒ
             </strong>
 
             <span>
-              لوحة الإدارة
+              ظ„ظˆط­ط© ط§ظ„ط¥ط¯ط§ط±ط©
             </span>
           </div>
         </div>
@@ -1388,7 +1388,7 @@ function AdminApp() {
 
           <div>
             <strong>
-              مدير الموقع
+              ظ…ط¯ظٹط± ط§ظ„ظ…ظˆظ‚ط¹
             </strong>
 
             <span>
@@ -1399,7 +1399,7 @@ function AdminApp() {
 
         <nav className="admin-nav">
           <span className="admin-nav-title">
-            الإدارة
+            ط§ظ„ط¥ط¯ط§ط±ط©
           </span>
 
           {menuItems.map(
@@ -1444,7 +1444,7 @@ function AdminApp() {
           >
             <LogOut size={19} />
             <span>
-              تسجيل الخروج
+              طھط³ط¬ظٹظ„ ط§ظ„ط®ط±ظˆط¬
             </span>
           </button>
         </div>
@@ -1457,7 +1457,7 @@ function AdminApp() {
             onClick={() =>
               setSidebarOpen(true)
             }
-            aria-label="فتح القائمة"
+            aria-label="ظپطھط­ ط§ظ„ظ‚ط§ط¦ظ…ط©"
           >
             <Menu size={23} />
           </button>
@@ -1474,7 +1474,7 @@ function AdminApp() {
             </h1>
 
             <p>
-              مرحبًا بك في لوحة إدارة موقعك
+              ظ…ط±ط­ط¨ظ‹ط§ ط¨ظƒ ظپظٹ ظ„ظˆط­ط© ط¥ط¯ط§ط±ط© ظ…ظˆظ‚ط¹ظƒ
             </p>
           </div>
 
@@ -1482,7 +1482,7 @@ function AdminApp() {
             href="/"
             className="view-site-button"
           >
-            عرض الموقع
+            ط¹ط±ط¶ ط§ظ„ظ…ظˆظ‚ط¹
             <ChevronLeft size={18} />
           </a>
         </header>
@@ -1673,7 +1673,7 @@ function AdminApp() {
             onAdd={() => {
               const title =
                 window.prompt(
-                  "اكتب اسم الميزة:"
+                  "ط§ظƒطھط¨ ط§ط³ظ… ط§ظ„ظ…ظٹط²ط©:"
                 );
 
               if (title?.trim()) {
@@ -1685,7 +1685,7 @@ function AdminApp() {
             onEdit={(feature) => {
               const title =
                 window.prompt(
-                  "تعديل اسم الميزة:",
+                  "طھط¹ط¯ظٹظ„ ط§ط³ظ… ط§ظ„ظ…ظٹط²ط©:",
                   feature.title
                 );
 
@@ -1824,19 +1824,19 @@ function Dashboard({
       <div className="page-heading">
         <div>
           <h2>
-            نظرة عامة
+            ظ†ط¸ط±ط© ط¹ط§ظ…ط©
           </h2>
 
           <p>
-            ملخص سريع لحالة الموقع
-            والخدمات والطلبات.
+            ظ…ظ„ط®طµ ط³ط±ظٹط¹ ظ„ط­ط§ظ„ط© ط§ظ„ظ…ظˆظ‚ط¹
+            ظˆط§ظ„ط®ط¯ظ…ط§طھ ظˆط§ظ„ط·ظ„ط¨ط§طھ.
           </p>
         </div>
       </div>
 
       <div className="stats-grid">
         <StatCard
-          title="طلبات جديدة"
+          title="ط·ظ„ط¨ط§طھ ط¬ط¯ظٹط¯ط©"
           value={String(
             bookings.filter(
               (booking) =>
@@ -1849,7 +1849,7 @@ function Dashboard({
         />
 
         <StatCard
-          title="الخدمات"
+          title="ط§ظ„ط®ط¯ظ…ط§طھ"
           value={String(
             servicesCount
           )}
@@ -1858,14 +1858,14 @@ function Dashboard({
         />
 
         <StatCard
-          title="رسائل العملاء"
+          title="ط±ط³ط§ط¦ظ„ ط§ظ„ط¹ظ…ظ„ط§ط،"
           value="0"
           icon={<Mail />}
           type="gold"
         />
 
         <StatCard
-          title="الصور والفيديو"
+          title="ط§ظ„طµظˆط± ظˆط§ظ„ظپظٹط¯ظٹظˆ"
           value={String(
             mediaCount
           )}
@@ -1879,11 +1879,11 @@ function Dashboard({
           <div className="panel-heading">
             <div>
               <h3>
-                آخر الطلبات
+                ط¢ط®ط± ط§ظ„ط·ظ„ط¨ط§طھ
               </h3>
 
               <span>
-                آخر طلبات الخدمات
+                ط¢ط®ط± ط·ظ„ط¨ط§طھ ط§ظ„ط®ط¯ظ…ط§طھ
               </span>
             </div>
 
@@ -1892,7 +1892,7 @@ function Dashboard({
                 onViewBookings
               }
             >
-              عرض الكل
+              ط¹ط±ط¶ ط§ظ„ظƒظ„
               <ChevronLeft size={17} />
             </button>
           </div>
@@ -1901,24 +1901,24 @@ function Dashboard({
             {latestBookings.length ===
             0 ? (
               <div className="empty-table">
-                لا توجد طلبات خدمات
-                حتى الآن.
+                ظ„ط§ طھظˆط¬ط¯ ط·ظ„ط¨ط§طھ ط®ط¯ظ…ط§طھ
+                ط­طھظ‰ ط§ظ„ط¢ظ†.
               </div>
             ) : (
               <table>
                 <thead>
                   <tr>
                     <th>
-                      العميل
+                      ط§ظ„ط¹ظ…ظٹظ„
                     </th>
                     <th>
-                      الخدمة
+                      ط§ظ„ط®ط¯ظ…ط©
                     </th>
                     <th>
-                      التاريخ
+                      ط§ظ„طھط§ط±ظٹط®
                     </th>
                     <th>
-                      الحالة
+                      ط§ظ„ط­ط§ظ„ط©
                     </th>
                     <th />
                   </tr>
@@ -1955,7 +1955,7 @@ function Dashboard({
                         <td>
                           {
                             booking.date ||
-                            "—"
+                            "â€”"
                           }
 
                           <small>
@@ -1989,26 +1989,26 @@ function Dashboard({
                                   .value as BookingStatus
                               )
                             }
-                            aria-label={`تغيير حالة طلب ${booking.customer}`}
+                            aria-label={`طھط؛ظٹظٹط± ط­ط§ظ„ط© ط·ظ„ط¨ ${booking.customer}`}
                           >
                             <option value="new">
-                              جديد
+                              ط¬ط¯ظٹط¯
                             </option>
 
                             <option value="contacted">
-                              تم التواصل
+                              طھظ… ط§ظ„طھظˆط§طµظ„
                             </option>
 
                             <option value="confirmed">
-                              مؤكد
+                              ظ…ط¤ظƒط¯
                             </option>
 
                             <option value="completed">
-                              مكتمل
+                              ظ…ظƒطھظ…ظ„
                             </option>
 
                             <option value="cancelled">
-                              ملغي
+                              ظ…ظ„ط؛ظٹ
                             </option>
                           </select>
                         </td>
@@ -2025,19 +2025,19 @@ function Dashboard({
           <div className="panel-heading">
             <div>
               <h3>
-                إجراءات سريعة
+                ط¥ط¬ط±ط§ط،ط§طھ ط³ط±ظٹط¹ط©
               </h3>
 
               <span>
-                إدارة الموقع
+                ط¥ط¯ط§ط±ط© ط§ظ„ظ…ظˆظ‚ط¹
               </span>
             </div>
           </div>
 
           <QuickAction
             icon={<Plus />}
-            title="إضافة خدمة"
-            description="أضف خدمة جديدة للموقع"
+            title="ط¥ط¶ط§ظپط© ط®ط¯ظ…ط©"
+            description="ط£ط¶ظپ ط®ط¯ظ…ط© ط¬ط¯ظٹط¯ط© ظ„ظ„ظ…ظˆظ‚ط¹"
             onClick={
               onAddService
             }
@@ -2045,8 +2045,8 @@ function Dashboard({
 
           <QuickAction
             icon={<Image />}
-            title="رفع صورة"
-            description="أضف صورة إلى الموقع"
+            title="ط±ظپط¹ طµظˆط±ط©"
+            description="ط£ط¶ظپ طµظˆط±ط© ط¥ظ„ظ‰ ط§ظ„ظ…ظˆظ‚ط¹"
             onClick={
               onAddImage
             }
@@ -2054,8 +2054,8 @@ function Dashboard({
 
           <QuickAction
             icon={<Video />}
-            title="إضافة فيديو"
-            description="أضف فيديو تعريفي"
+            title="ط¥ط¶ط§ظپط© ظپظٹط¯ظٹظˆ"
+            description="ط£ط¶ظپ ظپظٹط¯ظٹظˆ طھط¹ط±ظٹظپظٹ"
             onClick={
               onAddVideo
             }
@@ -2063,8 +2063,8 @@ function Dashboard({
 
           <QuickAction
             icon={<Settings />}
-            title="إعدادات الموقع"
-            description="تحديث معلومات التواصل"
+            title="ط¥ط¹ط¯ط§ط¯ط§طھ ط§ظ„ظ…ظˆظ‚ط¹"
+            description="طھط­ط¯ظٹط« ظ…ط¹ظ„ظˆظ…ط§طھ ط§ظ„طھظˆط§طµظ„"
             onClick={
               onOpenSettings
             }
@@ -2193,12 +2193,12 @@ function BookingsPage({
       <div className="page-heading">
         <div>
           <h2>
-            طلبات الخدمات
+            ط·ظ„ط¨ط§طھ ط§ظ„ط®ط¯ظ…ط§طھ
           </h2>
 
           <p>
-            متابعة طلبات وحجوزات العملاء
-            وإدارة حالتها.
+            ظ…طھط§ط¨ط¹ط© ط·ظ„ط¨ط§طھ ظˆط­ط¬ظˆط²ط§طھ ط§ظ„ط¹ظ…ظ„ط§ط،
+            ظˆط¥ط¯ط§ط±ط© ط­ط§ظ„طھظ‡ط§.
           </p>
         </div>
 
@@ -2212,30 +2212,30 @@ function BookingsPage({
                   | BookingStatus
               )
             }
-            aria-label="تصفية طلبات الخدمات"
+            aria-label="طھطµظپظٹط© ط·ظ„ط¨ط§طھ ط§ظ„ط®ط¯ظ…ط§طھ"
           >
             <option value="all">
-              كل الحالات
+              ظƒظ„ ط§ظ„ط­ط§ظ„ط§طھ
             </option>
 
             <option value="new">
-              جديد
+              ط¬ط¯ظٹط¯
             </option>
 
             <option value="contacted">
-              تم التواصل
+              طھظ… ط§ظ„طھظˆط§طµظ„
             </option>
 
             <option value="confirmed">
-              مؤكد
+              ظ…ط¤ظƒط¯
             </option>
 
             <option value="completed">
-              مكتمل
+              ظ…ظƒطھظ…ظ„
             </option>
 
             <option value="cancelled">
-              ملغي
+              ظ…ظ„ط؛ظٹ
             </option>
           </select>
         </div>
@@ -2249,12 +2249,12 @@ function BookingsPage({
             </div>
 
             <h3>
-              جاري تحميل الطلبات
+              ط¬ط§ط±ظٹ طھط­ظ…ظٹظ„ ط§ظ„ط·ظ„ط¨ط§طھ
             </h3>
 
             <p>
-              يتم جلب طلبات الخدمات
-              من قاعدة البيانات.
+              ظٹطھظ… ط¬ظ„ط¨ ط·ظ„ط¨ط§طھ ط§ظ„ط®ط¯ظ…ط§طھ
+              ظ…ظ† ظ‚ط§ط¹ط¯ط© ط§ظ„ط¨ظٹط§ظ†ط§طھ.
             </p>
           </div>
         ) : error ? (
@@ -2268,15 +2268,15 @@ function BookingsPage({
             </h3>
 
             <p>
-              تحقق من اتصال Supabase
-              ثم حاول مرة أخرى.
+              طھط­ظ‚ظ‚ ظ…ظ† ط§طھطµط§ظ„ Supabase
+              ط«ظ… ط­ط§ظˆظ„ ظ…ط±ط© ط£ط®ط±ظ‰.
             </p>
 
             <button
               className="admin-primary-button"
               onClick={onRetry}
             >
-              إعادة المحاولة
+              ط¥ط¹ط§ط¯ط© ط§ظ„ظ…ط­ط§ظˆظ„ط©
             </button>
           </div>
         ) : filteredBookings.length ===
@@ -2287,12 +2287,12 @@ function BookingsPage({
             </div>
 
             <h3>
-              لا توجد طلبات
+              ظ„ط§ طھظˆط¬ط¯ ط·ظ„ط¨ط§طھ
             </h3>
 
             <p>
-              لا توجد طلبات خدمات ضمن
-              الحالة المحددة حاليًا.
+              ظ„ط§ طھظˆط¬ط¯ ط·ظ„ط¨ط§طھ ط®ط¯ظ…ط§طھ ط¶ظ…ظ†
+              ط§ظ„ط­ط§ظ„ط© ط§ظ„ظ…ط­ط¯ط¯ط© ط­ط§ظ„ظٹظ‹ط§.
             </p>
           </div>
         ) : (
@@ -2301,27 +2301,27 @@ function BookingsPage({
               <thead>
                 <tr>
                   <th>
-                    العميل
+                    ط§ظ„ط¹ظ…ظٹظ„
                   </th>
 
                   <th>
-                    الجوال
+                    ط§ظ„ط¬ظˆط§ظ„
                   </th>
 
                   <th>
-                    الخدمة
+                    ط§ظ„ط®ط¯ظ…ط©
                   </th>
 
                   <th>
-                    التاريخ
+                    ط§ظ„طھط§ط±ظٹط®
                   </th>
 
                   <th>
-                    الوقت
+                    ط§ظ„ظˆظ‚طھ
                   </th>
 
                   <th>
-                    الحالة
+                    ط§ظ„ط­ط§ظ„ط©
                   </th>
 
                   <th />
@@ -2359,14 +2359,14 @@ function BookingsPage({
                       <td>
                         {
                           booking.date ||
-                          "—"
+                          "â€”"
                         }
                       </td>
 
                       <td>
                         {
                           booking.time ||
-                          "—"
+                          "â€”"
                         }
                       </td>
 
@@ -2385,26 +2385,26 @@ function BookingsPage({
                                 .value as BookingStatus
                             )
                           }
-                          aria-label={`حالة طلب ${booking.customer}`}
+                          aria-label={`ط­ط§ظ„ط© ط·ظ„ط¨ ${booking.customer}`}
                         >
                           <option value="new">
-                            جديد
+                            ط¬ط¯ظٹط¯
                           </option>
 
                           <option value="contacted">
-                            تم التواصل
+                            طھظ… ط§ظ„طھظˆط§طµظ„
                           </option>
 
                           <option value="confirmed">
-                            مؤكد
+                            ظ…ط¤ظƒط¯
                           </option>
 
                           <option value="completed">
-                            مكتمل
+                            ظ…ظƒطھظ…ظ„
                           </option>
 
                           <option value="cancelled">
-                            ملغي
+                            ظ…ظ„ط؛ظٹ
                           </option>
                         </select>
                       </td>
@@ -2417,7 +2417,7 @@ function BookingsPage({
                               booking
                             )
                           }
-                          aria-label="عرض تفاصيل الطلب"
+                          aria-label="ط¹ط±ط¶ طھظپط§طµظٹظ„ ط§ظ„ط·ظ„ط¨"
                         >
                           <MoreVertical
                             size={18}
@@ -2471,14 +2471,14 @@ function BookingDetails({
           className="admin-modal-close"
           onClick={onClose}
           type="button"
-          aria-label="إغلاق"
+          aria-label="ط¥ط؛ظ„ط§ظ‚"
         >
           <X size={20} />
         </button>
 
         <div className="admin-modal-heading">
           <span>
-            تفاصيل الطلب
+            طھظپط§طµظٹظ„ ط§ظ„ط·ظ„ط¨
           </span>
 
           <h2>
@@ -2486,7 +2486,7 @@ function BookingDetails({
           </h2>
 
           <p>
-            تم استلام الطلب في{" "}
+            طھظ… ط§ط³طھظ„ط§ظ… ط§ظ„ط·ظ„ط¨ ظپظٹ{" "}
             {new Date(
               booking.createdAt
             ).toLocaleString(
@@ -2497,7 +2497,7 @@ function BookingDetails({
 
         <div className="settings-form">
           <label>
-            اسم العميل
+            ط§ط³ظ… ط§ظ„ط¹ظ…ظٹظ„
 
             <input
               value={
@@ -2508,7 +2508,7 @@ function BookingDetails({
           </label>
 
           <label>
-            رقم الجوال
+            ط±ظ‚ظ… ط§ظ„ط¬ظˆط§ظ„
 
             <input
               value={
@@ -2520,12 +2520,12 @@ function BookingDetails({
           </label>
 
           <label>
-            البريد الإلكتروني
+            ط§ظ„ط¨ط±ظٹط¯ ط§ظ„ط¥ظ„ظƒطھط±ظˆظ†ظٹ
 
             <input
               value={
                 booking.email ||
-                "غير مضاف"
+                "ط؛ظٹط± ظ…ط¶ط§ظپ"
               }
               readOnly
               dir="ltr"
@@ -2533,7 +2533,7 @@ function BookingDetails({
           </label>
 
           <label>
-            عدد الأشخاص
+            ط¹ط¯ط¯ ط§ظ„ط£ط´ط®ط§طµ
 
             <input
               value={
@@ -2542,22 +2542,22 @@ function BookingDetails({
                   ? String(
                       booking.people
                     )
-                  : "غير محدد"
+                  : "ط؛ظٹط± ظ…ط­ط¯ط¯"
               }
               readOnly
             />
           </label>
 
           <label>
-            الموعد
+            ط§ظ„ظ…ظˆط¹ط¯
 
             <input
               value={`${
                 booking.date ||
-                "غير محدد"
-              } — ${
+                "ط؛ظٹط± ظ…ط­ط¯ط¯"
+              } â€” ${
                 booking.time ||
-                "غير محدد"
+                "ط؛ظٹط± ظ…ط­ط¯ط¯"
               }`}
               readOnly
               dir="ltr"
@@ -2565,7 +2565,7 @@ function BookingDetails({
           </label>
 
           <label>
-            الحالة
+            ط§ظ„ط­ط§ظ„ط©
 
             <select
               value={
@@ -2580,35 +2580,35 @@ function BookingDetails({
               }
             >
               <option value="new">
-                جديد
+                ط¬ط¯ظٹط¯
               </option>
 
               <option value="contacted">
-                تم التواصل
+                طھظ… ط§ظ„طھظˆط§طµظ„
               </option>
 
               <option value="confirmed">
-                مؤكد
+                ظ…ط¤ظƒط¯
               </option>
 
               <option value="completed">
-                مكتمل
+                ظ…ظƒطھظ…ظ„
               </option>
 
               <option value="cancelled">
-                ملغي
+                ظ…ظ„ط؛ظٹ
               </option>
             </select>
           </label>
 
           <label>
-            الملاحظات
+            ط§ظ„ظ…ظ„ط§ط­ط¸ط§طھ
 
             <textarea
               rows={4}
               value={
                 booking.notes ||
-                "لا توجد ملاحظات"
+                "ظ„ط§ طھظˆط¬ط¯ ظ…ظ„ط§ط­ط¸ط§طھ"
               }
               readOnly
             />
@@ -2621,7 +2621,7 @@ function BookingDetails({
             className="cancel-button"
             onClick={onClose}
           >
-            إغلاق
+            ط¥ط؛ظ„ط§ظ‚
           </button>
         </div>
       </div>
@@ -2667,12 +2667,12 @@ function ServicesPage({
       <div className="page-heading">
         <div>
           <h2>
-            الخدمات
+            ط§ظ„ط®ط¯ظ…ط§طھ
           </h2>
 
           <p>
-            إدارة الخدمات التي تظهر
-            للعملاء في الموقع.
+            ط¥ط¯ط§ط±ط© ط§ظ„ط®ط¯ظ…ط§طھ ط§ظ„طھظٹ طھط¸ظ‡ط±
+            ظ„ظ„ط¹ظ…ظ„ط§ط، ظپظٹ ط§ظ„ظ…ظˆظ‚ط¹.
           </p>
         </div>
 
@@ -2681,7 +2681,7 @@ function ServicesPage({
           onClick={onAdd}
         >
           <Plus size={19} />
-          إضافة خدمة
+          ط¥ط¶ط§ظپط© ط®ط¯ظ…ط©
         </button>
       </div>
 
@@ -2692,12 +2692,12 @@ function ServicesPage({
           </div>
 
           <h3>
-            جاري تحميل الخدمات
+            ط¬ط§ط±ظٹ طھط­ظ…ظٹظ„ ط§ظ„ط®ط¯ظ…ط§طھ
           </h3>
 
           <p>
-            يتم جلب الخدمات من قاعدة
-            البيانات.
+            ظٹطھظ… ط¬ظ„ط¨ ط§ظ„ط®ط¯ظ…ط§طھ ظ…ظ† ظ‚ط§ط¹ط¯ط©
+            ط§ظ„ط¨ظٹط§ظ†ط§طھ.
           </p>
         </div>
       ) : error ? (
@@ -2714,7 +2714,7 @@ function ServicesPage({
             className="admin-primary-button"
             onClick={onRetry}
           >
-            إعادة المحاولة
+            ط¥ط¹ط§ط¯ط© ط§ظ„ظ…ط­ط§ظˆظ„ط©
           </button>
         </div>
       ) : services.length ===
@@ -2725,11 +2725,11 @@ function ServicesPage({
           </div>
 
           <h3>
-            لا توجد خدمات
+            ظ„ط§ طھظˆط¬ط¯ ط®ط¯ظ…ط§طھ
           </h3>
 
           <p>
-            أضف أول خدمة ليتم عرضها هنا.
+            ط£ط¶ظپ ط£ظˆظ„ ط®ط¯ظ…ط© ظ„ظٹطھظ… ط¹ط±ط¶ظ‡ط§ ظ‡ظ†ط§.
           </p>
 
           <button
@@ -2737,7 +2737,7 @@ function ServicesPage({
             onClick={onAdd}
           >
             <Plus size={18} />
-            إضافة خدمة
+            ط¥ط¶ط§ظپط© ط®ط¯ظ…ط©
           </button>
         </div>
       ) : (
@@ -2763,7 +2763,7 @@ function ServicesPage({
                       <Image size={38} />
 
                       <span>
-                        لا توجد صورة
+                        ظ„ط§ طھظˆط¬ط¯ طµظˆط±ط©
                       </span>
                     </div>
                   )}
@@ -2776,8 +2776,8 @@ function ServicesPage({
                     }
                   >
                     {service.active
-                      ? "نشطة"
-                      : "مخفية"}
+                      ? "ظ†ط´ط·ط©"
+                      : "ظ…ط®ظپظٹط©"}
                   </span>
                 </div>
 
@@ -2790,7 +2790,7 @@ function ServicesPage({
 
                   <p>
                     {service.description ||
-                      "لا يوجد وصف لهذه الخدمة."}
+                      "ظ„ط§ ظٹظˆط¬ط¯ ظˆطµظپ ظ„ظ‡ط°ظ‡ ط§ظ„ط®ط¯ظ…ط©."}
                   </p>
 
                   <div className="service-actions">
@@ -2806,7 +2806,7 @@ function ServicesPage({
                         size={16}
                       />
 
-                      المزايا
+                      ط§ظ„ظ…ط²ط§ظٹط§
                     </button>
 
                     <button
@@ -2819,7 +2819,7 @@ function ServicesPage({
                     >
                       <Pencil size={16} />
 
-                      تعديل
+                      طھط¹ط¯ظٹظ„
                     </button>
 
                     <button
@@ -2835,8 +2835,8 @@ function ServicesPage({
                       }
                     >
                       {service.active
-                        ? "إخفاء"
-                        : "إظهار"}
+                        ? "ط¥ط®ظپط§ط،"
+                        : "ط¥ط¸ظ‡ط§ط±"}
                     </button>
 
                     <button
@@ -2846,7 +2846,7 @@ function ServicesPage({
                           service.id
                         )
                       }
-                      aria-label="حذف الخدمة"
+                      aria-label="ط­ط°ظپ ط§ظ„ط®ط¯ظ…ط©"
                     >
                       <Trash2
                         size={16}
@@ -2909,12 +2909,12 @@ function MediaPage({
       <div className="page-heading">
         <div>
           <h2>
-            الصور والفيديو
+            ط§ظ„طµظˆط± ظˆط§ظ„ظپظٹط¯ظٹظˆ
           </h2>
 
           <p>
-            إدارة الصور والفيديوهات
-            المستخدمة في الموقع.
+            ط¥ط¯ط§ط±ط© ط§ظ„طµظˆط± ظˆط§ظ„ظپظٹط¯ظٹظˆظ‡ط§طھ
+            ط§ظ„ظ…ط³طھط®ط¯ظ…ط© ظپظٹ ط§ظ„ظ…ظˆظ‚ط¹.
           </p>
         </div>
 
@@ -2926,7 +2926,7 @@ function MediaPage({
             }
           >
             <Image size={18} />
-            إضافة صورة
+            ط¥ط¶ط§ظپط© طµظˆط±ط©
           </button>
 
           <button
@@ -2936,7 +2936,7 @@ function MediaPage({
             }
           >
             <Video size={18} />
-            إضافة فيديو
+            ط¥ط¶ط§ظپط© ظپظٹط¯ظٹظˆ
           </button>
         </div>
       </div>
@@ -2952,7 +2952,7 @@ function MediaPage({
             setFilter("all")
           }
         >
-          الكل
+          ط§ظ„ظƒظ„
 
           <span>
             {media.length}
@@ -2971,7 +2971,7 @@ function MediaPage({
         >
           <Image size={17} />
 
-          الصور
+          ط§ظ„طµظˆط±
 
           <span>
             {
@@ -2996,7 +2996,7 @@ function MediaPage({
         >
           <Film size={17} />
 
-          الفيديو
+          ط§ظ„ظپظٹط¯ظٹظˆ
 
           <span>
             {
@@ -3017,12 +3017,12 @@ function MediaPage({
           </div>
 
           <h3>
-            جاري تحميل الوسائط
+            ط¬ط§ط±ظٹ طھط­ظ…ظٹظ„ ط§ظ„ظˆط³ط§ط¦ط·
           </h3>
 
           <p>
-            يتم جلب الصور والفيديوهات
-            من التخزين.
+            ظٹطھظ… ط¬ظ„ط¨ ط§ظ„طµظˆط± ظˆط§ظ„ظپظٹط¯ظٹظˆظ‡ط§طھ
+            ظ…ظ† ط§ظ„طھط®ط²ظٹظ†.
           </p>
         </div>
       ) : error ? (
@@ -3039,7 +3039,7 @@ function MediaPage({
             className="admin-primary-button"
             onClick={onRetry}
           >
-            إعادة المحاولة
+            ط¥ط¹ط§ط¯ط© ط§ظ„ظ…ط­ط§ظˆظ„ط©
           </button>
         </div>
       ) : filteredMedia.length ===
@@ -3054,12 +3054,12 @@ function MediaPage({
           </div>
 
           <h3>
-            لا توجد وسائط
+            ظ„ط§ طھظˆط¬ط¯ ظˆط³ط§ط¦ط·
           </h3>
 
           <p>
-            أضف الصور والفيديوهات التي
-            تريد استخدامها في الموقع.
+            ط£ط¶ظپ ط§ظ„طµظˆط± ظˆط§ظ„ظپظٹط¯ظٹظˆظ‡ط§طھ ط§ظ„طھظٹ
+            طھط±ظٹط¯ ط§ط³طھط®ط¯ط§ظ…ظ‡ط§ ظپظٹ ط§ظ„ظ…ظˆظ‚ط¹.
           </p>
 
           <div className="empty-media-actions">
@@ -3070,7 +3070,7 @@ function MediaPage({
               }
             >
               <Image size={18} />
-              إضافة صورة
+              ط¥ط¶ط§ظپط© طµظˆط±ط©
             </button>
 
             <button
@@ -3080,7 +3080,7 @@ function MediaPage({
               }
             >
               <Video size={18} />
-              إضافة فيديو
+              ط¥ط¶ط§ظپط© ظپظٹط¯ظٹظˆ
             </button>
           </div>
         </div>
@@ -3116,14 +3116,14 @@ function MediaPage({
                         <Image
                           size={14}
                         />
-                        صورة
+                        طµظˆط±ط©
                       </>
                     ) : (
                       <>
                         <Video
                           size={14}
                         />
-                        فيديو
+                        ظپظٹط¯ظٹظˆ
                       </>
                     )}
                   </div>
@@ -3135,7 +3135,7 @@ function MediaPage({
                           item
                         )
                       }
-                      aria-label="تعديل الوسائط"
+                      aria-label="طھط¹ط¯ظٹظ„ ط§ظ„ظˆط³ط§ط¦ط·"
                     >
                       <Pencil
                         size={16}
@@ -3149,7 +3149,7 @@ function MediaPage({
                           item
                         )
                       }
-                      aria-label="حذف الوسائط"
+                      aria-label="ط­ط°ظپ ط§ظ„ظˆط³ط§ط¦ط·"
                     >
                       <Trash2
                         size={16}
@@ -3166,8 +3166,8 @@ function MediaPage({
                   <span>
                     {item.type ===
                     "image"
-                      ? "صورة"
-                      : "فيديو"}
+                      ? "طµظˆط±ط©"
+                      : "ظپظٹط¯ظٹظˆ"}
                   </span>
                 </div>
               </div>
@@ -3255,22 +3255,22 @@ function MessagesPage() {
   ) => {
     switch (status) {
       case "new":
-        return "جديد";
+        return "ط¬ط¯ظٹط¯";
 
       case "contacted":
-        return "تم التواصل";
+        return "طھظ… ط§ظ„طھظˆط§طµظ„";
 
       case "confirmed":
-        return "مؤكد";
+        return "ظ…ط¤ظƒط¯";
 
       case "completed":
-        return "مكتمل";
+        return "ظ…ظƒطھظ…ظ„";
 
       case "cancelled":
-        return "ملغي";
+        return "ظ…ظ„ط؛ظٹ";
 
       default:
-        return status || "جديد";
+        return status || "ط¬ط¯ظٹط¯";
     }
   };
 
@@ -3315,7 +3315,7 @@ function MessagesPage() {
     time: string | null
   ) => {
     if (!time) {
-      return "—";
+      return "â€”";
     }
 
     return time;
@@ -3340,7 +3340,7 @@ function MessagesPage() {
       );
 
       window.alert(
-        "تعذر تحديث حالة الطلب."
+        "طھط¹ط°ط± طھط­ط¯ظٹط« ط­ط§ظ„ط© ط§ظ„ط·ظ„ط¨."
       );
 
       return;
@@ -3373,12 +3373,12 @@ function MessagesPage() {
       <div className="page-heading">
         <div>
           <h2>
-            رسائل العملاء
+            ط±ط³ط§ط¦ظ„ ط§ظ„ط¹ظ…ظ„ط§ط،
           </h2>
 
           <p>
-            الطلبات والاستفسارات الواردة
-            من الموقع.
+            ط§ظ„ط·ظ„ط¨ط§طھ ظˆط§ظ„ط§ط³طھظپط³ط§ط±ط§طھ ط§ظ„ظˆط§ط±ط¯ط©
+            ظ…ظ† ط§ظ„ظ…ظˆظ‚ط¹.
           </p>
         </div>
 
@@ -3387,7 +3387,7 @@ function MessagesPage() {
           className="admin-secondary-button"
           onClick={loadMessages}
         >
-          تحديث
+          طھط­ط¯ظٹط«
         </button>
       </div>
 
@@ -3398,11 +3398,11 @@ function MessagesPage() {
           </div>
 
           <h3>
-            جارٍ تحميل الرسائل...
+            ط¬ط§ط±ظچ طھط­ظ…ظٹظ„ ط§ظ„ط±ط³ط§ط¦ظ„...
           </h3>
 
           <p>
-            يرجى الانتظار لحظات.
+            ظٹط±ط¬ظ‰ ط§ظ„ط§ظ†طھط¸ط§ط± ظ„ط­ط¸ط§طھ.
           </p>
         </div>
       ) : messages.length === 0 ? (
@@ -3412,12 +3412,12 @@ function MessagesPage() {
           </div>
 
           <h3>
-            لا توجد رسائل جديدة
+            ظ„ط§ طھظˆط¬ط¯ ط±ط³ط§ط¦ظ„ ط¬ط¯ظٹط¯ط©
           </h3>
 
           <p>
-            ستظهر طلبات العملاء هنا عند
-            إرسالها من الموقع.
+            ط³طھط¸ظ‡ط± ط·ظ„ط¨ط§طھ ط§ظ„ط¹ظ…ظ„ط§ط، ظ‡ظ†ط§ ط¹ظ†ط¯
+            ط¥ط±ط³ط§ظ„ظ‡ط§ ظ…ظ† ط§ظ„ظ…ظˆظ‚ط¹.
           </p>
         </div>
       ) : (
@@ -3426,11 +3426,11 @@ function MessagesPage() {
           <div className="panel-heading">
             <div>
               <h3>
-                طلبات العملاء
+                ط·ظ„ط¨ط§طھ ط§ظ„ط¹ظ…ظ„ط§ط،
               </h3>
 
               <span>
-                {messages.length} طلب
+                {messages.length} ط·ظ„ط¨
               </span>
             </div>
           </div>
@@ -3443,23 +3443,23 @@ function MessagesPage() {
                 <tr>
 
                   <th>
-                    العميل
+                    ط§ظ„ط¹ظ…ظٹظ„
                   </th>
 
                   <th>
-                    الخدمة
+                    ط§ظ„ط®ط¯ظ…ط©
                   </th>
 
                   <th>
-                    التاريخ
+                    ط§ظ„طھط§ط±ظٹط®
                   </th>
 
                   <th>
-                    الحالة
+                    ط§ظ„ط­ط§ظ„ط©
                   </th>
 
                   <th>
-                    الإجراء
+                    ط§ظ„ط¥ط¬ط±ط§ط،
                   </th>
 
                 </tr>
@@ -3514,23 +3514,23 @@ function MessagesPage() {
                         >
 
                           <option value="new">
-                            جديد
+                            ط¬ط¯ظٹط¯
                           </option>
 
                           <option value="contacted">
-                            تم التواصل
+                            طھظ… ط§ظ„طھظˆط§طµظ„
                           </option>
 
                           <option value="confirmed">
-                            مؤكد
+                            ظ…ط¤ظƒط¯
                           </option>
 
                           <option value="completed">
-                            مكتمل
+                            ظ…ظƒطھظ…ظ„
                           </option>
 
                           <option value="cancelled">
-                            ملغي
+                            ظ…ظ„ط؛ظٹ
                           </option>
 
                         </select>
@@ -3548,7 +3548,7 @@ function MessagesPage() {
                             )
                           }
                         >
-                          عرض التفاصيل
+                          ط¹ط±ط¶ ط§ظ„طھظپط§طµظٹظ„
                         </button>
 
                       </td>
@@ -3566,7 +3566,7 @@ function MessagesPage() {
         </div>
       )}
 
-      {/* تفاصيل الرسالة */}
+      {/* طھظپط§طµظٹظ„ ط§ظ„ط±ط³ط§ظ„ط© */}
       {selectedMessage && (
         <div
           className="admin-message-overlay"
@@ -3586,7 +3586,7 @@ function MessagesPage() {
 
               <div>
                 <span>
-                  طلب عميل
+                  ط·ظ„ط¨ ط¹ظ…ظٹظ„
                 </span>
 
                 <h3>
@@ -3599,10 +3599,10 @@ function MessagesPage() {
                 onClick={() =>
                   setSelectedMessage(null)
                 }
-                aria-label="إغلاق"
+                aria-label="ط¥ط؛ظ„ط§ظ‚"
                 className="admin-modal-close"
               >
-                ×
+                أ—
               </button>
 
             </div>
@@ -3611,7 +3611,7 @@ function MessagesPage() {
 
               <div>
                 <span>
-                  رقم الجوال
+                  ط±ظ‚ظ… ط§ظ„ط¬ظˆط§ظ„
                 </span>
 
                 <strong>
@@ -3621,18 +3621,18 @@ function MessagesPage() {
 
               <div>
                 <span>
-                  البريد الإلكتروني
+                  ط§ظ„ط¨ط±ظٹط¯ ط§ظ„ط¥ظ„ظƒطھط±ظˆظ†ظٹ
                 </span>
 
                 <strong>
                   {selectedMessage.email ||
-                    "غير مضاف"}
+                    "ط؛ظٹط± ظ…ط¶ط§ظپ"}
                 </strong>
               </div>
 
               <div>
                 <span>
-                  الخدمة المطلوبة
+                  ط§ظ„ط®ط¯ظ…ط© ط§ظ„ظ…ط·ظ„ظˆط¨ط©
                 </span>
 
                 <strong>
@@ -3644,30 +3644,30 @@ function MessagesPage() {
 
               <div>
                 <span>
-                  عدد الأشخاص
+                  ط¹ط¯ط¯ ط§ظ„ط£ط´ط®ط§طµ
                 </span>
 
                 <strong>
                   {selectedMessage.people ??
-                    "غير محدد"}
+                    "ط؛ظٹط± ظ…ط­ط¯ط¯"}
                 </strong>
               </div>
 
               <div>
                 <span>
-                  التاريخ المطلوب
+                  ط§ظ„طھط§ط±ظٹط® ط§ظ„ظ…ط·ظ„ظˆط¨
                 </span>
 
                 <strong>
                   {selectedMessage
                     .requested_date ||
-                    "غير محدد"}
+                    "ط؛ظٹط± ظ…ط­ط¯ط¯"}
                 </strong>
               </div>
 
               <div>
                 <span>
-                  الوقت المطلوب
+                  ط§ظ„ظˆظ‚طھ ط§ظ„ظ…ط·ظ„ظˆط¨
                 </span>
 
                 <strong>
@@ -3679,7 +3679,7 @@ function MessagesPage() {
 
               <div>
                 <span>
-                  تاريخ إرسال الطلب
+                  طھط§ط±ظٹط® ط¥ط±ط³ط§ظ„ ط§ظ„ط·ظ„ط¨
                 </span>
 
                 <strong>
@@ -3691,7 +3691,7 @@ function MessagesPage() {
 
               <div>
                 <span>
-                  الحالة
+                  ط§ظ„ط­ط§ظ„ط©
                 </span>
 
                 <strong>
@@ -3706,12 +3706,12 @@ function MessagesPage() {
             <div className="admin-message-notes">
 
               <span>
-                ملاحظات العميل
+                ظ…ظ„ط§ط­ط¸ط§طھ ط§ظ„ط¹ظ…ظٹظ„
               </span>
 
               <p>
                 {selectedMessage.notes ||
-                  "لا توجد ملاحظات إضافية."}
+                  "ظ„ط§ طھظˆط¬ط¯ ظ…ظ„ط§ط­ط¸ط§طھ ط¥ط¶ط§ظپظٹط©."}
               </p>
 
             </div>
@@ -3722,7 +3722,7 @@ function MessagesPage() {
                 href={`tel:${selectedMessage.phone}`}
                 className="admin-primary-button"
               >
-                الاتصال بالعميل
+                ط§ظ„ط§طھطµط§ظ„ ط¨ط§ظ„ط¹ظ…ظٹظ„
               </a>
 
               {selectedMessage.email && (
@@ -3730,7 +3730,7 @@ function MessagesPage() {
                   href={`mailto:${selectedMessage.email}`}
                   className="admin-secondary-button"
                 >
-                  إرسال بريد
+                  ط¥ط±ط³ط§ظ„ ط¨ط±ظٹط¯
                 </a>
               )}
 
@@ -3743,7 +3743,7 @@ function MessagesPage() {
                 rel="noreferrer"
                 className="admin-secondary-button"
               >
-                واتساب
+                ظˆط§طھط³ط§ط¨
               </a>
 
             </div>
@@ -3803,7 +3803,7 @@ const socialPlatforms = [
   {
     key: "google_maps",
     label: "Google Maps",
-    placeholder: "رابط موقع إيثاركو على خرائط Google"
+    placeholder: "ط±ط§ط¨ط· ظ…ظˆظ‚ط¹ ط¥ظٹط«ط§ط±ظƒظˆ ط¹ظ„ظ‰ ط®ط±ط§ط¦ط· Google"
   }
 ];
 
@@ -3907,7 +3907,7 @@ function SettingsPage() {
       }
 
       setSocialMessage(
-        "تم حفظ روابط التواصل بنجاح."
+        "طھظ… ط­ظپط¸ ط±ظˆط§ط¨ط· ط§ظ„طھظˆط§طµظ„ ط¨ظ†ط¬ط§ط­."
       );
     } catch (error) {
       console.error(
@@ -3916,7 +3916,7 @@ function SettingsPage() {
       );
 
       setSocialMessage(
-        "تعذر حفظ الروابط. حاول مرة أخرى."
+        "طھط¹ط°ط± ط­ظپط¸ ط§ظ„ط±ظˆط§ط¨ط·. ط­ط§ظˆظ„ ظ…ط±ط© ط£ط®ط±ظ‰."
       );
     } finally {
       setSavingSocials(false);
@@ -3928,29 +3928,29 @@ function SettingsPage() {
       <div className="page-heading">
         <div>
           <h2>
-            إعدادات الموقع
+            ط¥ط¹ط¯ط§ط¯ط§طھ ط§ظ„ظ…ظˆظ‚ط¹
           </h2>
 
           <p>
-            معلومات الاتصال والبيانات
-            الأساسية للموقع.
+            ظ…ط¹ظ„ظˆظ…ط§طھ ط§ظ„ط§طھطµط§ظ„ ظˆط§ظ„ط¨ظٹط§ظ†ط§طھ
+            ط§ظ„ط£ط³ط§ط³ظٹط© ظ„ظ„ظ…ظˆظ‚ط¹.
           </p>
         </div>
       </div>
 
       <div className="settings-grid">
 
-        {/* معلومات التواصل */}
+        {/* ظ…ط¹ظ„ظˆظ…ط§طھ ط§ظ„طھظˆط§طµظ„ */}
         <section className="admin-panel">
 
           <div className="panel-heading">
             <div>
               <h3>
-                معلومات التواصل
+                ظ…ط¹ظ„ظˆظ…ط§طھ ط§ظ„طھظˆط§طµظ„
               </h3>
 
               <span>
-                ستظهر هذه البيانات في الموقع
+                ط³طھط¸ظ‡ط± ظ‡ط°ظ‡ ط§ظ„ط¨ظٹط§ظ†ط§طھ ظپظٹ ط§ظ„ظ…ظˆظ‚ط¹
               </span>
             </div>
           </div>
@@ -3958,15 +3958,15 @@ function SettingsPage() {
           <div className="settings-form">
 
             <label>
-              اسم الموقع
+              ط§ط³ظ… ط§ظ„ظ…ظˆظ‚ط¹
 
               <input
-                defaultValue="إيثاركو"
+                defaultValue="ط¥ظٹط«ط§ط±ظƒظˆ"
               />
             </label>
 
             <label>
-              رقم الجوال
+              ط±ظ‚ظ… ط§ظ„ط¬ظˆط§ظ„
 
               <input
                 defaultValue="+966 56 865 7235"
@@ -3974,7 +3974,7 @@ function SettingsPage() {
             </label>
 
             <label>
-              رقم واتساب
+              ط±ظ‚ظ… ظˆط§طھط³ط§ط¨
 
               <input
                 defaultValue="966568657235"
@@ -3982,7 +3982,7 @@ function SettingsPage() {
             </label>
 
             <label>
-              البريد الإلكتروني
+              ط§ظ„ط¨ط±ظٹط¯ ط§ظ„ط¥ظ„ظƒطھط±ظˆظ†ظٹ
 
               <input
                 defaultValue="info@example.com"
@@ -3990,10 +3990,10 @@ function SettingsPage() {
             </label>
 
             <label>
-              الموقع
+              ط§ظ„ظ…ظˆظ‚ط¹
 
               <input
-                defaultValue="ينبع الصناعية - حي المرجان"
+                defaultValue="ظٹظ†ط¨ط¹ ط§ظ„طµظ†ط§ط¹ظٹط© - ط­ظٹ ط§ظ„ظ…ط±ط¬ط§ظ†"
               />
             </label>
 
@@ -4003,29 +4003,29 @@ function SettingsPage() {
             type="button"
             className="admin-primary-button save-settings"
           >
-            حفظ التغييرات
+            ط­ظپط¸ ط§ظ„طھط؛ظٹظٹط±ط§طھ
           </button>
 
         </section>
 
-        {/* روابط التواصل */}
+        {/* ط±ظˆط§ط¨ط· ط§ظ„طھظˆط§طµظ„ */}
         <section className="admin-panel">
 
           <div className="panel-heading">
             <div>
               <h3>
-                روابط التواصل
+                ط±ظˆط§ط¨ط· ط§ظ„طھظˆط§طµظ„
               </h3>
 
               <span>
-                حسابات التواصل الاجتماعي
+                ط­ط³ط§ط¨ط§طھ ط§ظ„طھظˆط§طµظ„ ط§ظ„ط§ط¬طھظ…ط§ط¹ظٹ
               </span>
             </div>
           </div>
 
           {loadingSocials ? (
             <div className="admin-empty">
-              جاري تحميل روابط التواصل...
+              ط¬ط§ط±ظٹ طھط­ظ…ظٹظ„ ط±ظˆط§ط¨ط· ط§ظ„طھظˆط§طµظ„...
             </div>
           ) : (
             <div className="settings-form">
@@ -4082,8 +4082,8 @@ function SettingsPage() {
                         }
                       >
                         {social.active
-                          ? "مفعّل"
-                          : "متوقف"}
+                          ? "ظ…ظپط¹ظ‘ظ„"
+                          : "ظ…طھظˆظ‚ظپ"}
                       </button>
 
                     </div>
@@ -4102,8 +4102,8 @@ function SettingsPage() {
                   disabled={savingSocials}
                 >
                   {savingSocials
-                    ? "جاري الحفظ..."
-                    : "حفظ روابط التواصل"}
+                    ? "ط¬ط§ط±ظٹ ط§ظ„ط­ظپط¸..."
+                    : "ط­ظپط¸ ط±ظˆط§ط¨ط· ط§ظ„طھظˆط§طµظ„"}
                 </button>
 
                 {socialMessage && (
@@ -4137,19 +4137,19 @@ function getStatusLabel(
 ) {
   switch (status) {
     case "new":
-      return "جديد";
+      return "ط¬ط¯ظٹط¯";
 
     case "contacted":
-      return "تم التواصل";
+      return "طھظ… ط§ظ„طھظˆط§طµظ„";
 
     case "confirmed":
-      return "مؤكد";
+      return "ظ…ط¤ظƒط¯";
 
     case "completed":
-      return "مكتمل";
+      return "ظ…ظƒطھظ…ظ„";
 
     case "cancelled":
-      return "ملغي";
+      return "ظ…ظ„ط؛ظٹ";
   }
 }
 
@@ -4221,7 +4221,7 @@ function ServiceModal({
 
     if (!title.trim()) {
       window.alert(
-        "يرجى كتابة اسم الخدمة."
+        "ظٹط±ط¬ظ‰ ظƒطھط§ط¨ط© ط§ط³ظ… ط§ظ„ط®ط¯ظ…ط©."
       );
 
       return;
@@ -4247,7 +4247,7 @@ function ServiceModal({
           className="admin-modal-close"
           onClick={onClose}
           type="button"
-          aria-label="إغلاق"
+          aria-label="ط¥ط؛ظ„ط§ظ‚"
         >
           <X size={20} />
         </button>
@@ -4255,26 +4255,26 @@ function ServiceModal({
         <div className="admin-modal-heading">
           <span>
             {service
-              ? "تعديل الخدمة"
-              : "خدمة جديدة"}
+              ? "طھط¹ط¯ظٹظ„ ط§ظ„ط®ط¯ظ…ط©"
+              : "ط®ط¯ظ…ط© ط¬ط¯ظٹط¯ط©"}
           </span>
 
           <h2>
             {service
-              ? "تعديل الخدمة"
-              : "إضافة خدمة"}
+              ? "طھط¹ط¯ظٹظ„ ط§ظ„ط®ط¯ظ…ط©"
+              : "ط¥ط¶ط§ظپط© ط®ط¯ظ…ط©"}
           </h2>
 
           <p>
             {service
-              ? "حدّث بيانات الخدمة ثم احفظ التغييرات."
-              : "أضف خدمة جديدة ليتم عرضها في الموقع."}
+              ? "ط­ط¯ظ‘ط« ط¨ظٹط§ظ†ط§طھ ط§ظ„ط®ط¯ظ…ط© ط«ظ… ط§ط­ظپط¸ ط§ظ„طھط؛ظٹظٹط±ط§طھ."
+              : "ط£ط¶ظپ ط®ط¯ظ…ط© ط¬ط¯ظٹط¯ط© ظ„ظٹطھظ… ط¹ط±ط¶ظ‡ط§ ظپظٹ ط§ظ„ظ…ظˆظ‚ط¹."}
           </p>
         </div>
 
         <form onSubmit={submit}>
           <label>
-            اسم الخدمة
+            ط§ط³ظ… ط§ظ„ط®ط¯ظ…ط©
 
             <input
               required
@@ -4284,12 +4284,12 @@ function ServiceModal({
                   e.target.value
                 )
               }
-              placeholder="مثال: قاعة تدريب"
+              placeholder="ظ…ط«ط§ظ„: ظ‚ط§ط¹ط© طھط¯ط±ظٹط¨"
             />
           </label>
 
           <label>
-            وصف الخدمة
+            ظˆطµظپ ط§ظ„ط®ط¯ظ…ط©
 
             <textarea
               rows={5}
@@ -4301,12 +4301,12 @@ function ServiceModal({
                   e.target.value
                 )
               }
-              placeholder="اكتب وصفًا مختصرًا للخدمة..."
+              placeholder="ط§ظƒطھط¨ ظˆطµظپظ‹ط§ ظ…ط®طھطµط±ظ‹ط§ ظ„ظ„ط®ط¯ظ…ط©..."
             />
           </label>
 
           <label>
-            رابط صورة الخدمة
+            ط±ط§ط¨ط· طµظˆط±ط© ط§ظ„ط®ط¯ظ…ط©
 
             <input
               value={image}
@@ -4320,9 +4320,9 @@ function ServiceModal({
             />
 
             <small className="field-help">
-              يمكنك وضع رابط صورة
-              مباشرة. يمكن ربطها لاحقًا
-              بمكتبة الوسائط.
+              ظٹظ…ظƒظ†ظƒ ظˆط¶ط¹ ط±ط§ط¨ط· طµظˆط±ط©
+              ظ…ط¨ط§ط´ط±ط©. ظٹظ…ظƒظ† ط±ط¨ط·ظ‡ط§ ظ„ط§ط­ظ‚ظ‹ط§
+              ط¨ظ…ظƒطھط¨ط© ط§ظ„ظˆط³ط§ط¦ط·.
             </small>
           </label>
 
@@ -4330,7 +4330,7 @@ function ServiceModal({
             <div className="service-preview">
               <img
                 src={image}
-                alt="معاينة"
+                alt="ظ…ط¹ط§ظٹظ†ط©"
                 onError={(e) => {
                   e.currentTarget.style.display =
                     "none";
@@ -4346,7 +4346,7 @@ function ServiceModal({
               onClick={onClose}
               disabled={saving}
             >
-              إلغاء
+              ط¥ظ„ط؛ط§ط،
             </button>
 
             <button
@@ -4355,10 +4355,10 @@ function ServiceModal({
               disabled={saving}
             >
               {saving
-                ? "جاري الحفظ..."
+                ? "ط¬ط§ط±ظٹ ط§ظ„ط­ظپط¸..."
                 : service
-                ? "حفظ التعديلات"
-                : "حفظ الخدمة"}
+                ? "ط­ظپط¸ ط§ظ„طھط¹ط¯ظٹظ„ط§طھ"
+                : "ط­ظپط¸ ط§ظ„ط®ط¯ظ…ط©"}
             </button>
           </div>
         </form>
@@ -4408,14 +4408,14 @@ function ServiceFeaturesModal({
           className="admin-modal-close"
           onClick={onClose}
           type="button"
-          aria-label="إغلاق"
+          aria-label="ط¥ط؛ظ„ط§ظ‚"
         >
           <X size={20} />
         </button>
 
         <div className="admin-modal-heading">
           <span>
-            مزايا الخدمة
+            ظ…ط²ط§ظٹط§ ط§ظ„ط®ط¯ظ…ط©
           </span>
 
           <h2>
@@ -4423,9 +4423,9 @@ function ServiceFeaturesModal({
           </h2>
 
           <p>
-            أضف المزايا التي يحصل عليها
-            العميل عند اختيار هذه الخدمة،
-            ويمكنك تغيير ترتيب ظهورها.
+            ط£ط¶ظپ ط§ظ„ظ…ط²ط§ظٹط§ ط§ظ„طھظٹ ظٹط­طµظ„ ط¹ظ„ظٹظ‡ط§
+            ط§ظ„ط¹ظ…ظٹظ„ ط¹ظ†ط¯ ط§ط®طھظٹط§ط± ظ‡ط°ظ‡ ط§ظ„ط®ط¯ظ…ط©طŒ
+            ظˆظٹظ…ظƒظ†ظƒ طھط؛ظٹظٹط± طھط±طھظٹط¨ ط¸ظ‡ظˆط±ظ‡ط§.
           </p>
         </div>
 
@@ -4443,7 +4443,7 @@ function ServiceFeaturesModal({
             onClick={onAdd}
           >
             <Plus size={18} />
-            إضافة ميزة
+            ط¥ط¶ط§ظپط© ظ…ظٹط²ط©
           </button>
         </div>
 
@@ -4454,12 +4454,12 @@ function ServiceFeaturesModal({
             </div>
 
             <h3>
-              جاري تحميل المزايا
+              ط¬ط§ط±ظٹ طھط­ظ…ظٹظ„ ط§ظ„ظ…ط²ط§ظٹط§
             </h3>
 
             <p>
-              يتم جلب مزايا الخدمة من
-              قاعدة البيانات.
+              ظٹطھظ… ط¬ظ„ط¨ ظ…ط²ط§ظٹط§ ط§ظ„ط®ط¯ظ…ط© ظ…ظ†
+              ظ‚ط§ط¹ط¯ط© ط§ظ„ط¨ظٹط§ظ†ط§طھ.
             </p>
           </div>
         ) : features.length ===
@@ -4470,12 +4470,12 @@ function ServiceFeaturesModal({
             </div>
 
             <h3>
-              لا توجد مزايا
+              ظ„ط§ طھظˆط¬ط¯ ظ…ط²ط§ظٹط§
             </h3>
 
             <p>
-              أضف المزايا الخاصة بهذه
-              الخدمة.
+              ط£ط¶ظپ ط§ظ„ظ…ط²ط§ظٹط§ ط§ظ„ط®ط§طµط© ط¨ظ‡ط°ظ‡
+              ط§ظ„ط®ط¯ظ…ط©.
             </p>
           </div>
         ) : (
@@ -4540,7 +4540,7 @@ function ServiceFeaturesModal({
                       )}
                     </strong>
 
-                    {/* ترتيب الميزة */}
+                    {/* طھط±طھظٹط¨ ط§ظ„ظ…ظٹط²ط© */}
                     <div
                       style={{
                         display:
@@ -4561,8 +4561,8 @@ function ServiceFeaturesModal({
                         disabled={
                           isFirst
                         }
-                        aria-label="تحريك الميزة للأعلى"
-                        title="تحريك للأعلى"
+                        aria-label="طھط­ط±ظٹظƒ ط§ظ„ظ…ظٹط²ط© ظ„ظ„ط£ط¹ظ„ظ‰"
+                        title="طھط­ط±ظٹظƒ ظ„ظ„ط£ط¹ظ„ظ‰"
                         style={{
                           width:
                             "30px",
@@ -4612,8 +4612,8 @@ function ServiceFeaturesModal({
                         disabled={
                           isLast
                         }
-                        aria-label="تحريك الميزة للأسفل"
-                        title="تحريك للأسفل"
+                        aria-label="طھط­ط±ظٹظƒ ط§ظ„ظ…ظٹط²ط© ظ„ظ„ط£ط³ظپظ„"
+                        title="طھط­ط±ظٹظƒ ظ„ظ„ط£ط³ظپظ„"
                         style={{
                           width:
                             "30px",
@@ -4685,8 +4685,8 @@ function ServiceFeaturesModal({
                       }
                     >
                       {feature.active
-                        ? "إخفاء"
-                        : "إظهار"}
+                        ? "ط¥ط®ظپط§ط،"
+                        : "ط¥ط¸ظ‡ط§ط±"}
                     </button>
 
                     <button
@@ -4702,7 +4702,7 @@ function ServiceFeaturesModal({
                         size={15}
                       />
 
-                      تعديل
+                      طھط¹ط¯ظٹظ„
                     </button>
 
                     <button
@@ -4713,7 +4713,7 @@ function ServiceFeaturesModal({
                           feature.id
                         )
                       }
-                      aria-label="حذف الميزة"
+                      aria-label="ط­ط°ظپ ط§ظ„ظ…ظٹط²ط©"
                     >
                       <Trash2
                         size={16}
@@ -4732,7 +4732,7 @@ function ServiceFeaturesModal({
             className="cancel-button"
             onClick={onClose}
           >
-            إغلاق
+            ط¥ط؛ظ„ط§ظ‚
           </button>
         </div>
       </div>
@@ -4807,7 +4807,7 @@ function MediaModal({
 
     if (!file) {
       window.alert(
-        "يرجى اختيار ملف."
+        "ظٹط±ط¬ظ‰ ط§ط®طھظٹط§ط± ظ…ظ„ظپ."
       );
 
       return;
@@ -4832,7 +4832,7 @@ function MediaModal({
           className="admin-modal-close"
           onClick={onClose}
           type="button"
-          aria-label="إغلاق"
+          aria-label="ط¥ط؛ظ„ط§ظ‚"
         >
           <X size={20} />
         </button>
@@ -4840,32 +4840,32 @@ function MediaModal({
         <div className="admin-modal-heading">
           <span>
             {media
-              ? "إدارة الوسائط"
+              ? "ط¥ط¯ط§ط±ط© ط§ظ„ظˆط³ط§ط¦ط·"
               : currentType ===
                 "image"
-              ? "صورة جديدة"
-              : "فيديو جديد"}
+              ? "طµظˆط±ط© ط¬ط¯ظٹط¯ط©"
+              : "ظپظٹط¯ظٹظˆ ط¬ط¯ظٹط¯"}
           </span>
 
           <h2>
             {media
-              ? "استبدال أو تعديل الوسائط"
+              ? "ط§ط³طھط¨ط¯ط§ظ„ ط£ظˆ طھط¹ط¯ظٹظ„ ط§ظ„ظˆط³ط§ط¦ط·"
               : currentType ===
                 "image"
-              ? "إضافة صورة"
-              : "إضافة فيديو"}
+              ? "ط¥ط¶ط§ظپط© طµظˆط±ط©"
+              : "ط¥ط¶ط§ظپط© ظپظٹط¯ظٹظˆ"}
           </h2>
 
           <p>
             {media
-              ? "يمكنك تعديل الاسم أو اختيار ملف جديد لاستبدال الملف الحالي."
-              : "اختر الملف من جهازك ثم احفظه في مكتبة الموقع."}
+              ? "ظٹظ…ظƒظ†ظƒ طھط¹ط¯ظٹظ„ ط§ظ„ط§ط³ظ… ط£ظˆ ط§ط®طھظٹط§ط± ظ…ظ„ظپ ط¬ط¯ظٹط¯ ظ„ط§ط³طھط¨ط¯ط§ظ„ ط§ظ„ظ…ظ„ظپ ط§ظ„ط­ط§ظ„ظٹ."
+              : "ط§ط®طھط± ط§ظ„ظ…ظ„ظپ ظ…ظ† ط¬ظ‡ط§ط²ظƒ ط«ظ… ط§ط­ظپط¸ظ‡ ظپظٹ ظ…ظƒطھط¨ط© ط§ظ„ظ…ظˆظ‚ط¹."}
           </p>
         </div>
 
         <form onSubmit={submit}>
           <label>
-            اسم الوسائط
+            ط§ط³ظ… ط§ظ„ظˆط³ط§ط¦ط·
 
             <input
               required
@@ -4878,8 +4878,8 @@ function MediaModal({
               placeholder={
                 currentType ===
                 "image"
-                  ? "مثال: مساحة العمل"
-                  : "مثال: فيديو تعريفي"
+                  ? "ظ…ط«ط§ظ„: ظ…ط³ط§ط­ط© ط§ظ„ط¹ظ…ظ„"
+                  : "ظ…ط«ط§ظ„: ظپظٹط¯ظٹظˆ طھط¹ط±ظٹظپظٹ"
               }
             />
           </label>
@@ -4887,7 +4887,7 @@ function MediaModal({
           {media && (
             <div className="current-media-preview">
               <span>
-                الملف الحالي
+                ط§ظ„ظ…ظ„ظپ ط§ظ„ط­ط§ظ„ظٹ
               </span>
 
               {media.type ===
@@ -4910,11 +4910,11 @@ function MediaModal({
 
           <label>
             {media
-              ? "الملف الجديد — اختياري"
+              ? "ط§ظ„ظ…ظ„ظپ ط§ظ„ط¬ط¯ظٹط¯ â€” ط§ط®طھظٹط§ط±ظٹ"
               : currentType ===
                 "image"
-              ? "اختيار الصورة"
-              : "اختيار الفيديو"}
+              ? "ط§ط®طھظٹط§ط± ط§ظ„طµظˆط±ط©"
+              : "ط§ط®طھظٹط§ط± ط§ظ„ظپظٹط¯ظٹظˆ"}
 
             <input
               type="file"
@@ -4961,13 +4961,13 @@ function MediaModal({
 
           <div className="media-upload-note">
             <strong>
-              ملاحظة:
+              ظ…ظ„ط§ط­ط¸ط©:
             </strong>
 
             <span>
-              يتم رفع الملف إلى
-              Supabase Storage ولا يتم
-              تخزينه داخل قاعدة البيانات.
+              ظٹطھظ… ط±ظپط¹ ط§ظ„ظ…ظ„ظپ ط¥ظ„ظ‰
+              Supabase Storage ظˆظ„ط§ ظٹطھظ…
+              طھط®ط²ظٹظ†ظ‡ ط¯ط§ط®ظ„ ظ‚ط§ط¹ط¯ط© ط§ظ„ط¨ظٹط§ظ†ط§طھ.
             </span>
           </div>
 
@@ -4978,7 +4978,7 @@ function MediaModal({
               onClick={onClose}
               disabled={saving}
             >
-              إلغاء
+              ط¥ظ„ط؛ط§ط،
             </button>
 
             <button
@@ -4987,13 +4987,13 @@ function MediaModal({
               disabled={saving}
             >
               {saving
-                ? "جاري الحفظ..."
+                ? "ط¬ط§ط±ظٹ ط§ظ„ط­ظپط¸..."
                 : media &&
                   !file
-                ? "حفظ الاسم"
+                ? "ط­ظپط¸ ط§ظ„ط§ط³ظ…"
                 : media
-                ? "استبدال الملف"
-                : "رفع الملف"}
+                ? "ط§ط³طھط¨ط¯ط§ظ„ ط§ظ„ظ…ظ„ظپ"
+                : "ط±ظپط¹ ط§ظ„ظ…ظ„ظپ"}
             </button>
           </div>
         </form>

@@ -1,4 +1,4 @@
-
+﻿
 import {
   Instagram,
   MessageCircle,
@@ -114,13 +114,13 @@ function Footer() {
 
       <div className="container footer-grid">
 
-        {/* الهوية */}
+        {/* ط§ظ„ظ‡ظˆظٹط© */}
         <div className="footer-brand">
 
           <div className="logo footer-logo">
 
             <img
-              src="/logo-mark.svg.png"
+              src="/brand-logo.png"
               alt={brand.name}
               className="logo-mark-image"
             />
@@ -138,15 +138,15 @@ function Footer() {
           </div>
 
           <p className="footer-description">
-  <span>إيثاركو — منصة متكاملة</span>{" "}
-  <span>لمساحات الأعمال وحلول النمو.</span>
+  <span>ط¥ظٹط«ط§ط±ظƒظˆ â€” ظ…ظ†طµط© ظ…طھظƒط§ظ…ظ„ط©</span>{" "}
+  <span>ظ„ظ…ط³ط§ط­ط§طھ ط§ظ„ط£ط¹ظ…ط§ظ„ ظˆط­ظ„ظˆظ„ ط§ظ„ظ†ظ…ظˆ.</span>
 </p>
 
           <div className="footer-company-name">
             {footer.companyName}
           </div>
 
-          {/* التواصل الاجتماعي */}
+          {/* ط§ظ„طھظˆط§طµظ„ ط§ظ„ط§ط¬طھظ…ط§ط¹ظٹ */}
           <div className="socials">
 
             {/* Facebook */}
@@ -259,7 +259,7 @@ function Footer() {
                 className="social-tiktok"
                 aria-hidden="true"
               >
-                ♪
+                â™ھ
               </span>
             </a>
 
@@ -365,56 +365,56 @@ function Footer() {
 
         </div>
 
-        {/* روابط سريعة */}
+        {/* ط±ظˆط§ط¨ط· ط³ط±ظٹط¹ط© */}
         <div>
 
           <h4>
-            روابط سريعة
+            ط±ظˆط§ط¨ط· ط³ط±ظٹط¹ط©
           </h4>
 
           <a href="#home">
-            الرئيسية
+            ط§ظ„ط±ط¦ظٹط³ظٹط©
           </a>
 
           <a href="#about">
-            عن المكان
+            ط¹ظ† ط§ظ„ظ…ظƒط§ظ†
           </a>
 
           <a href="#spaces">
-            المساحات
+            ط§ظ„ظ…ط³ط§ط­ط§طھ
           </a>
 
           <a href="#services">
-            الخدمات
+            ط§ظ„ط®ط¯ظ…ط§طھ
           </a>
 
           <a href="#gallery">
-            المعرض
+            ط§ظ„ظ…ط¹ط±ط¶
           </a>
 
           <a href="#contact">
-            تواصل معنا
+            طھظˆط§طµظ„ ظ…ط¹ظ†ط§
           </a>
 
         </div>
 
-        {/* الشركة */}
+        {/* ط§ظ„ط´ط±ظƒط© */}
         <div>
 
           <h4>
-            الشركة
+            ط§ظ„ط´ط±ظƒط©
           </h4>
 
           <a href="/about">
-            من نحن
+            ظ…ظ† ظ†ط­ظ†
           </a>
 
           <a href="/terms">
-            الشروط والأحكام
+            ط§ظ„ط´ط±ظˆط· ظˆط§ظ„ط£ط­ظƒط§ظ…
           </a>
 
           <a href="/privacy">
-            سياسة الخصوصية
+            ط³ظٹط§ط³ط© ط§ظ„ط®طµظˆطµظٹط©
           </a>
 
           <a
@@ -424,28 +424,28 @@ function Footer() {
               fontWeight: 700
             }}
           >
-            دخول الإدارة
+            ط¯ط®ظˆظ„ ط§ظ„ط¥ط¯ط§ط±ط©
           </a>
 
         </div>
 
-        {/* التواصل */}
+        {/* ط§ظ„طھظˆط§طµظ„ */}
         <div>
 
           <h4>
-            تواصل معنا
+            طھظˆط§طµظ„ ظ…ط¹ظ†ط§
           </h4>
 
           <a
             href={`tel:${contact.phone}`}
           >
-            الهاتف
+            ط§ظ„ظ‡ط§طھظپ
           </a>
 
           <a
             href={`mailto:${contact.email}`}
           >
-            البريد الإلكتروني
+            ط§ظ„ط¨ط±ظٹط¯ ط§ظ„ط¥ظ„ظƒطھط±ظˆظ†ظٹ
           </a>
 
           <a
@@ -453,7 +453,7 @@ function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            واتساب
+            ظˆط§طھط³ط§ط¨
           </a>
 
           <span className="footer-address">
@@ -464,33 +464,33 @@ function Footer() {
 
       </div>
 
-      {/* حقوق الشركة */}
+      {/* ط­ظ‚ظˆظ‚ ط§ظ„ط´ط±ظƒط© */}
       <div className="footer-bottom">
 
         <div className="container footer-bottom-inner">
 
           <span>
-            © 2026{" "}
+            آ© 2026{" "}
             {footer.companyName}
-            {" "}— جميع الحقوق محفوظة.
+            {" "}â€” ط¬ظ…ظٹط¹ ط§ظ„ط­ظ‚ظˆظ‚ ظ…ط­ظپظˆط¸ط©.
           </span>
 
           <span className="footer-legal">
 
             <a href="/about">
-              من نحن
+              ظ…ظ† ظ†ط­ظ†
             </a>
 
             <a href="/terms">
-              الشروط والأحكام
+              ط§ظ„ط´ط±ظˆط· ظˆط§ظ„ط£ط­ظƒط§ظ…
             </a>
 
             <a href="/privacy">
-              سياسة الخصوصية
+              ط³ظٹط§ط³ط© ط§ظ„ط®طµظˆطµظٹط©
             </a>
 
             <a href="/admin/login">
-              دخول الإدارة
+              ط¯ط®ظˆظ„ ط§ظ„ط¥ط¯ط§ط±ط©
             </a>
 
           </span>
@@ -504,3 +504,4 @@ function Footer() {
 }
 
 export default Footer;
+

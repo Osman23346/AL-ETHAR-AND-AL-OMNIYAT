@@ -1,4 +1,4 @@
-import {
+﻿import {
   ArrowLeft,
   Building2,
   CheckCircle2,
@@ -28,10 +28,10 @@ function AboutPage() {
           <a
             href="/"
             className="logo"
-            aria-label={`العودة إلى الصفحة الرئيسية - ${brand.name}`}
+            aria-label={`ط§ظ„ط¹ظˆط¯ط© ط¥ظ„ظ‰ ط§ظ„طµظپط­ط© ط§ظ„ط±ط¦ظٹط³ظٹط© - ${brand.name}`}
           >
             <img
-              src="/logo-mark.svg.png"
+              src="/brand-logo.png"
               alt={brand.name}
               className="logo-mark-image"
             />
@@ -46,7 +46,7 @@ function AboutPage() {
             href="/"
             className="inner-page-back"
           >
-            <span>العودة للرئيسية</span>
+            <span>ط§ظ„ط¹ظˆط¯ط© ظ„ظ„ط±ط¦ظٹط³ظٹط©</span>
 
             <ArrowLeft
               size={17}
@@ -72,9 +72,9 @@ function AboutPage() {
             </span>
 
             <h1 id="about-page-title">
-              أكثر من مجرد
+              ط£ظƒط«ط± ظ…ظ† ظ…ط¬ط±ط¯
               <br />
-              <em>مساحة عمل</em>
+              <em>ظ…ط³ط§ط­ط© ط¹ظ…ظ„</em>
             </h1>
 
             <p>
@@ -125,13 +125,13 @@ function AboutPage() {
             <div className="inner-about-content">
 
               <span className="section-eyebrow">
-                قصتنا
+                ظ‚طµطھظ†ط§
               </span>
 
               <h2 id="story-title">
-                نبني بيئة أعمال
+                ظ†ط¨ظ†ظٹ ط¨ظٹط¦ط© ط£ط¹ظ…ط§ظ„
                 <br />
-                <em>تتجاوز مفهوم المكتب</em>
+                <em>طھطھط¬ط§ظˆط² ظ…ظپظ‡ظˆظ… ط§ظ„ظ…ظƒطھط¨</em>
               </h2>
 
               {about.paragraphs.map((paragraph) => (
@@ -142,7 +142,7 @@ function AboutPage() {
 
               <div
                 className="inner-stats"
-                aria-label="إحصائيات عن إيثاركو"
+                aria-label="ط¥ط­طµط§ط¦ظٹط§طھ ط¹ظ† ط¥ظٹط«ط§ط±ظƒظˆ"
               >
                 {about.stats.map((stat) => (
                   <div key={stat.label}>
@@ -174,18 +174,18 @@ function AboutPage() {
             <div className="section-heading">
 
               <span className="section-eyebrow">
-                رؤيتنا ورسالتنا
+                ط±ط¤ظٹطھظ†ط§ ظˆط±ط³ط§ظ„طھظ†ط§
               </span>
 
               <h2 id="vision-title">
-                وجهتنا واضحة
+                ظˆط¬ظ‡طھظ†ط§ ظˆط§ط¶ط­ط©
                 <br />
-                <em>ونمو أعمالك هو الهدف</em>
+                <em>ظˆظ†ظ…ظˆ ط£ط¹ظ…ط§ظ„ظƒ ظ‡ظˆ ط§ظ„ظ‡ط¯ظپ</em>
               </h2>
 
               <p>
-                نعمل على بناء منظومة متكاملة تجعل من
-                مساحة العمل نقطة انطلاق حقيقية للأعمال.
+                ظ†ط¹ظ…ظ„ ط¹ظ„ظ‰ ط¨ظ†ط§ط، ظ…ظ†ط¸ظˆظ…ط© ظ…طھظƒط§ظ…ظ„ط© طھط¬ط¹ظ„ ظ…ظ†
+                ظ…ط³ط§ط­ط© ط§ظ„ط¹ظ…ظ„ ظ†ظ‚ط·ط© ط§ظ†ط·ظ„ط§ظ‚ ط­ظ‚ظٹظ‚ظٹط© ظ„ظ„ط£ط¹ظ…ط§ظ„.
               </p>
 
             </div>
@@ -205,7 +205,7 @@ function AboutPage() {
                 </div>
 
                 <span>
-                  رؤيتنا
+                  ط±ط¤ظٹطھظ†ط§
                 </span>
 
                 <h3>
@@ -231,7 +231,7 @@ function AboutPage() {
                 </div>
 
                 <span>
-                  رسالتنا
+                  ط±ط³ط§ظ„طھظ†ط§
                 </span>
 
                 <h3>
@@ -259,18 +259,18 @@ function AboutPage() {
             <div className="section-heading">
 
               <span className="section-eyebrow">
-                ما نؤمن به
+                ظ…ط§ ظ†ط¤ظ…ظ† ط¨ظ‡
               </span>
 
               <h2 id="values-title">
-                خمسة محاور
+                ط®ظ…ط³ط© ظ…ط­ط§ظˆط±
                 <br />
-                <em>تصنع تجربة متكاملة</em>
+                <em>طھطµظ†ط¹ طھط¬ط±ط¨ط© ظ…طھظƒط§ظ…ظ„ط©</em>
               </h2>
 
               <p>
-                نربط بين عناصر مختلفة لتقديم تجربة أعمال
-                عملية ومرنة وقابلة للنمو.
+                ظ†ط±ط¨ط· ط¨ظٹظ† ط¹ظ†ط§طµط± ظ…ط®طھظ„ظپط© ظ„طھظ‚ط¯ظٹظ… طھط¬ط±ط¨ط© ط£ط¹ظ…ط§ظ„
+                ط¹ظ…ظ„ظٹط© ظˆظ…ط±ظ†ط© ظˆظ‚ط§ط¨ظ„ط© ظ„ظ„ظ†ظ…ظˆ.
               </p>
 
             </div>
@@ -380,18 +380,18 @@ function AboutPage() {
             <div>
 
               <span className="section-eyebrow">
-                ابدأ معنا
+                ط§ط¨ط¯ط£ ظ…ط¹ظ†ط§
               </span>
 
               <h2 id="about-cta-title">
-                هل تبحث عن مساحة
+                ظ‡ظ„ طھط¨ط­ط« ط¹ظ† ظ…ط³ط§ط­ط©
                 <br />
-                <em>تخدم نمو أعمالك؟</em>
+                <em>طھط®ط¯ظ… ظ†ظ…ظˆ ط£ط¹ظ…ط§ظ„ظƒطں</em>
               </h2>
 
               <p>
-                يسعدنا مساعدتك في اختيار المساحة أو
-                الخدمة المناسبة لاحتياجك.
+                ظٹط³ط¹ط¯ظ†ط§ ظ…ط³ط§ط¹ط¯طھظƒ ظپظٹ ط§ط®طھظٹط§ط± ط§ظ„ظ…ط³ط§ط­ط© ط£ظˆ
+                ط§ظ„ط®ط¯ظ…ط© ط§ظ„ظ…ظ†ط§ط³ط¨ط© ظ„ط§ط­طھظٹط§ط¬ظƒ.
               </p>
 
             </div>
@@ -402,7 +402,7 @@ function AboutPage() {
                 href="/#services"
                 className="inner-primary-button"
               >
-                <span>استكشف خدماتنا</span>
+                <span>ط§ط³طھظƒط´ظپ ط®ط¯ظ…ط§طھظ†ط§</span>
 
                 <ArrowLeft
                   size={18}
@@ -417,7 +417,7 @@ function AboutPage() {
                 rel="noreferrer"
                 className="inner-secondary-button"
               >
-                <span>تواصل عبر واتساب</span>
+                <span>طھظˆط§طµظ„ ط¹ط¨ط± ظˆط§طھط³ط§ط¨</span>
 
                 <CheckCircle2
                   size={18}
@@ -439,11 +439,11 @@ function AboutPage() {
         <div className="container">
 
           <span>
-            © 2026 {brand.name} {brand.subtitle}
+            آ© 2026 {brand.name} {brand.subtitle}
           </span>
 
           <a href="/">
-            العودة للرئيسية
+            ط§ظ„ط¹ظˆط¯ط© ظ„ظ„ط±ط¦ظٹط³ظٹط©
           </a>
 
         </div>
