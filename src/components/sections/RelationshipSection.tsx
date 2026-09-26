@@ -2,7 +2,7 @@ import {
   ArrowLeft,
   Building2,
   BriefcaseBusiness,
-  TrendingUp
+  TrendingUp,
 } from "lucide-react";
 
 import { siteContent } from "../../data/content";
@@ -10,24 +10,41 @@ import { siteContent } from "../../data/content";
 const stepIcons = [
   Building2,
   BriefcaseBusiness,
-  TrendingUp
+  TrendingUp,
+];
+
+const stepMeta = [
+  {
+    label: "البداية",
+    description: "مساحة مهيأة للعمل والانطلاق بثقة.",
+  },
+  {
+    label: "المرحلة التالية",
+    description: "بيئة تدعم أعمالك وتفتح فرصًا للتعاون والتطور.",
+  },
+  {
+    label: "الهدف",
+    description: "منصة متكاملة تساعد أعمالك على النمو والاستدامة.",
+  },
 ];
 
 function RelationshipSection() {
   const { relationship } = siteContent;
 
   return (
-    <section className="relationship-section">
+    <section
+      className="relationship-section"
+      aria-labelledby="relationship-title"
+    >
       <div className="container">
-
         <div className="relationship-layout">
 
-          <div className="relationship-intro">
+          <div className="relationship-intro" data-reveal>
             <span className="section-eyebrow">
               {relationship.eyebrow}
             </span>
 
-            <h2>
+            <h2 id="relationship-title">
               {relationship.title}
               <br />
               <em>{relationship.highlight}</em>
@@ -38,15 +55,19 @@ function RelationshipSection() {
             </p>
           </div>
 
-          <div className="relationship-steps">
+          <div
+            className="relationship-steps"
+            aria-label="مراحل العلاقة"
+          >
             {relationship.steps.map((step, index) => {
-              const Icon =
-                stepIcons[index] || TrendingUp;
+              const Icon = stepIcons[index] ?? TrendingUp;
+              const meta = stepMeta[index] ?? stepMeta[2];
 
               return (
                 <div
-                  key={step}
-                  className="relationship-step" data-reveal
+                  key={`${step}-${index}`}
+                  className="relationship-step"
+                  data-reveal
                 >
                   <div className="relationship-step-number">
                     {String(index + 1).padStart(2, "0")}
@@ -63,15 +84,13 @@ function RelationshipSection() {
                   </div>
 
                   <div className="relationship-step-content">
-                    <span>
-                      {index === 0
-                        ? "البداية"
-                        : index === 1
-                          ? "المرحلة التالية"
-                          : "الهدف"}
-                    </span>
+                    <span>{meta.label}</span>
 
                     <h3>{step}</h3>
+
+                    <p className="relationship-step-description">
+                      {meta.description}
+                    </p>
                   </div>
 
                   {index < relationship.steps.length - 1 && (
@@ -88,7 +107,6 @@ function RelationshipSection() {
           </div>
 
         </div>
-
       </div>
     </section>
   );
