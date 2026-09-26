@@ -1511,3 +1511,164 @@ body {
     transition: none !important;
   }
 }
+
+/* =========================================================
+   FINAL HEADER & FOOTER LOGO FIX
+   إزالة المربع الأبيض ومنع تزاحم الهيدر والفوتر
+   ========================================================= */
+
+/* شعار الهيدر — الكمبيوتر */
+.header .brand-logo-image,
+.header .logo-mark-image {
+  display: block;
+  width: 230px !important;
+  height: 78px !important;
+  max-width: none;
+  flex-shrink: 0;
+  object-fit: contain;
+  object-position: right center;
+  filter: drop-shadow(
+    0 6px 14px rgba(0, 0, 0, 0.22)
+  );
+}
+
+/* إزالة المربع الأبيض من شعار الهيدر */
+.header .logo,
+.header-scrolled .logo {
+  min-width: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: opacity var(--transition-base);
+}
+
+.header .logo:hover {
+  opacity: 0.9;
+  transform: none;
+  border-color: transparent;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* منع ظهور اسم المؤسسة مرتين */
+.header .logo-text,
+.footer-logo > span {
+  display: none !important;
+}
+
+/* خلفية الهيدر */
+.header {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 14, 34, 0.94) 0%,
+      rgba(5, 22, 48, 0.78) 70%,
+      rgba(5, 22, 48, 0.32) 100%
+    );
+}
+
+.header.header-scrolled {
+  background: rgba(3, 15, 36, 0.94) !important;
+}
+
+/* شعار الفوتر — الكمبيوتر */
+.footer .brand-logo-image,
+.footer .logo-mark-image {
+  display: block;
+  width: 260px !important;
+  height: 96px !important;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: right center;
+  filter: drop-shadow(
+    0 7px 18px rgba(0, 0, 0, 0.25)
+  );
+}
+
+/* إزالة المربع الأبيض من شعار الفوتر */
+.footer-logo,
+.footer .footer-logo {
+  width: max-content;
+  max-width: 100%;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* خلفية الفوتر */
+.footer {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(56, 214, 200, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 82%,
+      rgba(128, 103, 232, 0.1),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #030d20 0%,
+      #071a38 55%,
+      #082349 100%
+    ) !important;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .header .brand-logo-image,
+  .header .logo-mark-image {
+    width: 190px !important;
+    height: 68px !important;
+  }
+
+  .footer .brand-logo-image,
+  .footer .logo-mark-image {
+    width: 235px !important;
+    height: 88px !important;
+  }
+
+  .header .logo,
+  .footer-logo {
+    padding: 0 !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 620px) {
+  .header .brand-logo-image,
+  .header .logo-mark-image {
+    width: 155px !important;
+    height: 58px !important;
+  }
+
+  .footer .brand-logo-image,
+  .footer .logo-mark-image {
+    width: 215px !important;
+    height: 80px !important;
+  }
+
+  .header .logo,
+  .footer-logo {
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
