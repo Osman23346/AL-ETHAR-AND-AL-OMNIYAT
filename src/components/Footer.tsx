@@ -1,4 +1,4 @@
-﻿
+
 import {
   Instagram,
   MessageCircle,
@@ -114,7 +114,7 @@ function Footer() {
 
       <div className="container footer-grid">
 
-        {/* ط§ظ„ظ‡ظˆظٹط© */}
+        {/* الهوية */}
         <div className="footer-brand">
 
           <div className="logo footer-logo">
@@ -138,15 +138,15 @@ function Footer() {
           </div>
 
           <p className="footer-description">
-  <span>ط¥ظٹط«ط§ط±ظƒظˆ â€” ظ…ظ†طµط© ظ…طھظƒط§ظ…ظ„ط©</span>{" "}
-  <span>ظ„ظ…ط³ط§ط­ط§طھ ط§ظ„ط£ط¹ظ…ط§ظ„ ظˆط­ظ„ظˆظ„ ط§ظ„ظ†ظ…ظˆ.</span>
+  <span>إيثاركو â€” منصة متكاملة</span>{" "}
+  <span>لمساحات الأعمال وحلول النمو.</span>
 </p>
 
           <div className="footer-company-name">
             {footer.companyName}
           </div>
 
-          {/* ط§ظ„طھظˆط§طµظ„ ط§ظ„ط§ط¬طھظ…ط§ط¹ظٹ */}
+          {/* التواصل الاجتماعي */}
           <div className="socials">
 
             {/* Facebook */}
@@ -365,56 +365,56 @@ function Footer() {
 
         </div>
 
-        {/* ط±ظˆط§ط¨ط· ط³ط±ظٹط¹ط© */}
+        {/* روابط سريعة */}
         <div>
 
           <h4>
-            ط±ظˆط§ط¨ط· ط³ط±ظٹط¹ط©
+            روابط سريعة
           </h4>
 
           <a href="#home">
-            ط§ظ„ط±ط¦ظٹط³ظٹط©
+            الرئيسية
           </a>
 
           <a href="#about">
-            ط¹ظ† ط§ظ„ظ…ظƒط§ظ†
+            عن المكان
           </a>
 
           <a href="#spaces">
-            ط§ظ„ظ…ط³ط§ط­ط§طھ
+            المساحات
           </a>
 
           <a href="#services">
-            ط§ظ„ط®ط¯ظ…ط§طھ
+            الخدمات
           </a>
 
           <a href="#gallery">
-            ط§ظ„ظ…ط¹ط±ط¶
+            المعرض
           </a>
 
           <a href="#contact">
-            طھظˆط§طµظ„ ظ…ط¹ظ†ط§
+            تواصل معنا
           </a>
 
         </div>
 
-        {/* ط§ظ„ط´ط±ظƒط© */}
+        {/* الشركة */}
         <div>
 
           <h4>
-            ط§ظ„ط´ط±ظƒط©
+            الشركة
           </h4>
 
           <a href="/about">
-            ظ…ظ† ظ†ط­ظ†
+            من نحن
           </a>
 
           <a href="/terms">
-            ط§ظ„ط´ط±ظˆط· ظˆط§ظ„ط£ط­ظƒط§ظ…
+            الشروط والأحكام
           </a>
 
           <a href="/privacy">
-            ط³ظٹط§ط³ط© ط§ظ„ط®طµظˆطµظٹط©
+            سياسة الخصوصية
           </a>
 
           <a
@@ -424,28 +424,28 @@ function Footer() {
               fontWeight: 700
             }}
           >
-            ط¯ط®ظˆظ„ ط§ظ„ط¥ط¯ط§ط±ط©
+            دخول الإدارة
           </a>
 
         </div>
 
-        {/* ط§ظ„طھظˆط§طµظ„ */}
+        {/* التواصل */}
         <div>
 
           <h4>
-            طھظˆط§طµظ„ ظ…ط¹ظ†ط§
+            تواصل معنا
           </h4>
 
           <a
             href={`tel:${contact.phone}`}
           >
-            ط§ظ„ظ‡ط§طھظپ
+            الهاتف
           </a>
 
           <a
             href={`mailto:${contact.email}`}
           >
-            ط§ظ„ط¨ط±ظٹط¯ ط§ظ„ط¥ظ„ظƒطھط±ظˆظ†ظٹ
+            البريد الإلكتروني
           </a>
 
           <a
@@ -453,7 +453,7 @@ function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            ظˆط§طھط³ط§ط¨
+            واتساب
           </a>
 
           <span className="footer-address">
@@ -464,33 +464,33 @@ function Footer() {
 
       </div>
 
-      {/* ط­ظ‚ظˆظ‚ ط§ظ„ط´ط±ظƒط© */}
+      {/* حقوق الشركة */}
       <div className="footer-bottom">
 
         <div className="container footer-bottom-inner">
 
           <span>
-            آ© 2026{" "}
+            © 2026{" "}
             {footer.companyName}
-            {" "}â€” ط¬ظ…ظٹط¹ ط§ظ„ط­ظ‚ظˆظ‚ ظ…ط­ظپظˆط¸ط©.
+            {" "}â€” جميع الحقوق محفوظة.
           </span>
 
           <span className="footer-legal">
 
             <a href="/about">
-              ظ…ظ† ظ†ط­ظ†
+              من نحن
             </a>
 
             <a href="/terms">
-              ط§ظ„ط´ط±ظˆط· ظˆط§ظ„ط£ط­ظƒط§ظ…
+              الشروط والأحكام
             </a>
 
             <a href="/privacy">
-              ط³ظٹط§ط³ط© ط§ظ„ط®طµظˆطµظٹط©
+              سياسة الخصوصية
             </a>
 
             <a href="/admin/login">
-              ط¯ط®ظˆظ„ ط§ظ„ط¥ط¯ط§ط±ط©
+              دخول الإدارة
             </a>
 
           </span>

@@ -1,5 +1,6 @@
 export type Service = {
   id: number;
+  databaseId?: number;
   title: string;
   description: string;
   image: string;

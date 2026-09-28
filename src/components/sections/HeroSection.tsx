@@ -1,13 +1,13 @@
 import {
   ArrowLeft,
-  CheckCircle2
+  CheckCircle2,
 } from "lucide-react";
 
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 import { Badge, Container, LinkButton } from "../ui";
 
 function HeroSection() {
-  const { hero, brand } = siteContent;
+  const { hero, brand } = useSiteContent();
 
   return (
     <section id="home" className="hero">
@@ -24,11 +24,9 @@ function HeroSection() {
         </Badge>
 
         <div className="hero-brand">
-          <strong>{brand.name}</strong>
-
-          <span className="hero-brand-subtitle">
-            {brand.subtitle}
-          </span>
+          <strong className="hero-slogan">
+            {brand.slogan}
+          </strong>
         </div>
 
         <h1>
@@ -43,11 +41,11 @@ function HeroSection() {
 
         <div className="hero-actions">
           <LinkButton
-            href="#services"
+            href="#spaces"
             variant="primary"
             className="primary-button"
           >
-            <span>اكتشف خدماتنا</span>
+            <span>{hero.primaryButton}</span>
 
             <ArrowLeft
               size={20}
@@ -57,11 +55,11 @@ function HeroSection() {
           </LinkButton>
 
           <LinkButton
-            href="#about"
+            href="#contact"
             variant="secondary"
             className="secondary-button"
           >
-            تعرف علينا
+            {hero.secondaryButton}
           </LinkButton>
         </div>
 

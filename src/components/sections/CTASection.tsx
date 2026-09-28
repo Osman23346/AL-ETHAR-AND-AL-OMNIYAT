@@ -1,9 +1,9 @@
 import { ArrowLeft } from "lucide-react";
 
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 
 function CTASection() {
-  const { cta } = siteContent;
+  const { cta } = useSiteContent();
 
   return (
     <section className="cta">

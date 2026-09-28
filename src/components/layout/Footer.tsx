@@ -12,7 +12,7 @@ import {
   useState
 } from "react";
 
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 import { supabase } from "../../lib/supabaseClient";
 
 type SocialLink = {
@@ -28,7 +28,7 @@ function Footer() {
     brand,
     contact,
     footer
-  } = siteContent;
+  } = useSiteContent();
 
   const [socialLinks, setSocialLinks] =
     useState<SocialLink[]>([]);

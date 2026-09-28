@@ -1,22 +1,22 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 
 import App from "./App";
 
-import AdminApp from "./admin/AdminApp";
-import AdminLogin from "./admin/AdminLogin";
-import AdminResetPassword from "./admin/AdminResetPassword";
-import AdminGuard from "./admin/AdminGuard";
+const AdminApp = lazy(() => import("./admin/AdminApp"));
+const AdminLogin = lazy(() => import("./admin/AdminLogin"));
+const AdminResetPassword = lazy(() => import("./admin/AdminResetPassword"));
+const AdminGuard = lazy(() => import("./admin/AdminGuard"));
 
-import AboutPage from "./pages/AboutPage";
-import TermsPage from "./pages/TermsPage";
-import PrivacyPage from "./pages/PrivacyPage";
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const TermsPage = lazy(() => import("./pages/TermsPage"));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
 
 import "./theme.css";
 import "./styles.css";
 
 function AppRouter() {
-  const path = window.location.pathname;
+  const path = window.location.pathname.replace(/\/+$/, "") || "/";
 
   /*
    * ==============================
@@ -77,6 +77,8 @@ ReactDOM.createRoot(
   document.getElementById("root")!
 ).render(
   <React.StrictMode>
-    <AppRouter />
+    <Suspense fallback={<p role="status" dir="rtl">جارٍ تحميل الصفحة...</p>}>
+      <AppRouter />
+    </Suspense>
   </React.StrictMode>
 );

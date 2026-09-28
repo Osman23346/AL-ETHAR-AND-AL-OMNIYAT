@@ -1,18 +1,21 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowLeft,
   Menu,
   X
 } from "lucide-react";
 
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { brand } = siteContent;
 
-  const closeMenu = () => setMenuOpen(false);
+  const { brand } = useSiteContent();
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -21,29 +24,22 @@ function Header() {
 
     onScroll();
 
-    window.addEventListener(
-      "scroll",
-      onScroll,
-      { passive: true }
-    );
+    window.addEventListener("scroll", onScroll, {
+      passive: true
+    });
 
     return () => {
-      window.removeEventListener(
-        "scroll",
-        onScroll
-      );
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
   return (
     <header
-      className={
-        `header${scrolled ? " header-scrolled" : ""}`
-      }
+      className={`header${scrolled ? " header-scrolled" : ""}`}
     >
       <div className="container nav">
 
-        {/* الهوية */}
+        {/* الشعار */}
         <a
           href="#home"
           className="logo"
@@ -56,36 +52,6 @@ function Header() {
             className="brand-logo-image"
           />
         </a>
-
-        {/* زر قائمة الجوال */}
-        <button
-          className="mobile-menu"
-          onClick={() => {
-            setMenuOpen((open) => !open);
-          }}
-          aria-label={
-            menuOpen
-              ? "إغلاق القائمة"
-              : "فتح القائمة"
-          }
-          aria-expanded={menuOpen}
-          aria-controls="main-navigation"
-          type="button"
-        >
-          {menuOpen ? (
-            <X
-              size={25}
-              strokeWidth={1.9}
-              aria-hidden="true"
-            />
-          ) : (
-            <Menu
-              size={25}
-              strokeWidth={1.9}
-              aria-hidden="true"
-            />
-          )}
-        </button>
 
         {/* القائمة الرئيسية */}
         <nav
@@ -154,6 +120,36 @@ function Header() {
             aria-hidden="true"
           />
         </a>
+
+        {/* زر قائمة الجوال */}
+        <button
+          className="mobile-menu"
+          onClick={() => {
+            setMenuOpen((open) => !open);
+          }}
+          aria-label={
+            menuOpen
+              ? "إغلاق القائمة"
+              : "فتح القائمة"
+          }
+          aria-expanded={menuOpen}
+          aria-controls="main-navigation"
+          type="button"
+        >
+          {menuOpen ? (
+            <X
+              size={26}
+              strokeWidth={1.9}
+              aria-hidden="true"
+            />
+          ) : (
+            <Menu
+              size={26}
+              strokeWidth={1.9}
+              aria-hidden="true"
+            />
+          )}
+        </button>
 
       </div>
     </header>

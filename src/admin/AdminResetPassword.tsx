@@ -8,21 +8,26 @@ export default function AdminResetPassword() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [checking, setChecking] = useState(true);
+  const [validSession, setValidSession] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     const checkSession = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
+      try {
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
 
-      if (!session) {
-        setError(
-          "رابط إعادة تعيين كلمة المرور غير صالح أو انتهت صلاحيته. اطلب رابطًا جديدًا."
-        );
+        if (!session) {
+          setError(
+            "رابط إعادة تعيين كلمة المرور غير صالح أو انتهت صلاحيته. اطلب رابطًا جديدًا."
+          );
+        }
+        setValidSession(!!session);
+      } catch {
+        setError("تعذر التحقق من الرابط. أعد تحميل الصفحة وحاول مرة أخرى.");
       }
-
       setChecking(false);
     };
 
@@ -31,6 +36,7 @@ export default function AdminResetPassword() {
 
   const handleResetPassword = async (event: FormEvent) => {
     event.preventDefault();
+    if (!validSession || loading) return;
 
     setError("");
 
@@ -58,7 +64,7 @@ export default function AdminResetPassword() {
 
       if (updateError) {
         console.error("Password reset error:", updateError);
-        setError(updateError.message);
+        setError("تعذر تغيير كلمة المرور. جرّب كلمة مرور مختلفة أو اطلب رابط استعادة جديدًا.");
         return;
       }
 
@@ -71,9 +77,7 @@ export default function AdminResetPassword() {
       console.error("Unexpected password reset error:", err);
 
       setError(
-        err instanceof Error
-          ? err.message
-          : "حدث خطأ أثناء تغيير كلمة المرور."
+        "تعذر الاتصال بالخدمة. تحقق من اتصال الإنترنت وحاول مرة أخرى."
       );
     } finally {
       setLoading(false);
@@ -281,20 +285,20 @@ export default function AdminResetPassword() {
 
             <button
               type="submit"
-              disabled={loading || !!error}
+              disabled={loading || !validSession}
               style={{
                 width: "100%",
                 border: 0,
                 borderRadius: "10px",
                 padding: "14px",
                 background:
-                  loading || error ? "#7bb9a5" : "#159a73",
+                  loading || !validSession ? "#7bb9a5" : "#159a73",
                 color: "#ffffff",
                 fontFamily: "inherit",
                 fontSize: "16px",
                 fontWeight: 800,
                 cursor:
-                  loading || error ? "not-allowed" : "pointer",
+                  loading || !validSession ? "not-allowed" : "pointer",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

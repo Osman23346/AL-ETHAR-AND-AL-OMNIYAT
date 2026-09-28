@@ -1,7 +1,7 @@
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 
 function AboutSection() {
-  const { about } = siteContent;
+  const { about } = useSiteContent();
 
   return (
     <section

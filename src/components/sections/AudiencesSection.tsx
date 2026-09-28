@@ -7,7 +7,7 @@ import {
   Handshake
 } from "lucide-react";
 
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 import { Card, Container, SectionHeader } from "../ui";
 
 const audienceIcons = [
@@ -20,7 +20,7 @@ const audienceIcons = [
 ];
 
 function AudiencesSection() {
-  const { audiences } = siteContent;
+  const { audiences } = useSiteContent();
 
   return (
     <section className="audiences-section">

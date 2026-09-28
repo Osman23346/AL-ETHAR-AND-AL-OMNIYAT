@@ -10,6 +10,42 @@
   direction: rtl;
 }
 
+.admin-login-brand {
+  display: block;
+  width: min(230px, 100%);
+  margin-inline: auto;
+}
+
+.admin-login-brand img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.75;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.admin-app :is(button, a, input, textarea, select):focus-visible {
+  outline: 3px solid #1769e0;
+  outline-offset: 3px;
+}
+
+.admin-app :is(input, textarea, select, button) {
+  font-family: inherit;
+}
+
+.admin-app :is(input[type="email"], input[type="url"], input[type="tel"]) {
+  direction: ltr;
+  text-align: left;
+}
+
+.admin-app :is(h1, h2, h3, p, label) {
+  overflow-wrap: break-word;
+}
+
+.admin-app :is(h1, h2, h3) {
+  line-height: 1.6;
+}
+
 /* =========================
    SIDEBAR
 ========================= */
@@ -1545,7 +1581,6 @@
   }
 }
 
-css
 /* =========================
    CUSTOMER MESSAGES
 ========================= */
@@ -1832,7 +1867,6 @@ css
   }
 }
 
-css
 /* =========================================================
    CONTENT MANAGEMENT
 ========================================================= */
@@ -2310,3 +2344,208 @@ css
 .admin-content :is(input,textarea,select) { transition:border-color .2s ease,box-shadow .2s ease,background .2s ease; }
 .admin-content :is(input,textarea,select):focus { outline:none; border-color:var(--blue) !important; box-shadow:0 0 0 3px rgba(23,105,224,.09); }
 @media(max-width:900px){ .admin-header{position:sticky;top:0}.admin-content{padding:24px 18px 40px}.admin-sidebar{box-shadow:-20px 0 60px rgba(4,18,51,.22)} }
+
+/* =========================================================
+   ADMIN LAYOUT FINAL FIX
+   ========================================================= */
+
+/* هوية لوحة الإدارة */
+.admin-logo {
+  min-height: 112px;
+  padding: 14px 16px 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+/* الشعار الكامل */
+.admin-logo-mark-image {
+  display: block;
+  width: 220px;
+  height: 126px;
+  max-width: 100%;
+  padding: 0 !important;
+  border: 0;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.admin-logo-label {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* الشريط الجانبي */
+.admin-sidebar {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* المحتوى الرئيسي */
+.admin-main {
+  min-width: 0;
+}
+
+.admin-content {
+  width: 100%;
+  min-width: 0;
+}
+
+/* منع البطاقات والجداول من تجاوز الشاشة */
+.admin-content :is(
+  .stat-card,
+  .dashboard-card,
+  .content-card,
+  .service-card,
+  .media-card,
+  .bookings-card,
+  .table-card
+) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.admin-content :is(
+  .table-card,
+  .bookings-card
+) {
+  overflow-x: auto;
+}
+
+/* حقول الإدخال */
+.admin-content :is(
+  input,
+  textarea,
+  select
+) {
+  max-width: 100%;
+}
+
+/* الصور والوسائط */
+.admin-content img {
+  max-width: 100%;
+}
+
+/* =========================================================
+   ADMIN TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .admin-sidebar {
+    width: min(300px, 86vw);
+  }
+
+  .admin-main {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .admin-header {
+    gap: 12px;
+  }
+
+  .admin-content {
+    padding: 24px 18px 40px;
+  }
+}
+
+/* =========================================================
+   ADMIN MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .admin-header {
+    min-height: auto;
+    padding: 15px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .admin-header > div:first-of-type {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .admin-header h1 {
+    font-size: 19px;
+    overflow-wrap: anywhere;
+  }
+
+  .admin-header p {
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  .view-site-button {
+    flex-shrink: 0;
+  }
+
+  .admin-content {
+    padding: 20px 14px 34px;
+    overflow-x: hidden;
+  }
+
+  .admin-logo {
+    min-height: 100px;
+    padding: 12px;
+  }
+
+  .admin-logo-mark-image {
+    width: 200px;
+    height: 115px;
+  }
+
+  .stats-grid,
+  .admin-services-grid,
+  .media-grid,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page-heading h2 {
+    font-size: 22px;
+  }
+}
+
+/* =========================================================
+   ADMIN SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 440px) {
+  .admin-sidebar {
+    width: min(285px, 90vw);
+  }
+
+  .admin-logo-mark-image {
+    width: 185px;
+    height: 107px;
+  }
+
+  .admin-content {
+    padding-inline: 12px;
+  }
+
+  .admin-header {
+    padding-inline: 12px;
+  }
+
+  .view-site-button span {
+    display: none;
+  }
+}

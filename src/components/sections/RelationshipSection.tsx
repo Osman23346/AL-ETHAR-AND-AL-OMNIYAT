@@ -5,7 +5,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 
 const stepIcons = [
   Building2,
@@ -29,7 +29,7 @@ const stepMeta = [
 ];
 
 function RelationshipSection() {
-  const { relationship } = siteContent;
+  const { relationship } = useSiteContent();
 
   return (
     <section

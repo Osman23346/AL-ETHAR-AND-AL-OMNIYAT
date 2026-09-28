@@ -52,8 +52,7 @@ export default function AdminLogin() {
       if (loginError) {
         console.error("Supabase login error:", loginError);
         setError(
-          loginError.message ||
-            "تعذر تسجيل الدخول. تحقق من البريد الإلكتروني وكلمة المرور."
+          "تعذر تسجيل الدخول. تحقق من البريد الإلكتروني وكلمة المرور وحاول مرة أخرى."
         );
         return;
       }
@@ -78,7 +77,7 @@ export default function AdminLogin() {
         await supabase.auth.signOut();
 
         setError(
-          `حدث خطأ أثناء التحقق من صلاحية المدير: ${adminError.message}`
+          "تعذر التحقق من صلاحيات الحساب. يرجى المحاولة مرة أخرى."
         );
         return;
       }
@@ -97,9 +96,7 @@ export default function AdminLogin() {
       console.error("Unexpected login error:", err);
 
       setError(
-        err instanceof Error
-          ? err.message
-          : "حدث خطأ أثناء تسجيل الدخول."
+        "تعذر الاتصال بالخدمة. تحقق من اتصال الإنترنت وحاول مرة أخرى."
       );
     } finally {
       setLoading(false);
@@ -132,8 +129,7 @@ export default function AdminLogin() {
         console.error("Password recovery error:", resetError);
 
         setError(
-          resetError.message ||
-            "تعذر إرسال رابط استعادة كلمة المرور."
+          "تعذر إرسال رابط استعادة كلمة المرور. يرجى المحاولة مرة أخرى."
         );
 
         return;
@@ -146,9 +142,7 @@ export default function AdminLogin() {
       console.error("Unexpected recovery error:", err);
 
       setError(
-        err instanceof Error
-          ? err.message
-          : "حدث خطأ أثناء إرسال رابط الاستعادة."
+        "حدث خطأ أثناء إرسال رابط الاستعادة. تحقق من اتصال الإنترنت وحاول مرة أخرى."
       );
     } finally {
       setLoading(false);
@@ -196,17 +190,9 @@ export default function AdminLogin() {
               color: "inherit",
             }}
           >
-            <div
-              style={{
-                fontSize: "28px",
-                fontWeight: 900,
-                color: "#071b2c",
-                letterSpacing: "-0.5px",
-                lineHeight: 1.2,
-              }}
-            >
-              إيثاركو
-            </div>
+            <span className="admin-login-brand">
+              <img src="/brand-logo.png" alt="الإيثار والأمنيات للأعمال والابتكار" />
+            </span>
 
             <div
               style={{

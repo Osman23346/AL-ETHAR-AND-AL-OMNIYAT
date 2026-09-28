@@ -7,7 +7,7 @@ import {
   CalendarDays
 } from "lucide-react";
 
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 import { Container, SectionHeader } from "../ui";
 import type { Service } from "../../data/siteData";
 
@@ -26,7 +26,7 @@ const spaceIcons = [
 function SpacesSection({
   onSelectService
 }: SpacesSectionProps) {
-  const { spaces } = siteContent;
+  const { spaces } = useSiteContent();
 
   return (
     <section id="spaces" className="spaces-section">

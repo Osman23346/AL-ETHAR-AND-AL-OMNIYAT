@@ -10,7 +10,7 @@ export function useScrollReveal() {
       document.querySelectorAll<HTMLElement>("[data-reveal]")
     );
 
-    if (!elements.length || !("IntersectionObserver" in window)) return;
+    if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     document.documentElement.classList.add("reveal-ready");
 
@@ -25,11 +25,22 @@ export function useScrollReveal() {
       { threshold: 0.12, rootMargin: "0px 0px -45px 0px" }
     );
 
-    elements.forEach((element, index) => {
+    const watched = new WeakSet<HTMLElement>();
+    const observe = (element: HTMLElement, index: number) => {
+      if (watched.has(element)) return;
+      watched.add(element);
       element.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 55}ms`);
       observer.observe(element);
+    };
+    elements.forEach(observe);
+    const mutations = new MutationObserver(() => {
+      document.querySelectorAll<HTMLElement>("[data-reveal]").forEach(observe);
     });
-
-    return () => observer.disconnect();
+    mutations.observe(document.body, { childList: true, subtree: true });
+    return () => {
+      observer.disconnect();
+      mutations.disconnect();
+      document.documentElement.classList.remove("reveal-ready");
+    };
   }, []);
 }

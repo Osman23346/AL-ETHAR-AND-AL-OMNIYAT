@@ -1,7 +1,8 @@
 import { MessageCircle } from "lucide-react";
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 
 function FloatingWhatsApp() {
+  const siteContent = useSiteContent();
   return (
     <a
       href={`https://wa.me/${siteContent.contact.whatsapp}`}

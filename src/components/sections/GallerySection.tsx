@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 import { supabase } from "../../lib/supabaseClient";
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 import { Container, SectionHeader } from "../ui";
 
 type GalleryMedia = {
@@ -14,7 +14,7 @@ type GalleryMedia = {
 };
 
 function GallerySection() {
-  const { gallery } = siteContent;
+  const { gallery } = useSiteContent();
 
   const [images, setImages] = useState<string[]>(
     gallery.images

@@ -6,10 +6,10 @@ import {
   Phone
 } from "lucide-react";
 
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 
 function ContactSection() {
-  const { contact } = siteContent;
+  const { contact } = useSiteContent();
 
   return (
     <section id="contact" className="section contact">

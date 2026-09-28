@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import {
   ArrowLeft,
   Menu,
@@ -17,12 +17,12 @@ function Header() {
     <header className="header">
       <div className="container nav">
 
-        {/* ط§ظ„ظ‡ظˆظٹط© */}
+        {/* الهوية */}
         <a
           href="#home"
           className="logo"
           onClick={closeMenu}
-          aria-label={`ط§ظ„ط¹ظˆط¯ط© ط¥ظ„ظ‰ ط§ظ„طµظپط­ط© ط§ظ„ط±ط¦ظٹط³ظٹط© - ${brand.name}`}
+          aria-label={`العودة إلى الصفحة الرئيسية - ${brand.name}`}
         >
           <img
             src="/brand-logo.png"
@@ -39,14 +39,14 @@ function Header() {
           </span>
         </a>
 
-        {/* ظ‚ط§ط¦ظ…ط© ط§ظ„ط¬ظˆط§ظ„ */}
+        {/* قائمة الجوال */}
         <button
           className="mobile-menu"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label={
             menuOpen
-              ? "ط¥ط؛ظ„ط§ظ‚ ط§ظ„ظ‚ط§ط¦ظ…ط©"
-              : "ظپطھط­ ط§ظ„ظ‚ط§ط¦ظ…ط©"
+              ? "إغلاق القائمة"
+              : "فتح القائمة"
           }
           aria-expanded={menuOpen}
           aria-controls="main-navigation"
@@ -67,7 +67,7 @@ function Header() {
           )}
         </button>
 
-        {/* ط§ظ„ظ‚ط§ط¦ظ…ط© ط§ظ„ط±ط¦ظٹط³ظٹط© */}
+        {/* القائمة الرئيسية */}
         <nav
           id="main-navigation"
           className={
@@ -75,58 +75,58 @@ function Header() {
               ? "nav-links open"
               : "nav-links"
           }
-          aria-label="ط§ظ„طھظ†ظ‚ظ„ ط§ظ„ط±ط¦ظٹط³ظٹ"
+          aria-label="التنقل الرئيسي"
         >
           <a
             href="#home"
             onClick={closeMenu}
           >
-            ط§ظ„ط±ط¦ظٹط³ظٹط©
+            الرئيسية
           </a>
 
           <a
             href="#about"
             onClick={closeMenu}
           >
-            ط¹ظ† ط§ظ„ظ…ظƒط§ظ†
+            عن المكان
           </a>
 
           <a
             href="#spaces"
             onClick={closeMenu}
           >
-            ط§ظ„ظ…ط³ط§ط­ط§طھ
+            المساحات
           </a>
 
           <a
             href="#services"
             onClick={closeMenu}
           >
-            ط§ظ„ط®ط¯ظ…ط§طھ
+            الخدمات
           </a>
 
           <a
             href="#gallery"
             onClick={closeMenu}
           >
-            ط§ظ„ظ…ط¹ط±ط¶
+            المعرض
           </a>
 
           <a
             href="#contact"
             onClick={closeMenu}
           >
-            طھظˆط§طµظ„ ظ…ط¹ظ†ط§
+            تواصل معنا
           </a>
         </nav>
 
-        {/* ط²ط± ط§ظ„ط­ط¬ط² */}
+        {/* زر الحجز */}
         <a
           href="#services"
           className="header-button"
           onClick={closeMenu}
         >
-          <span>ط§ط­ط¬ط² ط®ط¯ظ…طھظƒ</span>
+          <span>احجز خدمتك</span>
 
           <ArrowLeft
             size={18}

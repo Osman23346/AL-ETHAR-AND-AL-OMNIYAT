@@ -23,6 +23,7 @@ import { siteContent } from "../data/content";
 function ContentManagement() {
   const [content, setContent] = useState(getSiteContent);
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState("");
 
   const updateHero = (
     field: keyof typeof siteContent.hero,
@@ -66,8 +67,8 @@ function ContentManagement() {
   ) => {
     setContent((current) => ({
       ...current,
-      services: {
-        ...current.services,
+      businessServices: {
+        ...current.businessServices,
         [field]: value,
       },
     }));
@@ -76,14 +77,26 @@ function ContentManagement() {
   };
 
   const handleSave = () => {
-    saveSiteContent(content);
-    setSaved(true);
+    try {
+      saveSiteContent(content);
+      setSaved(true);
+      setSaveError("");
+    } catch {
+      setSaved(false);
+      setSaveError("تعذر الحفظ. تحقق من السماح بالتخزين في المتصفح والمساحة المتاحة.");
+    }
   };
 
   const handleReset = () => {
-    resetSiteContent();
-    setContent(siteContent);
-    setSaved(false);
+    if (!window.confirm("هل تريد استعادة المحتوى الافتراضي وحذف تعديلات هذا المتصفح؟")) return;
+    try {
+      resetSiteContent();
+      setContent(siteContent);
+      setSaved(false);
+      setSaveError("");
+    } catch {
+      setSaveError("تعذر استعادة المحتوى. تحقق من إعدادات التخزين في المتصفح.");
+    }
   };
 
   return (
@@ -104,7 +117,7 @@ function ContentManagement() {
             <h1>إدارة محتوى الموقع</h1>
 
             <p>
-              تحكم في النصوص والمحتوى الأساسي الظاهر للزوار.
+              التعديلات معاينة محلية في هذا المتصفح فقط، ولا تُنشر لبقية الزوار.
             </p>
           </div>
 
@@ -133,13 +146,14 @@ function ContentManagement() {
         </div>
       </div>
 
+      {saveError && <p role="alert">{saveError}</p>}
       {saved && (
         <div className="content-saved-alert">
           <CheckCircle2 size={19} />
 
           <div>
             <strong>تم حفظ التغييرات</strong>
-            <span>تم تحديث محتوى الموقع بنجاح.</span>
+            <span>تم تحديث المعاينة المحلية في هذا المتصفح.</span>
           </div>
         </div>
       )}
@@ -454,7 +468,7 @@ function ContentManagement() {
             </span>
 
             <input
-              value={content.services.eyebrow}
+              value={content.businessServices.eyebrow}
               onChange={(e) =>
                 updateServices("eyebrow", e.target.value)
               }
@@ -471,7 +485,7 @@ function ContentManagement() {
             </span>
 
             <input
-              value={content.services.title}
+              value={content.businessServices.title}
               onChange={(e) =>
                 updateServices("title", e.target.value)
               }
@@ -488,7 +502,7 @@ function ContentManagement() {
             </span>
 
             <input
-              value={content.services.highlight}
+              value={content.businessServices.highlight}
               onChange={(e) =>
                 updateServices("highlight", e.target.value)
               }
@@ -506,7 +520,7 @@ function ContentManagement() {
 
             <textarea
               rows={5}
-              value={content.services.description}
+              value={content.businessServices.description}
               onChange={(e) =>
                 updateServices(
                   "description",

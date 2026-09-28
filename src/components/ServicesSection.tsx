@@ -115,7 +115,7 @@ function ServicesSection({
               title: service.title,
               description: service.description,
               image:
-                "image" in service && service.image
+                "image" in service && typeof service.image === "string" && service.image
                   ? service.image
                   : fallbackImage
             };

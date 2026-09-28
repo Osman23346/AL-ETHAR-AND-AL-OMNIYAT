@@ -6,7 +6,7 @@ import {
   TrendingUp
 } from "lucide-react";
 
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 import { Card, Container, SectionHeader } from "../ui";
 
 const valueIcons = [
@@ -18,7 +18,7 @@ const valueIcons = [
 ];
 
 function ValuesSection() {
-  const { values } = siteContent;
+  const { values } = useSiteContent();
 
   return (
     <section className="values-section">

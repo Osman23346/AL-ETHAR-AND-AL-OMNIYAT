@@ -3,11 +3,11 @@ import {
   Target
 } from "lucide-react";
 
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 import { Card, Container, SectionHeader } from "../ui";
 
 function VisionMissionSection() {
-  const { about } = siteContent;
+  const { about } = useSiteContent();
 
   return (
     <section className="vision-mission-section">

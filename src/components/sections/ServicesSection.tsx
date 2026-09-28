@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 import { supabase } from "../../lib/supabaseClient";
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 import { Button, Card, Container, SectionHeader } from "../ui";
 import type { Service } from "../../data/siteData";
 
@@ -42,9 +42,9 @@ const fallbackImage =
 function ServicesSection({
   onSelectService
 }: ServicesSectionProps) {
-  const { businessServices } = siteContent;
+  const { businessServices } = useSiteContent();
 
-  const [services, setServices] = useState(
+  const [services, setServices] = useState<Array<{ id: number; title: string; description: string; image?: string; databaseId?: number }>>(
     businessServices.items
   );
 
@@ -73,10 +73,9 @@ function ServicesSection({
 
       if (
         mounted &&
-        data &&
-        data.length > 0
+        data
       ) {
-        setServices(data as DatabaseService[]);
+        setServices((data as DatabaseService[]).map((service) => ({ ...service, databaseId: service.id })));
       }
     };
 
@@ -98,6 +97,7 @@ function ServicesSection({
         />
 
         <div className="services-grid">
+          {services.length === 0 && <p role="status">لا توجد خدمات متاحة حاليًا. تواصل معنا للاستفسار.</p>}
           {services.map((service, index) => {
             const Icon =
               serviceIcons[index] ||
@@ -105,10 +105,11 @@ function ServicesSection({
 
             const selectableService: Service = {
               id: service.id,
+              databaseId: service.databaseId,
               title: service.title,
               description: service.description,
               image:
-                "image" in service && service.image
+                "image" in service && typeof service.image === "string" && service.image
                   ? service.image
                   : fallbackImage
             };

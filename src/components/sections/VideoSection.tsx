@@ -1,9 +1,10 @@
 
 import { useEffect, useState } from "react";
 import { Play, X } from "lucide-react";
+import { useDialog } from "../../hooks/useDialog";
 
 import { supabase } from "../../lib/supabaseClient";
-import { siteContent } from "../../data/content";
+import { useSiteContent } from "../../hooks/useSiteContent";
 
 type VideoMedia = {
   id: string;
@@ -14,13 +15,14 @@ type VideoMedia = {
 };
 
 function VideoSection() {
-  const { video } = siteContent;
+  const { video } = useSiteContent();
 
   const [videoUrl, setVideoUrl] =
     useState<string | null>(null);
 
   const [isPlaying, setIsPlaying] =
     useState(false);
+  const dialogRef = useDialog(isPlaying, () => setIsPlaying(false));
 
   useEffect(() => {
     let mounted = true;
@@ -137,6 +139,8 @@ function VideoSection() {
       {isPlaying && videoUrl && (
         <div
           className="video-modal-backdrop"
+          ref={dialogRef}
+          tabIndex={-1}
           role="dialog"
           aria-modal="true"
           aria-label="الفيديو التعريفي"

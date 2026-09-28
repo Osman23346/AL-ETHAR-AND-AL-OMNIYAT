@@ -1,9 +1,11 @@
 import { ArrowLeft, ArrowRight, CalendarDays, Check, CheckCircle2, Clock3, LoaderCircle, ShieldCheck, X } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import { useDialog } from "../../hooks/useDialog";
 import { createPortal } from "react-dom";
 import { supabase } from "../../lib/supabaseClient";
 import type { Service } from "../../data/siteData";
 import type { BookingSubmitState } from "../../hooks/useServiceBooking";
+import { localDate, validateBookingContact } from "../../services/bookingValidation";
 
 type BookingModalProps = {
   service: Service | null;
@@ -23,44 +25,40 @@ function BookingModal({ service, submitted, submitState, submitError, onClose, o
   const [form, setForm] = useState({ name: "", phone: "", email: "", people: "", date: "", time: "", notes: "" });
   const [stepError, setStepError] = useState("");
 
-  const today = useMemo(() => new Date().toISOString().split("T")[0], []);
+  const today = localDate();
+  const dialogRef = useDialog(!!service, onClose, submitState !== "submitting");
 
   useEffect(() => {
     if (!service) { setFeatures([]); return; }
     setStep(1); setStepError("");
     setForm({ name: "", phone: "", email: "", people: "", date: "", time: "", notes: "" });
+    if (service.databaseId === undefined) { setFeatures([]); setFeaturesLoading(false); return; }
     let mounted = true;
     const loadFeatures = async () => {
       setFeaturesLoading(true);
-      const { data, error } = await supabase.from("service_features").select("id,service_id,title,active,sort_order").eq("service_id", service.id).eq("active", true).order("sort_order", { ascending: true });
+      setFeatures([]);
+      try {
+      const { data, error } = await supabase.from("service_features").select("id,service_id,title,active,sort_order").eq("service_id", service.databaseId).eq("active", true).order("sort_order", { ascending: true });
       if (mounted) { setFeatures(error ? [] : ((data ?? []) as ServiceFeature[])); setFeaturesLoading(false); }
+      } catch {
+        if (mounted) { setFeatures([]); setFeaturesLoading(false); }
+      }
     };
     loadFeatures();
     return () => { mounted = false; };
   }, [service]);
 
-  useEffect(() => {
-    if (!service) return;
-    const handleKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape" && submitState !== "submitting") onClose(); };
-    document.addEventListener("keydown", handleKeyDown);
-    const oldOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => { document.removeEventListener("keydown", handleKeyDown); document.body.style.overflow = oldOverflow; };
-  }, [service, onClose, submitState]);
-
   if (!service) return null;
 
   const update = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
   const goNext = () => {
-    if (!form.name.trim() || !/^05\d{8}$/.test(form.phone.replace(/\s/g, ""))) {
-      setStepError("أدخل الاسم ورقم جوال سعودي صحيح بصيغة 05xxxxxxxx."); return;
-    }
-    if (form.email && !/^\S+@\S+\.\S+$/.test(form.email)) { setStepError("تحقق من صيغة البريد الإلكتروني."); return; }
+    const error = validateBookingContact(form);
+    if (error) { setStepError(error); return; }
     setStepError(""); setStep(2);
   };
 
   const modalContent = (
-    <div className="modal-backdrop booking-experience" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title" onMouseDown={(e) => { if (e.target === e.currentTarget && submitState !== "submitting") onClose(); }}>
+    <div ref={dialogRef} tabIndex={-1} className="modal-backdrop booking-experience" role="dialog" aria-modal="true" aria-label={submitted ? "تم استلام الطلب" : undefined} aria-labelledby={submitted ? undefined : "booking-modal-title"} onMouseDown={(e) => { if (e.target === e.currentTarget && submitState !== "submitting") onClose(); }}>
       <div className="booking-modal booking-modal-v2">
         <button className="modal-close" onClick={onClose} disabled={submitState === "submitting"} aria-label="إغلاق نموذج طلب الخدمة" type="button"><X size={21} /></button>
 
@@ -82,7 +80,7 @@ function BookingModal({ service, submitted, submitState, submitError, onClose, o
               <div className="booking-service-features compact"><div className="booking-features-heading"><span className="booking-features-icon"><Check size={17} /></span><div><strong>ما تتضمنه الخدمة</strong><span>مزايا مختارة ضمن طلبك</span></div></div><ul>{features.slice(0, 4).map((feature) => <li key={feature.id}><span className="feature-check"><Check size={14} /></span><span>{feature.title}</span></li>)}</ul></div>
             )}
 
-            <form onSubmit={onSubmit} dir="rtl" noValidate>
+            <form onSubmit={(event) => { if (step === 1) { event.preventDefault(); goNext(); } else { onSubmit(event); } }} dir="rtl">
               {step === 1 ? (
                 <div className="booking-step-panel">
                   <div className="form-grid">
