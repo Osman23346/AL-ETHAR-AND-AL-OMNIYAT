@@ -1366,7 +1366,7 @@ function AdminApp() {
       >
         <div className="admin-logo">
           <img
-            src="/brand-logo.png"
+            src="/ethark-logo.jpg"
             alt="الإيثار والأمنيات"
             className="admin-logo-mark-image"
           />

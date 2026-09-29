@@ -31,7 +31,7 @@ function AboutPage() {
             aria-label={`العودة إلى الصفحة الرئيسية - ${brand.name}`}
           >
             <img
-              src="/brand-logo.png"
+              src="/ethark-logo.jpg"
               alt={brand.name}
               className="logo-mark-image"
             />

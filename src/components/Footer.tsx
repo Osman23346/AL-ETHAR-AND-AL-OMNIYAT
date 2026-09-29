@@ -120,7 +120,7 @@ function Footer() {
           <div className="logo footer-logo">
 
             <img
-              src="/brand-logo.png"
+              src="/ethark-logo.jpg"
               alt={brand.name}
               className="logo-mark-image"
             />

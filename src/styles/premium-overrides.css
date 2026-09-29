@@ -2469,3 +2469,50 @@ select:focus-visible {
     height: 44px !important;
   }
 }
+/* Supplied ETHARK artwork: preserve the complete 2:1 logo and its colors. */
+.header .logo:has(img[src="/ethark-logo.jpg"]) {
+  width: 184px !important;
+  min-width: 184px !important;
+  height: 96px !important;
+  padding: 4px !important;
+  border-radius: 12px !important;
+  background: #000 !important;
+  flex-shrink: 0;
+}
+.header .logo img[src="/ethark-logo.jpg"],
+.inner-page-header .logo img[src="/ethark-logo.jpg"] {
+  width: 176px !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: 88px !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  filter: none !important;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.footer img[src="/ethark-logo.jpg"] {
+  width: min(280px, 100%) !important;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: 2;
+  object-fit: contain !important;
+  filter: none !important;
+  border-radius: 10px;
+}
+@media (max-width: 900px) {
+  .header .logo:has(img[src="/ethark-logo.jpg"]) {
+    width: 152px !important;
+    min-width: 152px !important;
+    height: 80px !important;
+  }
+  .header .logo img[src="/ethark-logo.jpg"],
+  .inner-page-header .logo img[src="/ethark-logo.jpg"] {
+    width: 144px !important;
+    height: 72px !important;
+  }
+  .inner-page-header .logo:has(img[src="/ethark-logo.jpg"]) .logo-text {
+    display: none;
+  }
+}

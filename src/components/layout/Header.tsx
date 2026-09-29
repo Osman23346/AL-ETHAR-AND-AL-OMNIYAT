@@ -47,7 +47,7 @@ function Header() {
           aria-label={`العودة إلى الصفحة الرئيسية - ${brand.name}`}
         >
           <img
-            src="/brand-logo.png"
+            src="/ethark-logo.jpg"
             alt={brand.name}
             className="brand-logo-image"
           />

@@ -2549,3 +2549,21 @@
     display: none;
   }
 }
+
+/* Display the supplied horizontal logo without cropping the wordmark. */
+.admin-logo { flex-shrink: 0; }
+.admin-logo-mark-image[src="/ethark-logo.jpg"] {
+  width: 220px;
+  height: auto;
+  aspect-ratio: 2;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px !important;
+}
+.admin-login-brand img[src="/ethark-logo.jpg"] {
+  aspect-ratio: 2;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 10px;
+}

@@ -1,4 +1,4 @@
-﻿import {
+import {
   Facebook,
   Instagram,
   Linkedin,
@@ -121,7 +121,7 @@ function Footer() {
 
           <div className="logo footer-logo">
             <img
-              src="/brand-logo.png"
+              src="/ethark-logo.jpg"
               alt={brand.name}
               className="brand-logo-image"
             />
