@@ -23,7 +23,7 @@ function TermsPage() {
             aria-label={`العودة إلى الصفحة الرئيسية - ${brand.name}`}
           >
             <img
-              src="/ethark-logo.jpg"
+              src="/ethark-logo-transparent.png"
               alt={brand.name}
               className="logo-mark-image"
             />

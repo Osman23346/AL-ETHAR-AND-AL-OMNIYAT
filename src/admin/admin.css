@@ -2552,7 +2552,7 @@
 
 /* Display the supplied horizontal logo without cropping the wordmark. */
 .admin-logo { flex-shrink: 0; }
-.admin-logo-mark-image[src="/ethark-logo.jpg"] {
+.admin-logo-mark-image[src="/ethark-logo-transparent.png"] {
   width: 220px;
   height: auto;
   aspect-ratio: 2;
@@ -2560,7 +2560,7 @@
   object-position: center;
   border-radius: 8px !important;
 }
-.admin-login-brand img[src="/ethark-logo.jpg"] {
+.admin-login-brand img[src="/ethark-logo-transparent.png"] {
   aspect-ratio: 2;
   height: auto;
   object-fit: contain;

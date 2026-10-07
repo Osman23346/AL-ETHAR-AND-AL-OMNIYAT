@@ -2161,97 +2161,106 @@ select:focus-visible {
   }
 }
 
-
 /* =========================================================
-   CLEAN FINAL HEADER
+   FINAL HEADER — SINGLE SOURCE OF TRUTH
    ========================================================= */
 
 .header {
-  background: rgba(3, 15, 36, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  background: linear-gradient(
+    90deg,
+    rgba(18, 30, 46, 0.97) 0%,
+    rgba(22, 49, 66, 0.97) 55%,
+    rgba(17, 83, 96, 0.97) 100%
+  );
+
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+
+  transition:
+    background var(--transition-slow),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.header.header-scrolled {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 25, 38, 0.985) 0%,
+    rgba(18, 42, 58, 0.985) 55%,
+    rgba(14, 69, 81, 0.985) 100%
+  );
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
 .header .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   min-height: 92px;
   gap: 28px;
 }
 
+.header-scrolled .nav {
+  min-height: 84px;
+}
 
-/* =========================================================
-   BRAND LOGO
-   ========================================================= */
-
-.header .logo {
+/* Brand logo */
+.header .logo,
+.header .logo:has(img[src="/ethark-logo-transparent.png"]) {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-
   flex: 0 0 auto !important;
 
-  width: 128px !important;
-  min-width: 128px !important;
-  height: 76px !important;
-
+  width: 184px !important;
+  min-width: 184px !important;
+  height: 82px !important;
   margin: 0 !important;
-  padding: 7px 10px !important;
+  padding: 4px !important;
 
-  border-radius: 38px !important;
-
-  background:
-    linear-gradient(
-      145deg,
-      #171a1f,
-      #030405
-    ) !important;
-
-  border:
-    1px solid rgba(255, 255, 255, 0.14) !important;
-
-  box-shadow:
-    0 8px 26px rgba(0, 0, 0, 0.34),
-    inset 0 1px 1px rgba(255, 255, 255, 0.10) !important;
-
+  border: 0 !important;
+  border-radius: 12px !important;
+  background: transparent !important;
+  box-shadow: none !important;
   overflow: hidden !important;
-
   text-decoration: none !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
-
-/* صورة الشعار */
-
-.header .logo .brand-logo-image {
+.header .logo .brand-logo-image,
+.header .logo img[src="/ethark-logo-transparent.png"],
+.inner-page-header .logo img[src="/ethark-logo-transparent.png"] {
   display: block !important;
-
-  width: 108px !important;
-  min-width: 108px !important;
-  max-width: 108px !important;
-
-  height: 60px !important;
-  max-height: 60px !important;
-
+  width: 176px !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: 74px !important;
+  max-height: none !important;
   margin: 0 !important;
   padding: 0 !important;
 
   object-fit: contain !important;
   object-position: center !important;
-
   opacity: 1 !important;
-
-  filter:
-    brightness(1.16)
-    contrast(1.10)
-    saturate(1.14) !important;
-
+  filter: none !important;
   transform: none !important;
+  flex-shrink: 0;
 }
 
-
-/* إزالة عناصر الهوية القديمة */
+.header .logo:hover {
+  transform: translateY(-1px);
+  background: transparent !important;
+}
 
 .header .logo-text,
 .header .logo-subtitle,
@@ -2260,139 +2269,82 @@ select:focus-visible {
   display: none !important;
 }
 
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
+/* Navigation */
 .header .nav-links {
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex: 1 1 auto;
-
   gap: clamp(22px, 2.2vw, 38px);
-
   margin: 0;
 }
 
 .header .nav-links a {
   color: rgba(255, 255, 255, 0.90);
-
   font-size: 14px;
   font-weight: 600;
-
   white-space: nowrap;
-
   text-decoration: none;
 }
 
 .header .nav-links a:hover {
-  color: #ffffff;
+  color: #fff;
 }
 
-
-/* =========================================================
-   BOOKING BUTTON
-   ========================================================= */
-
+/* Booking button */
 .header .header-button {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
   flex: 0 0 auto;
-
   gap: 8px;
-
   min-height: 46px;
-
   padding: 0 18px;
 
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 14px;
+  background: rgba(255, 255, 255, 0.09);
 
-  border:
-    1px solid rgba(255, 255, 255, 0.16);
-
-  background:
-    rgba(255, 255, 255, 0.09);
-
-  color: #ffffff;
-
+  color: #fff;
   font-size: 13px;
   font-weight: 700;
-
   white-space: nowrap;
-
   text-decoration: none;
 }
 
 .header .header-button:hover {
-  background:
-    rgba(255, 255, 255, 0.15);
-
-  border-color:
-    rgba(64, 220, 230, 0.35);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(64, 220, 230, 0.35);
 }
 
-
-/* =========================================================
-   SCROLLED HEADER
-   ========================================================= */
-
-.header.header-scrolled {
-  background:
-    rgba(3, 15, 36, 0.96);
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.18);
+/* Footer logo */
+.footer-grid > * {
+  min-width: 0;
 }
 
-.header-scrolled .nav {
-  min-height: 84px;
+.footer .footer-logo {
+  width: 280px;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
-
-/* =========================================================
-   LOGO HOVER
-   ========================================================= */
-
-.header .logo:hover {
-  transform: translateY(-1px);
-
-  border-color:
-    rgba(58, 211, 224, 0.30) !important;
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.42),
-    0 0 18px rgba(40, 205, 225, 0.08) !important;
+.footer img[src="/ethark-logo-transparent.png"] {
+  width: 280px !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  filter: none !important;
 }
 
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
+/* Tablet */
 @media (max-width: 1050px) {
-
   .header .nav {
     gap: 16px;
-  }
-
-  .header .logo {
-    width: 110px !important;
-    min-width: 110px !important;
-    height: 70px !important;
-  }
-
-  .header .logo .brand-logo-image {
-    width: 94px !important;
-    min-width: 94px !important;
-    max-width: 94px !important;
-
-    height: 55px !important;
   }
 
   .header .nav-links {
@@ -2405,114 +2357,113 @@ select:focus-visible {
 
   .header .header-button {
     padding-inline: 14px;
-
     font-size: 12px;
   }
 }
 
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
+/* Mobile */
 @media (max-width: 900px) {
-
   .header .nav {
     min-height: 78px;
   }
 
-  .header .logo {
-    width: 100px !important;
-    min-width: 100px !important;
-    height: 62px !important;
-
-    padding: 5px 8px !important;
+  .header .logo,
+  .header .logo:has(img[src="/ethark-logo-transparent.png"]) {
+    width: 152px !important;
+    min-width: 152px !important;
+    height: 72px !important;
   }
 
-  .header .logo .brand-logo-image {
-    width: 84px !important;
-    min-width: 84px !important;
-    max-width: 84px !important;
-
-    height: 50px !important;
+  .header .logo .brand-logo-image,
+  .header .logo img[src="/ethark-logo-transparent.png"],
+  .inner-page-header .logo img[src="/ethark-logo-transparent.png"] {
+    width: 144px !important;
+    height: 64px !important;
   }
 
   .header .header-button {
     display: none;
   }
+
+  .header .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 15px;
+    left: 15px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: calc(100dvh - 100px);
+    overflow-y: auto;
+
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 18px;
+    background: rgba(8, 25, 45, 0.98);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .header .nav-links.open {
+    display: flex;
+  }
+
+  .header .nav-links a {
+    padding: 13px 14px;
+    font-size: 14px;
+  }
 }
 
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
+/* Small mobile */
 @media (max-width: 620px) {
-
   .header .nav {
     min-height: 72px;
   }
 
-  .header .logo {
-    width: 88px !important;
-    min-width: 88px !important;
+  .header .logo,
+  .header .logo:has(img[src="/ethark-logo-transparent.png"]) {
+    width: 132px !important;
+    min-width: 132px !important;
+    height: 64px !important;
+  }
+
+  .header .logo .brand-logo-image,
+  .header .logo img[src="/ethark-logo-transparent.png"] {
+    width: 124px !important;
     height: 56px !important;
-
-    border-radius: 28px !important;
   }
 
-  .header .logo .brand-logo-image {
-    width: 74px !important;
-    min-width: 74px !important;
-    max-width: 74px !important;
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-    height: 44px !important;
+  .footer-brand {
+    grid-column: 1;
   }
 }
-/* Supplied ETHARK artwork: preserve the complete 2:1 logo and its colors. */
-.header .logo:has(img[src="/ethark-logo.jpg"]) {
-  width: 184px !important;
-  min-width: 184px !important;
-  height: 96px !important;
-  padding: 4px !important;
-  border-radius: 12px !important;
-  background: #000 !important;
-  flex-shrink: 0;
+
+/* =========================================================
+   FOOTER LOGO SIZE FIX
+   ========================================================= */
+
+.footer .footer-logo {
+  width: auto !important;
+  max-width: 180px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
-.header .logo img[src="/ethark-logo.jpg"],
-.inner-page-header .logo img[src="/ethark-logo.jpg"] {
-  width: 176px !important;
-  min-width: 0 !important;
-  max-width: 100% !important;
-  height: 88px !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  object-position: center !important;
-  filter: none !important;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-.footer img[src="/ethark-logo.jpg"] {
-  width: min(280px, 100%) !important;
+
+.footer .brand-logo-image,
+.footer .logo-mark-image,
+.footer img[src="/ethark-logo-transparent.png"] {
+  width: 160px !important;
   height: auto !important;
-  max-height: none !important;
-  aspect-ratio: 2;
+  max-width: 100% !important;
+  max-height: 70px !important;
+
   object-fit: contain !important;
-  filter: none !important;
-  border-radius: 10px;
-}
-@media (max-width: 900px) {
-  .header .logo:has(img[src="/ethark-logo.jpg"]) {
-    width: 152px !important;
-    min-width: 152px !important;
-    height: 80px !important;
-  }
-  .header .logo img[src="/ethark-logo.jpg"],
-  .inner-page-header .logo img[src="/ethark-logo.jpg"] {
-    width: 144px !important;
-    height: 72px !important;
-  }
-  .inner-page-header .logo:has(img[src="/ethark-logo.jpg"]) .logo-text {
-    display: none;
-  }
 }

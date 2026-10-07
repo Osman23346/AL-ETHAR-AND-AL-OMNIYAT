@@ -191,7 +191,7 @@ export default function AdminLogin() {
             }}
           >
             <span className="admin-login-brand">
-              <img src="/ethark-logo.jpg" alt="الإيثار والأمنيات للأعمال والابتكار" />
+              <img src="/ethark-logo-transparent.png" alt="الإيثار والأمنيات للأعمال والابتكار" />
             </span>
 
             <div
