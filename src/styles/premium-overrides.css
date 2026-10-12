@@ -2467,3 +2467,70 @@ select:focus-visible {
 
   object-fit: contain !important;
 }
+
+/* ETHARK header identity: preserve the existing icon and show the brand name. */
+.header .logo:has(.ethark-header-wordmark) {
+  width: auto !important;
+  min-width: 0 !important;
+  height: 82px !important;
+  gap: 10px !important;
+  justify-content: flex-start !important;
+  direction: rtl;
+}
+.header .logo .brand-logo-image {
+  width: 72px !important;
+  height: 72px !important;
+  flex: 0 0 72px;
+  object-fit: contain !important;
+}
+.header .ethark-header-wordmark {
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+.header .ethark-header-wordmark strong {
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1.2;
+  background: linear-gradient(110deg, #e8faff, #35e4e5 40%, #358dff 75%, #9a6aff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.header .ethark-header-wordmark small {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: #d5e9ff;
+}
+@media (max-width: 900px) {
+  .header .logo:has(.ethark-header-wordmark) {
+    height: 72px !important;
+    gap: 7px !important;
+  }
+  .header .logo .brand-logo-image {
+    width: 60px !important;
+    height: 60px !important;
+    flex-basis: 60px;
+  }
+  .header .ethark-header-wordmark strong { font-size: 22px; }
+  .header .ethark-header-wordmark small { font-size: 12px; }
+}
+@media (max-width: 620px) {
+  .header .logo:has(.ethark-header-wordmark) {
+    height: 64px !important;
+    gap: 6px !important;
+    padding: 2px !important;
+  }
+  .header .logo .brand-logo-image {
+    width: 54px !important;
+    height: 54px !important;
+    flex-basis: 54px;
+  }
+  .header .ethark-header-wordmark strong { font-size: 20px; }
+  .header .ethark-header-wordmark small { font-size: 11px; letter-spacing: 1px; }
+}
