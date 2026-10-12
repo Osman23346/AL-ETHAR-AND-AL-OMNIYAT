@@ -2534,3 +2534,31 @@ select:focus-visible {
   .header .ethark-header-wordmark strong { font-size: 20px; }
   .header .ethark-header-wordmark small { font-size: 11px; letter-spacing: 1px; }
 }
+
+
+/* Fix mobile wordmark clipping: override legacy fixed-width logo selector. */
+.header .logo:has(img[src="/ethark-logo-transparent.png"]):has(.ethark-header-wordmark) {
+  width: max-content !important;
+  min-width: max-content !important;
+  max-width: calc(100vw - 110px) !important;
+  overflow: visible !important;
+  gap: 10px !important;
+  justify-content: flex-start !important;
+}
+.header .logo:has(.ethark-header-wordmark) .ethark-header-wordmark {
+  flex: 0 0 auto;
+  min-width: max-content;
+  overflow: visible;
+}
+@media (max-width: 620px) {
+  .header .logo:has(img[src="/ethark-logo-transparent.png"]):has(.ethark-header-wordmark) {
+    width: max-content !important;
+    min-width: max-content !important;
+    max-width: calc(100vw - 105px) !important;
+    overflow: visible !important;
+    gap: 8px !important;
+  }
+  .header .logo:has(.ethark-header-wordmark) .ethark-header-wordmark strong {
+    font-size: 20px !important;
+  }
+}
