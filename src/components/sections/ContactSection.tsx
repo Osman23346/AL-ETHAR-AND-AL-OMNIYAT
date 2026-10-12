@@ -10,6 +10,8 @@ import { useSiteContent } from "../../hooks/useSiteContent";
 
 function ContactSection() {
   const { contact } = useSiteContent();
+  const phoneDisplay = String(contact.phone ?? "").replace(/[^\d+]/g, "").replace(/^\+?9660?/, "+966");
+  const whatsappDigits = String(contact.whatsapp ?? "").replace(/\D/g, "");
 
   return (
     <section id="contact" className="section contact">
@@ -31,7 +33,7 @@ function ContactSection() {
 
           <div className="contact-list">
 
-            <a href={`tel:${contact.phone}`}>
+            <a href={`tel:${phoneDisplay}`}>
               <span
                 className="contact-icon"
                 aria-hidden="true"
@@ -44,7 +46,7 @@ function ContactSection() {
 
               <span>
                 <small>الهاتف</small>
-                <strong>{contact.phone}</strong>
+                <strong dir="ltr" style={{ direction: "ltr", unicodeBidi: "isolate", display: "inline-block", whiteSpace: "nowrap" }}>{phoneDisplay}</strong>
               </span>
             </a>
 
@@ -106,7 +108,7 @@ function ContactSection() {
           </p>
 
           <a
-            href={`https://wa.me/${contact.whatsapp}`}
+            href={`https://wa.me/${whatsappDigits}`}
             target="_blank"
             rel="noreferrer"
             className="whatsapp-button"
