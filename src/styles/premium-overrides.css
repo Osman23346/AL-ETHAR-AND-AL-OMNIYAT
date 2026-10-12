@@ -2654,3 +2654,67 @@ select:focus-visible {
   .header .ethark-header-wordmark strong { font-size: 24px !important; }
   .header .ethark-header-wordmark small { font-size: 15px !important; letter-spacing: 1px !important; }
 }
+
+
+/* Footer uses the same bilingual identity as the site header. */
+.footer .ethark-footer-lockup {
+  display: flex !important;
+  flex-direction: row !important;
+  direction: rtl;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 72px;
+  gap: 12px !important;
+  padding: 0 !important;
+  margin: 0 0 16px !important;
+  overflow: visible !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.footer .ethark-footer-lockup .brand-logo-image {
+  display: block !important;
+  flex: 0 0 68px !important;
+  width: 68px !important;
+  height: 68px !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+.footer .ethark-footer-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  gap: 1px;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+.footer .ethark-footer-wordmark strong {
+  font-family: Tahoma, "Noto Sans Arabic", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #6ce8f0;
+}
+.footer .ethark-footer-wordmark small {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #fff;
+}
+@media (max-width: 620px) {
+  .footer .ethark-footer-lockup { gap: 10px !important; }
+  .footer .ethark-footer-lockup .brand-logo-image {
+    flex-basis: 58px !important;
+    width: 58px !important;
+    height: 58px !important;
+  }
+  .footer .ethark-footer-wordmark strong { font-size: 23px; }
+  .footer .ethark-footer-wordmark small { font-size: 14px; }
+}
