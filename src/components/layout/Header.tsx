@@ -51,6 +51,10 @@ function Header() {
             alt={brand.name}
             className="brand-logo-image"
           />
+          <span className="ethark-header-wordmark" aria-hidden="true">
+            <strong>إيثارك</strong>
+            <small>ETHARK</small>
+          </span>
         </a>
 
         {/* القائمة الرئيسية */}
