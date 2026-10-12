@@ -119,12 +119,16 @@ function Footer() {
         {/* الهوية */}
         <div className="footer-brand">
 
-          <div className="logo footer-logo">
+          <div className="logo footer-logo ethark-footer-lockup" aria-label="إيثارك ETHARK">
             <img
               src="/ethark-logo-transparent.png"
-              alt={brand.name}
+              alt=""
               className="brand-logo-image"
             />
+            <span className="ethark-footer-wordmark" aria-hidden="true">
+              <strong>إيثارك</strong>
+              <small>ETHARK</small>
+            </span>
           </div>
 
           <p className="footer-description">
