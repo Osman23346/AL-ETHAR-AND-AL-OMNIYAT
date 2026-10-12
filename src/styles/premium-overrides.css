@@ -2578,3 +2578,32 @@ select:focus-visible {
   padding-block: 2px !important;
   overflow: visible !important;
 }
+
+
+/* ETHARK wordmark optical alignment: lower Arabic slightly and enlarge English. */
+.header .ethark-header-wordmark {
+  gap: 0 !important;
+  transform: translateY(3px);
+}
+.header .ethark-header-wordmark strong {
+  transform: translateY(3px);
+  margin: 0 !important;
+}
+.header .ethark-header-wordmark small {
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.2px !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+}
+@media (max-width: 900px) {
+  .header .ethark-header-wordmark small { font-size: 15px !important; }
+}
+@media (max-width: 620px) {
+  .header .ethark-header-wordmark { transform: translateY(4px); }
+  .header .ethark-header-wordmark strong { transform: translateY(3px); }
+  .header .ethark-header-wordmark small {
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+  }
+}
