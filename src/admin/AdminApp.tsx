@@ -25,6 +25,7 @@ import "./admin.css";
 
 import { supabase } from "../lib/supabaseClient";
 import ContentManagement from "./ContentManagement";
+import BlogManagement from "./BlogManagement";
 import { getSiteContent, saveSiteContent } from "../services/contentService";
 
 type Service = {
@@ -1292,6 +1293,11 @@ function AdminApp() {
       icon: Pencil
     },
     {
+      id: "blog",
+      title: "المقالات والمدونة",
+      icon: Pencil
+    },
+    {
       id: "media",
       title: "الصور والفيديو",
       icon: Image
@@ -1582,6 +1588,8 @@ function AdminApp() {
             "content" && (
             <ContentManagement />
           )}
+
+          {activePage === "blog" && <BlogManagement />}
 
           {activePage ===
             "media" && (
