@@ -358,27 +358,27 @@ function Footer() {
         <div>
           <h4>روابط سريعة</h4>
 
-          <a href="#home">
+          <a href="/">
             الرئيسية
           </a>
 
-          <a href="#about">
+          <a href="/#about">
             عن المكان
           </a>
 
-          <a href="#spaces">
+          <a href="/#spaces">
             المساحات
           </a>
 
-          <a href="#services">
+          <a href="/#services">
             الخدمات
           </a>
 
-          <a href="#gallery">
+          <a href="/#gallery">
             المعرض
           </a>
 
-          <a href="#contact">
+          <a href="/#contact">
             تواصل معنا
           </a>
         </div>
@@ -386,6 +386,10 @@ function Footer() {
         {/* الشركة */}
         <div>
           <h4>الشركة</h4>
+
+          <a href="/blog">
+            رؤى إيثارك
+          </a>
 
           <a href="/about">
             من نحن
