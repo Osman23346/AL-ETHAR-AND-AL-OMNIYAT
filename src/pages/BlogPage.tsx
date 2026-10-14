@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 type Category = { name: string; slug: string };
 type Post = { id: string; title: string; slug: string; excerpt: string | null; content: string; cover_image_url: string | null; image_alt: string | null; seo_title: string | null; seo_description: string | null; published_at: string | null; blog_categories: Category | null };
-const safe = (value: string) => value.replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c] || c));
 function Meta({ title, description }: { title: string; description: string }) {
   useEffect(() => {
     document.title = title;
