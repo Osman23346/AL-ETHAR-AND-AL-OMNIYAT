@@ -56,9 +56,9 @@ async function main() {
         .replace("</head>",tags+"\n</head>");
       const content='<main lang="ar" dir="rtl" style="max-width:900px;margin:3rem auto;padding:1rem;font-family:system-ui,sans-serif"><nav><a href="/">إيثارك</a> / <a href="/blog">رؤى إيثارك</a></nav><article><h1>'+esc(post.title)+'</h1><p>'+esc(excerpt(post))+'</p>'+(image?'<img src="'+esc(image)+'" alt="'+esc(post.image_alt || post.title)+'" style="max-width:100%;height:auto" />':"")+articleHtml(post.content)+'</article></main>';
       html=html.replace('<div id="root"></div>','<div id="root">'+content+'</div>');
-      const dir=resolve("dist/blog",post.slug);
+      const dir=resolve("dist/blog");
       await mkdir(dir,{recursive:true});
-      await writeFile(join(dir,"index.html"),html,"utf8");
+      await writeFile(join(dir,post.slug+".html"),html,"utf8");
     }
     console.log("[prerender] Generated "+posts.length+" article HTML pages.");
   } catch(error) {
