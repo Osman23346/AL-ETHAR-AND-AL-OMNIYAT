@@ -11,6 +11,7 @@ const AdminGuard = lazy(() => import("./admin/AdminGuard"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const TermsPage = lazy(() => import("./pages/TermsPage"));
 const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
 
 import "./theme.css";
 import "./styles.css";
@@ -51,6 +52,9 @@ function AppRouter() {
    * الصفحات العامة
    * ==============================
    */
+
+  if (path === "/blog") return <BlogPage />;
+  if (path.startsWith("/blog/")) return <BlogPage slug={decodeURIComponent(path.slice(6))} />;
 
   if (path === "/about") {
     return <AboutPage />;
