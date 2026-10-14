@@ -9,6 +9,10 @@
       "destination": "/robots.txt"
     },
     {
+      "source": "/blog/:slug",
+      "destination": "/blog/:slug/index.html"
+    },
+    {
       "source": "/((?!api/|assets/|sitemap\\.xml$|robots\\.txt$).*)",
       "destination": "/index.html"
     }
