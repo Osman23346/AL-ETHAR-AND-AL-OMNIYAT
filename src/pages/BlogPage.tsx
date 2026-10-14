@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 type Category = { name: string; slug: string };
-type Post = { id: string; title: string; slug: string; excerpt: string | null; content: string; cover_image_url: string | null; image_alt: string | null; seo_title: string | null; seo_description: string | null; published_at: string | null; blog_categories: Category | null };
+type Post = { id: string; title: string; slug: string; excerpt: string | null; content: string; cover_image_url: string | null; image_alt: string | null; seo_title: string | null; seo_description: string | null; published_at: string | null; blog_categories?: Category | null };
 function Meta({ title, description }: { title: string; description: string }) {
   useEffect(() => {
     document.title = title;
@@ -18,10 +18,10 @@ export default function BlogPage({ slug }: { slug?: string }) {
   useEffect(() => {
     let alive = true;
     const run = async () => {
-      let query = supabase.from("blog_posts").select("id,title,slug,excerpt,content,cover_image_url,image_alt,seo_title,seo_description,published_at,blog_categories(name,slug)").eq("status","published").lte("published_at",new Date().toISOString()).order("published_at",{ascending:false});
+      let query = supabase.from("blog_posts").select("id,title,slug,excerpt,content,cover_image_url,image_alt,seo_title,seo_description,published_at)").eq("status","published").lte("published_at",new Date().toISOString()).order("published_at",{ascending:false});
       if (slug) query = query.eq("slug",slug);
       const { data, error } = await query;
-      if (alive) { if (error) setError("تعذر تحميل المقالات حاليًا"); else setPosts((data || []) as unknown as Post[]); setLoading(false); }
+      if (alive) { if (error) { console.error("Blog query failed", error); setError("تعذر تحميل المقالات حاليًا (" + error.code + ")"); } else setPosts((data || []) as unknown as Post[]); setLoading(false); }
     };
     void run(); return () => { alive = false; };
   }, [slug]);
