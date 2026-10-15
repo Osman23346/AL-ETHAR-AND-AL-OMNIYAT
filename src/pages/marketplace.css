@@ -346,3 +346,6 @@
  .em-v2 .em2-editorial-card{height:120px}
  .em-v2 .em2-join-copy h2{font-size:21px}
 }
+
+/* Marketplace inquiries */
+.em-inquiry{border-top:1px solid #dfece8;margin-top:23px;padding-top:18px}.em-inquiry h3{margin:0 0 8px;font-size:20px;color:#083951}.em-inquiry form{display:flex;flex-direction:column;gap:13px;margin-top:16px}.em-inquiry label{display:flex;flex-direction:column;gap:6px;color:#16475d;font-size:13px;font-weight:750}.em-inquiry input,.em-inquiry textarea{font:inherit;font-size:14px;padding:11px 12px;border:1px solid #cbdeda;border-radius:9px;width:100%;max-width:100%;background:#fff;color:#133a4c}.em-inquiry input:focus,.em-inquiry textarea:focus{outline:2px solid #69c3e4;outline-offset:1px}.em-inquiry textarea{resize:vertical}.em-inquiry form button{width:100%;border:0;cursor:pointer;justify-content:center}.em-inquiry form button:disabled{opacity:.6;cursor:wait}.em-inquiry form>small{font-size:11px;line-height:1.8;color:#73888f}.em-inquiry form>small a{color:#067cb4}.em-inquiry-error{color:#a83a32;font-size:13px}.em-inquiry-success{background:#e5f7ed;border:1px solid #b9e5ce;padding:16px;border-radius:10px;color:#17674a;line-height:1.8}
