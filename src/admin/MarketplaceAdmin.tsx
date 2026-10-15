@@ -13,7 +13,7 @@ export default function MarketplaceAdmin(){
  const [categories,setCategories]=useState<Category[]>([]),[partners,setPartners]=useState<Partner[]>([]),[listings,setListings]=useState<Listing[]>([]);
  const [invoices,setInvoices]=useState<{invoice_number:number;order_id:string;status:string;customer_name:string;total_sar:number;issued_at:string}[]>([]);
  const [orders,setOrders]=useState<Order[]>([]);
- const [inquiries,setInquiries]=useState<Inquiry[]>([]);\n
+ const [inquiries,setInquiries]=useState<Inquiry[]>([]);
  const [loading,setLoading]=useState(true),[busy,setBusy]=useState(false),[error,setError]=useState(""),[message,setMessage]=useState("");
  const [partnerName,setPartnerName]=useState(""),[partnerDescription,setPartnerDescription]=useState(""),[partnerWebsite,setPartnerWebsite]=useState(""),[partnerEmail,setPartnerEmail]=useState(""),[partnerLogo,setPartnerLogo]=useState("");
  const [editingListing,setEditingListing]=useState<string|null>(null),[editingPartner,setEditingPartner]=useState<string|null>(null);
