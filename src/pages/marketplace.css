@@ -194,3 +194,15 @@
 .em-detail-note{color:#718891;line-height:1.8;font-size:13px}
 @media(max-width:780px){.em-detail-grid{grid-template-columns:1fr}.em-detail-aside{order:2}}
 @media(max-width:620px){.em-detail-hero{padding:35px 0 45px}.em-detail-hero h1{font-size:32px}.em-detail-content{padding-top:28px;padding-bottom:24px}.em-detail-main,.em-detail-aside{padding:22px 19px;border-radius:16px}.em-detail-main h2{font-size:24px}.em-detail-description{font-size:16px}}
+
+
+/* Branded media fallbacks */
+.em-media-fallback{width:100%;height:100%;min-height:130px;display:flex;align-items:center;justify-content:center;color:#0c8a7e;background:radial-gradient(circle at 25% 15%,#ffffff90,transparent 45%),linear-gradient(130deg,#d8f2e9,#b7dedb)}
+.em-card-media .em-media-fallback svg{width:45px;height:45px;opacity:.7}
+.em-detail-cover{height:285px;overflow:hidden;border-radius:14px;margin-bottom:27px;background:#e3f2ec}
+.em-detail-cover .em-detail-image{display:block;width:100%;height:100%;max-height:none;margin:0;object-fit:cover}
+.em-detail-cover .em-media-fallback{min-height:285px}
+.em-partner-logo{width:100px;height:80px;border:1px solid #e3eeea;border-radius:12px;background:#fff;overflow:hidden;display:grid;place-items:center}
+.em-partner-logo img{width:100%;height:100%;object-fit:contain;padding:8px}
+.em-partner-logo .em-media-fallback{min-height:80px}
+@media(max-width:620px){.em-detail-cover{height:220px}.em-detail-cover .em-media-fallback{min-height:220px}}
