@@ -374,6 +374,10 @@ function Footer() {
             الخدمات
           </a>
 
+          <a href="/marketplace">
+            سوق إيثارك
+          </a>
+
           <a href="/#gallery">
             المعرض
           </a>
