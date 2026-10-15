@@ -28,6 +28,7 @@ import { supabase } from "../lib/supabaseClient";
 import ContentManagement from "./ContentManagement";
 import BlogManagement from "./BlogManagement";
 import EmployeeRegistry from "./EmployeeRegistry";
+import AccountingAdmin from "./AccountingAdmin";
 import { getSiteContent, saveSiteContent } from "../services/contentService";
 
 type Service = {
@@ -1305,6 +1306,11 @@ function AdminApp() {
       icon: UserRound
     },
     {
+      id: "accounting",
+      title: "المحاسبة والمالية",
+      icon: BarChart3
+    },
+    {
       id: "marketplace",
       title: "سوق إيثارك",
       icon: BriefcaseBusiness
@@ -1612,6 +1618,7 @@ function AdminApp() {
           )}
 
           {activePage === "employees" && <EmployeeRegistry />}
+          {activePage === "accounting" && <AccountingAdmin />}
 
           {activePage ===
             "media" && (
