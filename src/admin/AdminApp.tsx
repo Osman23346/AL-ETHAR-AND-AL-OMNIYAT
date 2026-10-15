@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   BarChart3,
+  BriefcaseBusiness,
   CalendarDays,
   ChevronDown,
   ChevronLeft,
@@ -1298,6 +1299,11 @@ function AdminApp() {
       icon: Pencil
     },
     {
+      id: "marketplace",
+      title: "سوق إيثارك",
+      icon: BriefcaseBusiness
+    },
+    {
       id: "media",
       title: "الصور والفيديو",
       icon: Image
@@ -1590,6 +1596,14 @@ function AdminApp() {
           )}
 
           {activePage === "blog" && <BlogManagement />}
+
+          {activePage === "marketplace" && (
+            <section style={{padding:24,background:"#fff",borderRadius:16}} dir="rtl">
+              <h2>إدارة سوق إيثارك</h2>
+              <p>إدارة التصنيفات والشركاء والعروض المنشورة والمسودات.</p>
+              <a href="/admin/marketplace" style={{display:"inline-block",padding:"12px 20px",background:"#116c68",color:"#fff",borderRadius:10,textDecoration:"none"}}>فتح إدارة السوق ←</a>
+            </section>
+          )}
 
           {activePage ===
             "media" && (
