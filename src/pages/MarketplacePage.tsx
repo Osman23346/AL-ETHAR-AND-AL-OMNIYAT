@@ -1,62 +1,71 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowUpLeft, BriefcaseBusiness, GraduationCap, Handshake, Laptop, Search, Sparkles, Wallet, Building2, Users, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpLeft, BriefcaseBusiness, GraduationCap, Handshake, Laptop, Search, Sparkles, Wallet, Building2, Users, Lightbulb, ShoppingBag, Star, TrendingUp, Menu, X, CalendarDays } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
-import Footer from "../components/layout/Footer";
 import MarketplaceImage from "../components/MarketplaceImage";
+import Footer from "../components/layout/Footer";
 import "./marketplace.css";
 
-type Category = { id: string; name_ar: string; slug: string; description: string | null; icon: string | null; sort_order: number };
-type Listing = { id: string; category_id: string; partner_id: string; title: string; slug: string; description: string | null; image_url: string | null; listing_type: string; price_description: string | null; is_featured: boolean; published_at: string | null };
-const fallbackCategories = [
-  {slug:"software-tools",name_ar:"الأدوات والبرامج",icon:Laptop,description:"أدوات ومنصات تدعم أعمالك."},
-  {slug:"jobs-talent",name_ar:"الوظائف والمواهب",icon:BriefcaseBusiness,description:"فرص وظيفية ومواهب مؤهلة."},
-  {slug:"courses-training",name_ar:"التدريب والدورات",icon:GraduationCap,description:"طوّر مهاراتك ومعرفتك."},
-  {slug:"funding-investment",name_ar:"التمويل والاستثمار",icon:Wallet,description:"فرص تمويل وبرامج دعم."},
-  {slug:"professional-services",name_ar:"الخدمات المهنية",icon:Handshake,description:"استشارات وخدمات متخصصة."},
-  {slug:"partnerships",name_ar:"الشراكات",icon:Users,description:"ابحث عن شركاء محتملين."},
-  {slug:"workspaces",name_ar:"مساحات العمل",icon:Building2,description:"مكاتب وقاعات لاجتماعاتك."},
-  {slug:"incubators-support",name_ar:"الحاضنات والدعم",icon:Sparkles,description:"برامج ومبادرات للنمو."},
+type Category={id:string;name_ar:string;slug:string;description:string|null;icon:string|null;sort_order:number};
+type Listing={id:string;category_id:string;partner_id:string|null;title:string;slug:string;description:string|null;image_url:string|null;listing_type:string;price_description:string|null;is_featured:boolean;published_at:string|null};
+type Partner={id:string;name:string;logo_url:string|null};
+const categoriesUI=[
+ {slug:"software-tools",title:"البرامج والأدوات",desc:"المحاسبة، إدارة المشاريع، التسويق، المتاجر والذكاء الاصطناعي",icon:Laptop},
+ {slug:"jobs-talent",title:"التوظيف والكفاءات",desc:"البحث عن موظفين، مستقلين، خبراء وشركات توظيف",icon:Users},
+ {slug:"courses-training",title:"الدورات والتدريب",desc:"ورش العمل، الشهادات المهنية وبرامج التطوير",icon:GraduationCap},
+ {slug:"funding-investment",title:"التمويل والاستثمار",desc:"المستثمرون، مسرعات الأعمال، المنح وفرص التمويل",icon:TrendingUp},
+ {slug:"professional-services",title:"الخدمات المهنية",desc:"الخدمات القانونية والمحاسبية والاستشارية والتسويقية",icon:BriefcaseBusiness},
+ {slug:"partnerships",title:"الشراكات والفرص",desc:"شركاء الأعمال، الموردون والامتياز التجاري",icon:Handshake},
+ {slug:"workspaces",title:"المكاتب والمساحات",desc:"المكاتب المشتركة والخاصة وقاعات الاجتماعات",icon:Building2},
+ {slug:"incubators-support",title:"الحاضنات وبرامج الدعم",desc:"برامج الاحتضان والإرشاد والتمكين ودعم المشاريع",icon:Lightbulb}
 ];
-export default function MarketplacePage() {
-  const [categories,setCategories]=useState<Category[]>([]);
-  const [listings,setListings]=useState<Listing[]>([]);
-  const [loading,setLoading]=useState(true);
-  const [error,setError]=useState("");
-  const [query,setQuery]=useState("");
-  const [category,setCategory]=useState("all");
-  const [selected,setSelected]=useState<Listing | null>(null);
-  useEffect(()=>{
-    document.title="سوق إيثارك | فرص وأدوات لنمو أعمالك";
-    let active=true;
-    Promise.all([
-      supabase.from("marketplace_public_categories").select("id,name_ar,slug,description,icon,sort_order").order("sort_order"),
-      supabase.from("marketplace_public_listings").select("id,category_id,partner_id,title,slug,description,image_url,listing_type,price_description,is_featured,published_at").order("published_at",{ascending:false})
-    ]).then(([c,l])=>{
-      if(!active)return;
-      if(c.error || l.error){setError("تعذر الاتصال بسوق إيثارك حاليًا. يرجى المحاولة لاحقًا.");}
-      else {setCategories((c.data||[]) as Category[]);setListings((l.data||[]) as Listing[]);}
-      setLoading(false);
-    }).catch(()=>{if(active){setError("تعذر تحميل السوق.");setLoading(false);}});
-    return()=>{active=false;};
-  },[]);
-  const visible=useMemo(()=>listings.filter(l=>(category==="all"||l.category_id===category)&&[l.title,l.description||""].join(" ").toLowerCase().includes(query.trim().toLowerCase())),[listings,category,query]);
-  const activeCategory=categories.find(c=>c.id===category);
-  const chooseCategory=(id:string)=>{setCategory(id);document.getElementById("results")?.scrollIntoView({behavior:"smooth",block:"start"});};
-  useEffect(()=>{
-    if(!selected)return;
-    const onKey=(event:KeyboardEvent)=>{if(event.key==="Escape")setSelected(null);};
-    window.addEventListener("keydown",onKey);
-    return()=>window.removeEventListener("keydown",onKey);
-  },[selected]);
-  return <div className="em" dir="rtl">
-    <header className="em-nav"><div className="em-container em-nav-inner"><a href="/" className="em-brand"><img src="/ethark-logo-transparent.png" alt=""/><span><strong>إيثارك</strong><small>ETHARK</small></span></a><nav><a href="/">الرئيسية</a><a href="/blog">رؤى إيثارك</a><a href="/marketplace" aria-current="page">سوق إيثارك</a></nav><a className="em-nav-cta" href="/#contact">تواصل معنا <ArrowUpLeft size={17}/></a></div></header>
-    <main>
-      <section className="em-hero"><div className="em-container"><span className="em-eyebrow"><Sparkles size={16}/> فرصتك القادمة تبدأ هنا</span><h1>كل ما يحتاجه مشروعك،<br/><em>في مكان واحد.</em></h1><p>اكتشف الأدوات والخدمات والفرص التي تساعدك على تأسيس أعمالك وتطويرها. سوق إيثارك يجمع لك خيارات مختارة لرحلة نمو أكثر سهولة.</p><label className="em-hero-search"><Search size={20}/><input type="search" aria-label="ابحث في سوق إيثارك" placeholder="ابحث عن خدمة أو فرصة..." value={query} onChange={e=>setQuery(e.target.value)}/><a href="#results" aria-label="عرض نتائج البحث"><ArrowLeft size={20}/></a></label><div className="em-hero-tags"><span>أدوات رقمية</span><span>تدريب</span><span>شراكات</span><span>فرص أعمال</span></div></div><div className="em-hero-orb" aria-hidden="true"><div className="em-orb-mark"><img src="/ethark-logo-transparent.png" alt=""/><strong>إيثارك</strong><span>سوق الأعمال</span></div></div></section>
-      <section className="em-container em-section" id="explore"><div className="em-section-heading"><div><span className="em-overline">اكتشف ما يناسبك</span><h2>مجالات تدعم طموحك</h2><p>اختر المجال الذي تبحث عنه لتجد الفرص المتاحة.</p></div><a className="em-all-link" href="#results">عرض الفرص <ArrowLeft size={17}/></a></div><div className="em-categories"><button className={category==="all"?"active":""} onClick={()=>chooseCategory("all")}><Sparkles size={22}/><span>جميع الفرص<small>تصفح كل الفرص المتاحة.</small></span><i aria-hidden="true"><ArrowLeft size={16}/></i></button>{fallbackCategories.map(item=>{const Icon=item.icon;const found=categories.find(c=>c.slug===item.slug);return <button key={item.slug} disabled={!found} className={category===found?.id?"active":""} onClick={()=>found&&chooseCategory(found.id)}><Icon size={22}/><span>{found?.name_ar||item.name_ar}<small>{item.description}</small></span><i aria-hidden="true"><ArrowLeft size={16}/></i>{!found&&<b className="em-soon">قريبًا</b>}</button>;})}</div><div className="em-highlights"><a href="#results" className="em-highlight"><span className="em-highlight-icon"><Sparkles size={27}/></span><strong>فرص وخدمات نوعية</strong><small>اكتشف الجهات والخدمات المتاحة.</small><span className="em-highlight-action">تصفح الفرص <ArrowLeft size={16}/></span></a><a href="#results" className="em-highlight"><span className="em-highlight-icon"><Laptop size={27}/></span><strong>أدوات رقمية فعّالة</strong><small>حلول تقنية تساعدك على التطور.</small><span className="em-highlight-action">اكتشف الأدوات <ArrowLeft size={16}/></span></a><a href="/#spaces" className="em-highlight"><span className="em-highlight-icon"><Building2 size={27}/></span><strong>مساحات عمل ملهمة</strong><small>مكاتب وقاعات مجهزة لدعم أعمالك.</small><span className="em-highlight-action">تعرّف على المساحات <ArrowLeft size={16}/></span></a></div></section>
-      <section className="em-results" id="results"><div className="em-container"><div className="em-results-heading"><div><span className="em-overline">فرص مختارة لك</span><h2>{activeCategory?.name_ar||"استكشف السوق"}</h2></div><label className="em-search"><Search size={20}/><input type="search" aria-label="تصفية نتائج السوق" placeholder="ابحث عن خدمة أو فرصة..." value={query} onChange={e=>setQuery(e.target.value)}/>{query&&<button type="button" className="em-clear-search" aria-label="مسح البحث" onClick={()=>setQuery("")}><X size={17}/></button>}</label></div>
-      {loading?<p className="em-state" role="status">جارٍ تحميل الفرص...</p>:error?<p className="em-state" role="alert">{error}</p>:visible.length===0?<div className="em-empty"><Sparkles size={30}/><h3>{query?"لا توجد نتائج مطابقة":"فرص جديدة في الطريق"}</h3><p>{query?"جرّب كلمة بحث مختلفة أو استعرض جميع التصنيفات.":"نعمل على إضافة شركاء وفرص نوعية. تابعنا قريبًا."}</p>{(query||category!=="all")&&<button className="em-reset" onClick={()=>{setQuery("");setCategory("all");}}>عرض جميع الفرص</button>}</div>:<div className="em-grid">{visible.map(item=><article className="em-card" key={item.id}><div className="em-card-media"><MarketplaceImage src={item.image_url} alt={item.title} />{item.is_featured&&<b>مميز</b>}</div><div className="em-card-body"><small>{categories.find(c=>c.id===item.category_id)?.name_ar||"فرص أعمال"}</small><h3>{item.title}</h3><p>{item.description||"اكتشف تفاصيل هذه الفرصة."}</p><div className="em-card-foot"><span>{item.price_description||"التفاصيل عند التواصل"}</span><a className="em-card-detail-link" href={"/marketplace/"+encodeURIComponent(item.slug)}>التفاصيل <ArrowLeft size={16}/></a></div></div></article>)}</div>}</div></section>
-      <section className="em-container em-bottom"><div><span className="em-overline">ننمو معًا</span><h2>لديك خدمة أو فرصة تناسب مجتمع الأعمال؟</h2><p>تواصل مع فريق إيثارك لبحث فرص التعاون وإضافة خدماتك إلى السوق.</p></div><a href="/#contact">تواصل معنا <ArrowUpLeft size={18}/></a></section><section className="em-benefits em-container"><div><Sparkles size={23}/><strong>فرص متنوعة</strong><small>في مجالات الأعمال والنمو</small></div><div><Handshake size={23}/><strong>فرص للشراكة</strong><small>تواصل واكتشف جهات جديدة</small></div><div><Search size={23}/><strong>سهولة الوصول</strong><small>ابحث وتواصل مباشرة</small></div><div><Users size={23}/><strong>دعم مجتمع الأعمال</strong><small>لرحلة نمو أكثر استدامة</small></div></section>
-    </main><Footer/>
-    {selected&&<div className="em-modal-backdrop" onClick={()=>setSelected(null)}><div className="em-modal" role="dialog" aria-modal="true" aria-label={selected.title} onClick={e=>e.stopPropagation()}><button className="em-close" onClick={()=>setSelected(null)} aria-label="إغلاق"><X size={20}/></button><span className="em-overline">سوق إيثارك</span><h2>{selected.title}</h2><p>{selected.description||"للمزيد من المعلومات، تواصل مع فريق إيثارك."}</p>{selected.price_description&&<strong>{selected.price_description}</strong>}<a href="/#contact" className="em-primary">استفسر عن الفرصة <ArrowUpLeft size={17}/></a></div></div>}
-  </div>;
+const editorialImages=[
+ "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=85",
+ "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=85",
+ "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=85",
+ "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=85"
+];
+export default function MarketplacePage(){
+ const [categories,setCategories]=useState<Category[]>([]);
+ const [listings,setListings]=useState<Listing[]>([]);
+ const [partners,setPartners]=useState<Partner[]>([]);
+ const [query,setQuery]=useState("");
+ const [category,setCategory]=useState("all");
+ const [loading,setLoading]=useState(true);
+ const [error,setError]=useState("");
+ const [page,setPage]=useState(0);
+ const [mobileMenu,setMobileMenu]=useState(false);
+ useEffect(()=>{
+  document.title="سوق إيثارك | كل ما يحتاجه مشروعك في مكان واحد";
+  let alive=true;
+  Promise.all([
+   supabase.from("marketplace_public_categories").select("id,name_ar,slug,description,icon,sort_order").order("sort_order"),
+   supabase.from("marketplace_public_listings").select("id,category_id,partner_id,title,slug,description,image_url,listing_type,price_description,is_featured,published_at").order("published_at",{ascending:false}),
+   supabase.from("marketplace_public_partners").select("id,name,logo_url")
+  ]).then(([c,l,p])=>{
+   if(!alive)return;
+   if(c.error||l.error){setError("تعذر تحميل بيانات السوق حاليًا. حاول مرة أخرى لاحقًا.");}
+   else{setCategories((c.data||[]) as Category[]);setListings((l.data||[]) as Listing[]);}
+   if(!p.error)setPartners((p.data||[]) as Partner[]);
+   setLoading(false);
+  }).catch(()=>{if(alive){setError("تعذر الاتصال بالسوق.");setLoading(false);}});
+  return()=>{alive=false;};
+ },[]);
+ const visible=useMemo(()=>listings.filter(l=>(category==="all"||l.category_id===category)&&[l.title,l.description||""].join(" ").toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())),[listings,category,query]);
+ const featured=useMemo(()=>[...visible].sort((a,b)=>Number(b.is_featured)-Number(a.is_featured)),[visible]);
+ const pages=Math.max(1,Math.ceil(featured.length/4));
+ const shown=featured.slice(Math.min(page,pages-1)*4,Math.min(page,pages-1)*4+4);
+ const choose=(id:string)=>{setCategory(id);setPage(0);document.getElementById("offers")?.scrollIntoView({behavior:"smooth",block:"start"});};
+ const nav=<><a href="/">الرئيسية</a><a href="/about">عن إيثارك</a><a href="/#spaces">المساحات</a><a href="/#services">الخدمات</a><a className="active" href="/marketplace">سوق إيثارك</a><a href="/blog">المدونة</a><a href="/#contact">تواصل معنا</a></>;
+ return <div className="em em-v2" dir="rtl">
+  <header className="em2-header"><div className="em2-shell em2-nav"><a href="/" className="em2-brand"><img src="/ethark-logo-transparent.png" alt="شعار إيثارك"/><span><strong>إيثارك</strong><small>ETHARK</small></span></a><nav className="em2-links" aria-label="القائمة الرئيسية">{nav}</nav><div className="em2-nav-actions"><a className="em2-tour" href="/#contact"><CalendarDays size={17}/> احجز جولة</a><button className="em2-menu-btn" aria-label={mobileMenu?"إغلاق القائمة":"فتح القائمة"} aria-expanded={mobileMenu} onClick={()=>setMobileMenu(!mobileMenu)}>{mobileMenu?<X/>:<Menu/>}</button></div></div>{mobileMenu&&<nav className="em2-mobile-nav" aria-label="قائمة الجوال" onClick={()=>setMobileMenu(false)}>{nav}</nav>}</header>
+  <main>
+   <section className="em2-hero"><div className="em2-shell em2-hero-inner"><div className="em2-hero-copy"><div className="em2-title-line"><ShoppingBag size={47} strokeWidth={1.7}/><div><h1>سوق إيثارك</h1><span>ETHARK MARKETPLACE</span></div></div><h2>كل ما يحتاجه مشروعك في مكان واحد</h2><p>اكتشف الأدوات والبرامج والكوادر والفرص والخدمات التي تساعدك على الانطلاق والنمو، من جهات موثوقة وشركاء معتمدين.</p></div><form className="em2-search" onSubmit={e=>{e.preventDefault();document.getElementById("offers")?.scrollIntoView({behavior:"smooth"});}}><Search size={23}/><input type="search" aria-label="ابحث في سوق إيثارك" placeholder="ابحث عن موظف، برنامج، دورة، مستثمر أو خدمة..." value={query} onChange={e=>{setQuery(e.target.value);setPage(0);}}/><button type="submit">بحث</button></form><div className="em2-popular"><strong>الأكثر بحثًا:</strong>{["برامج المحاسبة","التسويق الرقمي","فرص استثمار","وظائف وتقنيين","دورات تدريبية","خدمات قانونية"].map(t=><button key={t} onClick={()=>{setQuery(t);setCategory("all");setPage(0);document.getElementById("offers")?.scrollIntoView({behavior:"smooth"});}}>{t}</button>)}</div></div></section>
+   <section className="em2-shell em2-category-section"><div className="em2-section-head"><div><h2>تصفح حسب الفئة</h2><p>اختر ما يناسب مرحلة مشروعك</p></div></div><div className="em2-categories">{categoriesUI.map(item=>{const found=categories.find(c=>c.slug===item.slug);const Icon=item.icon;return <button key={item.slug} className={"em2-category"+(category===found?.id?" selected":"")} disabled={!found} onClick={()=>found&&choose(found.id)}><span className="em2-category-icon"><Icon size={27}/></span><span className="em2-category-copy"><strong>{found?.name_ar||item.title}</strong><small>{item.desc}</small></span>{!found&&<span className="em2-soon">قريبًا</span>}</button>;})}</div></section>
+   <section id="offers" className="em2-shell em2-offers"><div className="em2-section-head em2-offers-head"><div><h2><Star size={24} fill="currentColor"/> {category==="all"?"عروض مميزة":categories.find(c=>c.id===category)?.name_ar||"العروض المتاحة"}</h2><p>فرص وخدمات مختارة من شركائنا</p></div><button className="em2-outline" onClick={()=>{setCategory("all");setQuery("");setPage(0);}}>عرض جميع العروض <ArrowLeft size={17}/></button></div>
+    {loading?<p className="em2-message" role="status">جارٍ تحميل الفرص...</p>:error?<p className="em2-message" role="alert">{error}</p>:featured.length===0?<div className="em2-empty"><Sparkles size={34}/><h3>{query?"لا توجد نتائج مطابقة":"الفرص الجديدة في الطريق"}</h3><p>{query?"جرّب عبارة بحث أخرى أو استعرض كل التصنيفات.":"نعمل على إضافة فرص وخدمات حقيقية من شركائنا. تصفح المجالات المتاحة وتابع الجديد."}</p>{(query||category!=="all")&&<button onClick={()=>{setQuery("");setCategory("all");}}>عرض جميع الفرص</button>}<div className="em2-editorial">{categoriesUI.slice(0,4).map((c,i)=><div className="em2-editorial-card" key={c.slug}><img src={editorialImages[i]} alt="" loading="lazy"/><span>{c.title}</span></div>)}</div></div>:<><div className="em2-offer-grid">{shown.map((item,i)=><article className="em2-offer-card" key={item.id}><div className="em2-offer-media"><MarketplaceImage src={item.image_url} alt={item.title}/><span className="em2-offer-badge">{item.is_featured?"مميز":categories.find(c=>c.id===item.category_id)?.name_ar||"فرصة"}</span></div><div className="em2-offer-body"><h3>{item.title}</h3><p>{item.description||"اكتشف تفاصيل الفرصة والخدمات المتاحة."}</p><div className="em2-offer-bottom"><small>{item.price_description||"التفاصيل عند التواصل"}</small><a href={"/marketplace/"+encodeURIComponent(item.slug)}>انتقل إلى العرض <ArrowUpLeft size={15}/></a></div></div></article>)}</div>{pages>1&&<div className="em2-pagination"><button aria-label="الصفحة السابقة" onClick={()=>setPage(Math.max(0,page-1))} disabled={page===0}><ArrowRight/></button>{Array.from({length:Math.min(pages,7)},(_,i)=><button key={i} className={"em2-dot"+(i===page?" active":"")} aria-label={"صفحة "+(i+1)} onClick={()=>setPage(i)}/>)}<button aria-label="الصفحة التالية" onClick={()=>setPage(Math.min(pages-1,page+1))} disabled={page>=pages-1}><ArrowLeft/></button></div>}</>}
+   </section>
+   {partners.length>0&&<section className="em2-partners"><div className="em2-shell"><div className="em2-section-head"><div><h2>شركاؤنا في سوق إيثارك</h2><p>نفخر بالتعاون مع جهات تدعم رواد الأعمال</p></div></div><div className="em2-partner-grid">{partners.map(p=><div className="em2-partner-card" key={p.id}>{p.logo_url?<MarketplaceImage src={p.logo_url} alt={p.name}/>:<strong>{p.name}</strong>}</div>)}</div></div></section>}
+   <section className="em2-join"><div className="em2-shell em2-join-inner"><div className="em2-join-brand"><img src="/ethark-logo-transparent.png" alt=""/><span>إيثارك <small>ETHARK</small></span></div><div className="em2-join-perks"><span><TrendingUp size={29}/> نمو مستدام</span><span><Users size={29}/> وصول أوسع</span><span><BriefcaseBusiness size={29}/> فرص أكثر</span></div><div className="em2-join-copy"><h2>انضم إلى سوق إيثارك كشريك</h2><p>اعرض خدماتك ومنتجاتك على مجتمع رواد الأعمال والشركات الناشئة في بيئة موثوقة وداعمة للنمو.</p><a href="/#contact">سجّل كشريك <ArrowLeft size={18}/></a></div></div></section>
+  </main><div className="em2-footer"><Footer/></div>
+ </div>;
 }
