@@ -95,6 +95,8 @@ function Header() {
             الخدمات
           </a>
 
+          <a href="/marketplace" onClick={closeMenu}>سوق إيثارك</a>
+
           <a
             href="#gallery"
             onClick={closeMenu}
