@@ -167,3 +167,30 @@
 .em-modal-backdrop{backdrop-filter:blur(4px)}
 .em-modal .em-primary{max-width:100%}
 @media(max-width:620px){.em-results{scroll-margin-top:8px}.em-clear-search{width:34px;height:34px}}
+
+
+/* Public listing details: consistent ETHARK identity */
+.em-card-detail-link{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:#0c7771;font-size:14px;font-weight:800;min-height:40px}
+.em-card-detail-link:hover{text-decoration:underline}
+.em-detail-hero{background:radial-gradient(circle at 12% 90%,#14666e,transparent 44%),linear-gradient(125deg,#082b42,#0c4550);color:#fff;padding:52px 0 67px}
+.em-detail-back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#b9e8d7;margin-bottom:32px;font-weight:700}
+.em-detail-hero .em-eyebrow{display:flex;margin-bottom:16px}
+.em-detail-hero h1{font-size:clamp(31px,4vw,50px);line-height:1.35;margin:0 0 14px;max-width:850px}
+.em-detail-hero p{color:#d0e5e5;line-height:1.8}
+.em-detail-content{padding-top:52px;padding-bottom:55px}
+.em-detail-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(280px,1fr);gap:25px;align-items:start}
+.em-detail-main,.em-detail-aside{background:#fff;border:1px solid #e2ebe8;border-radius:20px;padding:30px;box-shadow:0 12px 32px #0a39440a}
+.em-detail-main h2{font-size:30px;color:#0b3449;line-height:1.45;margin:15px 0 25px}
+.em-detail-description{color:#506a75;white-space:pre-wrap;line-height:2;font-size:17px;overflow-wrap:anywhere}
+.em-detail-image{width:100%;max-height:350px;object-fit:cover;border-radius:14px;margin-bottom:27px}
+.em-detail-date{display:flex;align-items:center;gap:8px;border-top:1px solid #e4eeeb;padding-top:20px;margin-top:30px;color:#748993;font-size:13px}
+.em-detail-aside{background:#f6fbf9}
+.em-detail-fact,.em-detail-partner{display:flex;flex-direction:column;gap:9px;padding:20px 0;border-bottom:1px solid #e1ebe8}
+.em-detail-fact small,.em-detail-partner small{color:#7b8c91}
+.em-detail-fact strong,.em-detail-partner strong{font-size:19px;color:#0a394b}
+.em-detail-partner svg{color:#138a80}
+.em-detail-partner p{color:#647a82;line-height:1.8;font-size:14px}
+.em-detail-aside .em-primary{width:100%;margin-top:26px}
+.em-detail-note{color:#718891;line-height:1.8;font-size:13px}
+@media(max-width:780px){.em-detail-grid{grid-template-columns:1fr}.em-detail-aside{order:2}}
+@media(max-width:620px){.em-detail-hero{padding:35px 0 45px}.em-detail-hero h1{font-size:32px}.em-detail-content{padding-top:28px;padding-bottom:24px}.em-detail-main,.em-detail-aside{padding:22px 19px;border-radius:16px}.em-detail-main h2{font-size:24px}.em-detail-description{font-size:16px}}
