@@ -131,3 +131,20 @@
 @media(max-width:1100px){.ethark-blog-editorial-layout{grid-template-columns:195px minmax(0,1fr)}.ethark-blog-aside{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.ethark-blog-aside h2{grid-column:1/-1;margin:0}.ethark-blog-aside-cta{grid-column:1/-1;margin:0}}
 @media(max-width:760px){.ethark-blog-editorial-layout{display:flex;flex-direction:column;gap:14px}.ethark-blog-toc,.ethark-blog-aside,.ethark-blog-editorial-layout .ethark-blog-article-paper{width:100%}.ethark-blog-toc{position:static}.ethark-blog-toc nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.ethark-blog-editorial-layout .ethark-blog-article-paper{padding:22px 18px!important}.ethark-blog-aside{display:block}.ethark-blog-aside-cta{margin-top:14px}.ethark-blog-article-cover{height:230px}}
 @media(max-width:420px){.ethark-blog-toc nav{grid-template-columns:1fr}}
+
+
+/* Reference-aligned article composition */
+.ethark-blog .ethark-blog-article-hero{background-color:#06253d;background-size:cover;background-position:center 52%;min-height:330px;padding:24px 0 32px;display:flex;align-items:center}
+.ethark-blog .ethark-blog-article-hero>.ethark-blog-container{width:min(1390px,calc(100% - 92px))}
+.ethark-blog .ethark-blog-article-hero h1{max-width:690px;font-size:clamp(32px,3vw,47px);line-height:1.28;text-shadow:0 2px 12px #071e2e44}
+.ethark-blog .ethark-blog-article-hero .ethark-blog-intro{max-width:620px;font-size:16px}
+.ethark-blog .ethark-blog-article-hero .ethark-blog-breadcrumb{margin-bottom:22px}
+.ethark-blog .ethark-blog-article-wrap{width:min(1450px,calc(100% - 64px));max-width:none}
+.ethark-blog .ethark-blog-editorial-layout{direction:ltr;grid-template-columns:minmax(195px,245px) minmax(0,1fr) minmax(205px,270px);gap:18px;margin-top:22px}
+.ethark-blog .ethark-blog-editorial-layout>*{direction:rtl}
+.ethark-blog .ethark-blog-editorial-layout .ethark-blog-article-paper{box-shadow:0 3px 20px #09284609}
+.ethark-blog .ethark-blog-editorial-layout .ethark-article-body{max-width:100%;font-size:17px;line-height:1.9}
+.ethark-blog .ethark-blog-editorial-layout .ethark-article-body h2{color:#092b49;border-right:4px solid #1bbbe5;padding-right:12px}
+.ethark-blog .ethark-blog-article-cta{padding:22px 30px}
+@media(max-width:1100px){.ethark-blog .ethark-blog-editorial-layout{grid-template-columns:minmax(180px,220px) minmax(0,1fr)}.ethark-blog .ethark-blog-aside{grid-column:1/-1}}
+@media(max-width:760px){.ethark-blog .ethark-blog-article-hero{min-height:290px;padding:22px 0;background-position:60% center}.ethark-blog .ethark-blog-article-hero>.ethark-blog-container{width:calc(100% - 30px)}.ethark-blog .ethark-blog-article-hero h1{font-size:clamp(27px,7vw,35px)}.ethark-blog .ethark-blog-article-wrap{width:calc(100% - 26px)}.ethark-blog .ethark-blog-editorial-layout{display:flex;flex-direction:column;gap:12px}.ethark-blog .ethark-blog-article-hero .ethark-blog-intro{font-size:14px}}
