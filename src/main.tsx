@@ -5,6 +5,7 @@ import App from "./App";
 
 const AdminApp = lazy(() => import("./admin/AdminApp"));
 const MarketplaceAdmin = lazy(() => import("./admin/MarketplaceAdmin"));
+const EmployeeRegistry = lazy(() => import("./admin/EmployeeRegistry"));
 const AdminLogin = lazy(() => import("./admin/AdminLogin"));
 const AdminResetPassword = lazy(() => import("./admin/AdminResetPassword"));
 const AdminGuard = lazy(() => import("./admin/AdminGuard"));
@@ -37,6 +38,8 @@ function AppRouter() {
   if (path === "/admin/reset-password") {
     return <AdminResetPassword />;
   }
+
+  if (path === "/admin/employees") { return <AdminGuard><div dir="rtl" style={{padding:24,maxWidth:1100,margin:"auto"}}><a href="/admin">← لوحة إدارة الموقع</a><h1>الموظفون والأقسام</h1><EmployeeRegistry /></div></AdminGuard>; }
 
   if (path === "/admin/marketplace") {
     return <AdminGuard><MarketplaceAdmin /></AdminGuard>;
