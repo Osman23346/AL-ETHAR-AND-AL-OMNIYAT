@@ -27,6 +27,7 @@ import "./admin.css";
 import { supabase } from "../lib/supabaseClient";
 import ContentManagement from "./ContentManagement";
 import BlogManagement from "./BlogManagement";
+import EmployeeRegistry from "./EmployeeRegistry";
 import { getSiteContent, saveSiteContent } from "../services/contentService";
 
 type Service = {
@@ -1299,6 +1300,11 @@ function AdminApp() {
       icon: Pencil
     },
     {
+      id: "employees",
+      title: "الموظفون والأقسام",
+      icon: UserRound
+    },
+    {
       id: "marketplace",
       title: "سوق إيثارك",
       icon: BriefcaseBusiness
@@ -1604,6 +1610,8 @@ function AdminApp() {
               <a href="/admin/marketplace" style={{display:"inline-block",padding:"12px 20px",background:"#116c68",color:"#fff",borderRadius:10,textDecoration:"none"}}>فتح إدارة السوق ←</a>
             </section>
           )}
+
+          {activePage === "employees" && <EmployeeRegistry />}
 
           {activePage ===
             "media" && (
