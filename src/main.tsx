@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 
 const AdminApp = lazy(() => import("./admin/AdminApp"));
+const MarketplaceAdmin = lazy(() => import("./admin/MarketplaceAdmin"));
 const AdminLogin = lazy(() => import("./admin/AdminLogin"));
 const AdminResetPassword = lazy(() => import("./admin/AdminResetPassword"));
 const AdminGuard = lazy(() => import("./admin/AdminGuard"));
@@ -34,6 +35,10 @@ function AppRouter() {
   // إعادة تعيين كلمة المرور
   if (path === "/admin/reset-password") {
     return <AdminResetPassword />;
+  }
+
+  if (path === "/admin/marketplace") {
+    return <AdminGuard><MarketplaceAdmin /></AdminGuard>;
   }
 
   // جميع مسارات لوحة الإدارة محمية
