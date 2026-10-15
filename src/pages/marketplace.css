@@ -154,3 +154,16 @@
  .em-benefits>div:nth-child(even){border-left:0}
 }
 @media(max-width:360px){.em-categories button{min-height:175px}.em-categories button>span{font-size:12px}}
+
+
+/* Marketplace interaction polish */
+.em{scroll-behavior:smooth}
+.em-results{scroll-margin-top:20px}
+.em-categories button:not(:disabled){cursor:pointer}
+.em-clear-search{border:0;background:#edf6f2;color:#0d6e6a;width:31px;height:31px;display:grid;place-items:center;border-radius:50%;cursor:pointer;flex-shrink:0}
+.em-reset{margin-top:18px;background:#0c6265;color:#fff;border:0;border-radius:10px;padding:12px 22px;font:inherit;font-weight:800;cursor:pointer}
+.em-reset:hover{background:#084c53}
+.em-card-foot button{min-height:38px}
+.em-modal-backdrop{backdrop-filter:blur(4px)}
+.em-modal .em-primary{max-width:100%}
+@media(max-width:620px){.em-results{scroll-margin-top:8px}.em-clear-search{width:34px;height:34px}}
