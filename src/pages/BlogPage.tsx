@@ -42,12 +42,13 @@ function Seo({ post, slug, loading }: { post?: Post; slug?: string; loading: boo
   },[post,slug,loading]);
   return null;
 }
+const headingsOf = (content: string) => content.split(/\r?\n/).map((line,i)=>({line:line.trim(),i})).filter(({line})=>/^#{1,3} /.test(line)).map(({line,i})=>({id:`section-${i}`,title:line.replace(/^#{1,3} /,"")}));
 function ArticleBody({ text }: { text: string }) {
   return <div className="ethark-article-body">{text.split(/\r?\n/).map((line,i) => {
     const value=line.trim(); if (!value) return <div className="ethark-paragraph-space" key={i} />;
-    if (value.startsWith("### ")) return <h3 key={i}>{value.slice(4)}</h3>;
-    if (value.startsWith("## ")) return <h2 key={i}>{value.slice(3)}</h2>;
-    if (value.startsWith("# ")) return <h2 key={i}>{value.slice(2)}</h2>;
+    if (value.startsWith("### ")) return <h3 id={`section-${i}`} key={i}>{value.slice(4)}</h3>;
+    if (value.startsWith("## ")) return <h2 id={`section-${i}`} key={i}>{value.slice(3)}</h2>;
+    if (value.startsWith("# ")) return <h2 id={`section-${i}`} key={i}>{value.slice(2)}</h2>;
     if (/^[-•] /.test(value)) return <p className="ethark-bullet" key={i}>{value.slice(2)}</p>;
     return <p key={i}>{value.replace(/\*\*/g,"")}</p>;
   })}</div>;
@@ -92,7 +93,7 @@ export default function BlogPage({ slug }: { slug?: string }) {
         </div></section>
         <div className="ethark-blog-container ethark-blog-article-wrap">
           {post.cover_image_url && <img className="ethark-blog-article-cover" src={post.cover_image_url} alt={post.image_alt || post.title}/>}
-          <article className="ethark-blog-article-paper"><ArticleBody text={post.content}/></article>
+          <div className="ethark-blog-editorial-layout"><aside className="ethark-blog-toc"><h2>محتويات المقال</h2><nav aria-label="فهرس المقال">{headingsOf(post.content).map((h,i)=><a key={h.id} href={`#${h.id}`}><span>{String(i+1).padStart(2,"0")}</span>{h.title}</a>)}</nav><div className="ethark-blog-share"><strong>مشاركة المقال</strong><a href={`https://wa.me/?text=${encodeURIComponent(post.title+" "+window.location.href)}`} target="_blank" rel="noreferrer">واتساب</a><button type="button" onClick={()=>void navigator.clipboard?.writeText(window.location.href)}>نسخ الرابط</button></div></aside><article className="ethark-blog-article-paper"><ArticleBody text={post.content}/></article><aside className="ethark-blog-aside"><h2>مقالات ذات صلة</h2>{others.map(p=><a href={"/blog/"+encodeURIComponent(p.slug)} key={p.id}>{p.cover_image_url && <img src={p.cover_image_url} alt="" loading="lazy"/>}<span>{p.title}</span></a>)}<div className="ethark-blog-aside-cta"><strong>مساحة لأعمالك، منصة لنموك</strong><p>اكتشف خدمات إيثارك ومساحات العمل المناسبة لك.</p><a href="/#services">استكشف الخدمات</a></div></aside></div>
           <section className="ethark-blog-article-cta"><div><span>خطوتك القادمة تبدأ من هنا</span><h2>مساحة أعمالك، منصة نموك</h2><p>اكتشف مساحات العمل والخدمات التي تناسب طموح مشروعك.</p></div><a href="/#services">استكشف خدماتنا <ArrowLeft size={18}/></a></section>
           {others.length>0 && <section className="ethark-blog-related"><div className="ethark-blog-section-heading"><h2>قد يهمك أيضًا</h2><a href="/blog">جميع المقالات <ArrowLeft size={17}/></a></div><div className="ethark-blog-grid">{others.map(p=><ArticleCard key={p.id} post={p}/>)}</div></section>}
         </div>
