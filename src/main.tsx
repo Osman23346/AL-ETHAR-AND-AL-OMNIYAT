@@ -11,6 +11,7 @@ const AdminGuard = lazy(() => import("./admin/AdminGuard"));
 
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const MarketplacePage = lazy(() => import("./pages/MarketplacePage"));
+const MarketplaceDetailPage = lazy(() => import("./pages/MarketplaceDetailPage"));
 const TermsPage = lazy(() => import("./pages/TermsPage"));
 const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
@@ -60,6 +61,7 @@ function AppRouter() {
    */
 
   if (path === "/marketplace") return <MarketplacePage />;
+  if (path.startsWith("/marketplace/")) return <MarketplaceDetailPage slug={decodeURIComponent(path.slice("/marketplace/".length))} />;
 
   if (path === "/blog") return <BlogPage />;
   if (path.startsWith("/blog/")) return <BlogPage slug={decodeURIComponent(path.slice(6))} />;
