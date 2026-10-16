@@ -1,0 +1,11 @@
+import {useEffect,useState} from "react";
+import {supabase} from "../lib/supabaseClient";
+type Invoice={id:string;document_code:string;invoice_type:string};
+type Note={document_code:string;invoice_code:string;note_type:string;total_amount:number};
+export default function AccountingAdjustments(){
+const [invoices,setInvoices]=useState<Invoice[]>([]),[notes,setNotes]=useState<Note[]>([]),[invoice,setInvoice]=useState(""),[date,setDate]=useState(new Date().toLocaleDateString("en-CA")),[reason,setReason]=useState(""),[message,setMessage]=useState("");
+async function load(){const [i,n]=await Promise.all([supabase.rpc("accounting_admin_invoices"),supabase.rpc("accounting_admin_adjustment_notes")]);if(i.error||n.error){setMessage(i.error?.message||n.error?.message||"خطأ");return;}setInvoices(i.data||[]);setNotes(n.data||[]);}
+useEffect(()=>{void load();},[]);
+async function save(){if(!invoice||reason.trim().length<3)return;if(!window.confirm("اعتماد إشعار يعكس الفاتورة كاملة بقيد جديد؟"))return;const r=await supabase.rpc("accounting_admin_create_adjustment_note",{p_invoice:invoice,p_date:date,p_reason:reason});setMessage(r.error?.message||("تم إنشاء "+r.data));if(!r.error){setInvoice("");setReason("");void load();}}
+return <div dir="rtl"><h2>الإشعارات الدائنة والمدينة</h2><p>عكس كامل للفاتورة الأصلية مرة واحدة؛ لا يدعم العكس الجزئي أو إصدار إشعار ZATCA.</p><p>{message}</p><select value={invoice} onChange={e=>setInvoice(e.target.value)}><option value="">اختر الفاتورة</option>{invoices.filter(i=>!notes.some(n=>n.invoice_code===i.document_code)).map(i=><option key={i.id} value={i.id}>{i.document_code} — {i.invoice_type==="sale"?"دائن":"مدين"}</option>)}</select><input type="date" value={date} onChange={e=>setDate(e.target.value)}/><input value={reason} onChange={e=>setReason(e.target.value)} placeholder="سبب الإشعار"/><button onClick={()=>void save()}>إصدار الإشعار وترحيله</button><h3>الإشعارات السابقة</h3>{notes.map(n=><p key={n.document_code}>{n.document_code} — {n.invoice_code} — {n.note_type==="credit"?"دائن":"مدين"} — {n.total_amount} ر.س</p>)}</div>;
+}
