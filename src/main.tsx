@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 
 const AdminApp = lazy(() => import("./admin/AdminApp"));
+const StaffPortal = lazy(() => import("./admin/StaffPortal"));
 const MarketplaceAdmin = lazy(() => import("./admin/MarketplaceAdmin"));
 const EmployeeRegistry = lazy(() => import("./admin/EmployeeRegistry"));
 const AdminLogin = lazy(() => import("./admin/AdminLogin"));
@@ -28,6 +29,8 @@ function AppRouter() {
    * الإدارة
    * ==============================
    */
+
+  if (path === "/staff" || path === "/staff/login") return <StaffPortal />;
 
   // تسجيل دخول المدير
   if (path === "/admin/login") {
