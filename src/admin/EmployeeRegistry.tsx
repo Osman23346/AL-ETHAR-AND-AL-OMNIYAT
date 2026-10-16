@@ -13,7 +13,16 @@ export default function EmployeeRegistry({refresh=0}:{refresh?:number}){
  const load=useCallback(async()=>{const {data,error:e}=await supabase.rpc("staff_admin_list");if(e){setError(e.message);return;}setEmployees((data||[]) as StaffEmployee[]);const sr=await supabase.rpc("staff_admin_status_list");if(sr.error)setError(sr.error.message);else setStatuses(Object.fromEntries(((sr.data||[]) as {employee_id:string;employment_status:string}[]).map(x=>[x.employee_id,x.employment_status])));},[]);
  useEffect(()=>{void load();},[load,refresh]);
  function edit(x:StaffEmployee){setSelected(x.id);setEditing(x.id);setName(x.full_name);setPhone(x.phone);setEmail(x.email);setJob(x.job_title);setSalary(String(x.monthly_salary));setDepartment(x.department_id);setLogin(x.login_enabled);document.getElementById("staff-edit-form")?.scrollIntoView({behavior:"smooth",block:"start"});}
- function reset(){setEditing(null);setName("");setPhone("");setEmail("");setJob("");setSalary("0");setDepartment("management");setLogin(false);}
+ function reset() {
+   setEditing(null);
+   setName("");
+   setPhone("");
+   setEmail("");
+   setJob("");
+   setSalary("0");
+   setDepartment("management");
+   setLogin(false);
+ }
  async function save(e:React.FormEvent){e.preventDefault();setBusy(true);setError("");setMessage("");const {error:err}=await supabase.rpc("staff_admin_save",{p_id:editing,p_full_name:name,p_phone:phone,p_email:email,p_job_title:job,p_salary:Number(salary),p_department:department,p_login_enabled:login});setBusy(false);if(err){setError(err.message);return;}reset();await load();setMessage("تم حفظ ملف الموظف.");}
  async function changeStatus(id:string,status:string){setBusy(true);setError("");setMessage("");const {error:e}=await supabase.rpc("staff_admin_set_status",{p_employee:id,p_status:status});if(e)setError(e.message);else{setMessage(status==="active"?"تم تغيير الحالة إلى نشيط. تفعيل الدخول يتم بصورة مستقلة.":"تم إيقاف الموظف وتعطيل دخوله.");await load();}setBusy(false);}
  async function inviteEmployee(){if(!selected)return;setBusy(true);setError("");setMessage("");const {data,error:e}=await supabase.functions.invoke("staff-invite",{body:{employee_id:selected}});if(e)setError("تعذر إرسال الدعوة. تحقق من إعدادات البريد أو وجود حساب مسبق.");else if(data?.message)setMessage(data.message);await load();setBusy(false);}
