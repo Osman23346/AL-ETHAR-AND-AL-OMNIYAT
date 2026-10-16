@@ -1,0 +1,23 @@
+.accounting-shell{direction:rtl;max-width:1200px;margin:0 auto;padding:clamp(12px,2.5vw,28px);color:#162a38;box-sizing:border-box}
+.accounting-shell *{box-sizing:border-box}
+.accounting-shell .accounting-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px;margin:0 0 22px}
+.accounting-shell .accounting-nav button{width:100%;min-height:56px;padding:12px 14px;border:1px solid #e1e7eb;border-radius:14px;background:#fff;color:#253849;font:inherit;font-size:14px;font-weight:650;line-height:1.5;cursor:pointer;box-shadow:0 2px 10px rgba(21,47,65,.04);transition:background .15s,border-color .15s}
+.accounting-shell .accounting-nav button[aria-current="page"]{background:#123b4c;border-color:#123b4c;color:#fff;box-shadow:0 5px 15px rgba(18,59,76,.15)}
+.accounting-shell .accounting-nav button:focus-visible{outline:3px solid #6bb4bf;outline-offset:2px}
+.accounting-shell .accounting-content{min-width:0}
+.accounting-shell .accounting-content h2{font-size:clamp(20px,3vw,26px);line-height:1.45;margin:0 0 12px;color:#142e3c}
+.accounting-shell .accounting-content h3{font-size:19px;line-height:1.5}
+.accounting-shell .accounting-content p{line-height:1.8;font-size:14px;overflow-wrap:anywhere}
+.accounting-shell .accounting-content input,.accounting-shell .accounting-content select,.accounting-shell .accounting-content textarea{display:block;width:100%;min-width:0;max-width:100%;min-height:44px;padding:10px 12px;border:1px solid #ccd6dd;border-radius:10px;background:#fff;color:#20313d;font:inherit;font-size:14px}
+.accounting-shell .accounting-content label{display:block;min-width:0;font-size:13px;font-weight:600;line-height:1.6}
+.accounting-shell .accounting-content button{min-height:42px;border-radius:10px;padding:9px 15px;font:inherit;font-size:14px;cursor:pointer}
+.accounting-shell .accounting-content button:disabled{opacity:.55;cursor:not-allowed}
+.accounting-shell .accounting-content .staff-panel{min-width:0;overflow:hidden;background:#fff;border:1px solid #e2e9ed;border-radius:16px;padding:clamp(14px,2.5vw,24px);margin-bottom:16px;box-shadow:0 4px 18px rgba(24,54,70,.04)}
+.accounting-shell .accounting-content .staff-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:end}
+.accounting-shell .accounting-content .staff-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.accounting-shell .accounting-content table{border-collapse:collapse;min-width:580px;font-size:13px}
+.accounting-shell .accounting-content th,.accounting-shell .accounting-content td{padding:12px 10px;border-bottom:1px solid #e8edf0;text-align:right;white-space:nowrap}
+.accounting-shell .accounting-content th{background:#f3f7f8;color:#26414f}
+@media(max-width:700px){.accounting-shell{padding:12px 10px}.accounting-shell .accounting-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:16px}.accounting-shell .accounting-nav button{min-height:56px;padding:10px 8px;font-size:12px;border-radius:12px}.accounting-shell .accounting-content .staff-form{grid-template-columns:minmax(0,1fr)}.accounting-shell .accounting-content .staff-panel{padding:14px}.accounting-shell .accounting-content .staff-actions button{flex:1 1 130px}.accounting-shell .accounting-content h2{font-size:20px}}
+@media(max-width:360px){.accounting-shell .accounting-nav button{font-size:11px}}
+@media print{.accounting-shell .accounting-nav,.accounting-shell .accounting-content button{display:none!important}.accounting-shell .accounting-content .staff-panel{box-shadow:none;border:0}}
