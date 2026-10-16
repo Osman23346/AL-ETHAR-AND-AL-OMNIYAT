@@ -45,8 +45,8 @@ export default function AdminResetPassword() {
       return;
     }
 
-    if (password.length < 6) {
-      setError("يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.");
+    if (password.length < 12) {
+      setError("يجب أن تتكون كلمة المرور من 12 حرفًا على الأقل.");
       return;
     }
 
@@ -162,7 +162,7 @@ export default function AdminResetPassword() {
               lineHeight: 1.8,
             }}
           >
-            أنشئ كلمة مرور جديدة لحساب مدير الموقع
+            أنشئ كلمة مرور جديدة لحسابك في إيثارك
           </p>
         </div>
 
