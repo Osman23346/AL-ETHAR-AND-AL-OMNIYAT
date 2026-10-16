@@ -63,34 +63,18 @@ export default function AdminLogin() {
       }
 
       const { data: admin, error: adminError } = await supabase
-        .from("admin_users")
-        .select("user_id")
-        .eq("user_id", data.user.id)
-        .maybeSingle();
-
-      console.log("Admin check result:", {
-        admin,
-        error: adminError,
-      });
-
-      if (adminError) {
-        await supabase.auth.signOut();
-
-        setError(
-          "تعذر التحقق من صلاحيات الحساب. يرجى المحاولة مرة أخرى."
-        );
-        return;
-      }
-
+        .from("admin_users").select("user_id").eq("user_id", data.user.id).maybeSingle();
+      if (adminError) { setError("تعذر التحقق من صلاحية الحساب."); return; }
       if (!admin) {
-        await supabase.auth.signOut();
-
-        setError(
-          "تم تسجيل الدخول بنجاح، لكن هذا الحساب ليس لديه صلاحية دخول لوحة الإدارة."
-        );
+        const {data: profile,error:profileError}=await supabase.rpc("staff_portal_profile");
+        if (profileError || !profile?.length) {
+          await supabase.auth.signOut();
+          setError("هذا الحساب غير مرتبط بموظف مفعل. تواصل مع الإدارة.");
+          return;
+        }
+        window.location.replace("/staff");
         return;
       }
-
       window.location.replace("/admin");
     } catch (err) {
       console.error("Unexpected login error:", err);
@@ -248,7 +232,7 @@ export default function AdminLogin() {
             }}
           >
             {mode === "login"
-              ? "لوحة الإدارة"
+              ? "بوابة إيثارك"
               : "استعادة كلمة المرور"}
           </h1>
 
@@ -261,7 +245,7 @@ export default function AdminLogin() {
             }}
           >
             {mode === "login"
-              ? "تسجيل الدخول إلى لوحة إدارة الموقع"
+              ? "تسجيل دخول الإدارة والموظفين"
               : "أدخل بريدك الإلكتروني لإرسال رابط استعادة كلمة المرور"}
           </p>
         </div>
