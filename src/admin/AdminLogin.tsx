@@ -44,11 +44,6 @@ export default function AdminLogin() {
           password,
         });
 
-      console.log("Supabase login result:", {
-        user: data.user,
-        error: loginError,
-      });
-
       if (loginError) {
         console.error("Supabase login error:", loginError);
         setError(
