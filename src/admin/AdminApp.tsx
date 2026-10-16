@@ -28,6 +28,7 @@ import { supabase } from "../lib/supabaseClient";
 import ContentManagement from "./ContentManagement";
 import BlogManagement from "./BlogManagement";
 import EmployeeRegistry from "./EmployeeRegistry";
+import StaffAccessAdmin from "./StaffAccessAdmin";
 import AccountingAdmin from "./AccountingAdmin";
 import { getSiteContent, saveSiteContent } from "../services/contentService";
 
@@ -1306,6 +1307,11 @@ function AdminApp() {
       icon: UserRound
     },
     {
+      id: "staff-access",
+      title: "صلاحيات الموظفين وربط الخدمات",
+      icon: UserRound
+    },
+    {
       id: "accounting",
       title: "المحاسبة والمالية",
       icon: BarChart3
@@ -1618,6 +1624,7 @@ function AdminApp() {
           )}
 
           {activePage === "employees" && <EmployeeRegistry />}
+          {activePage === "staff-access" && <StaffAccessAdmin />}
           {activePage === "accounting" && <AccountingAdmin />}
 
           {activePage ===
